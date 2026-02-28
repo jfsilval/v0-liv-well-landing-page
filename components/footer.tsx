@@ -47,9 +47,9 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
               <Image
                 src="/logo.png"
                 alt="Liv Well Pharmaceuticals"
-                width={400}
-                height={160}
-                className="h-36 w-auto mb-4 brightness-0 invert"
+                width={200}
+                height={80}
+                className="h-20 w-auto mb-4 brightness-0 invert"
               />
               <p className="text-sm text-white/80 leading-relaxed">
                 Trusted pharmaceutical solutions for a healthier world. Innovation, quality, and care in every product.

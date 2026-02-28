@@ -5,11 +5,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Search } from "lucide-react"
+import { Search, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileOpen, setIsMobileOpen] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -40,15 +41,22 @@ export function Navigation() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-primary/10 backdrop-blur-md shadow-md"
-          : "bg-transparent",
+          ? "bg-[#e8edf5]/95 backdrop-blur-md shadow-md"
+          : "bg-[#e8edf5]/80 backdrop-blur-sm",
       )}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-28">
-          {/* Logo - 30% larger */}
-          <Link href="/" className="flex items-center">
-            <Image src="/logo.png" alt="Liv Well Pharmaceuticals" width={364} height={145} className="h-32 w-auto" />
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <Link href="/" className="flex items-center shrink-0">
+            <Image
+              src="/logo.png"
+              alt="Liv Well Pharmaceuticals"
+              width={200}
+              height={80}
+              className="h-16 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Horizontal Navigation */}
@@ -67,18 +75,46 @@ export function Navigation() {
                 {item.label}
               </Link>
             ))}
-            <button className="text-foreground/80 hover:text-primary transition-colors">
+            <button className="text-foreground/80 hover:text-primary transition-colors" aria-label="Search">
               <Search size={20} />
             </button>
           </div>
 
-          {/* Mobile Menu - Simple dropdown */}
+          {/* Mobile Menu Toggle */}
           <div className="lg:hidden">
-            <Button variant="outline" size="sm">
-              Menu
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsMobileOpen(!isMobileOpen)}
+              aria-label={isMobileOpen ? "Close menu" : "Open menu"}
+            >
+              {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileOpen && (
+          <div className="lg:hidden pb-4 border-t border-border/30">
+            <div className="flex flex-col gap-2 pt-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.id}
+                  href={item.href}
+                  onClick={() => setIsMobileOpen(false)}
+                  className={cn(
+                    "text-sm font-semibold tracking-wide py-2 px-4 rounded-lg transition-all duration-200",
+                    getIsActive(item)
+                      ? "text-primary bg-primary/10"
+                      : "text-foreground/80 hover:text-primary hover:bg-primary/5",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   )

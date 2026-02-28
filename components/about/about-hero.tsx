@@ -1,20 +1,23 @@
 "use client"
 
+import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 
 export function AboutHero() {
   return (
-    <section className="relative overflow-hidden mt-28 bg-primary/10">
-      <div className="relative h-[calc(100vh-7rem)]">
-        {/* Background image on white - mix-blend-multiply makes white areas transparent, showing bg-primary/10 */}
-        <img
-          src="/about-hero-uae-global-distribution.jpg"
-          alt="Global pharmaceutical distribution from UAE"
-          className="absolute inset-0 w-full h-full object-contain mix-blend-multiply"
+    <section className="relative overflow-hidden mt-20 bg-[#e8edf5]">
+      <div className="relative h-[calc(100vh-5rem)]">
+        {/* Background image */}
+        <Image
+          src="/about-hero.jpg"
+          alt="Global pharmaceutical distribution"
+          fill
+          className="object-cover mix-blend-multiply opacity-40"
+          priority
         />
 
         {/* Left overlay for text readability */}
-        <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-[#0a2351]/75 via-[#0a2351]/30 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#0a2351]/80 via-[#0a2351]/50 to-transparent" />
 
         {/* Content */}
         <div className="absolute inset-0 z-10 flex items-center">
@@ -37,7 +40,7 @@ export function AboutHero() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-[#0a2351]/60">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60">
           <span className="text-xs tracking-widest uppercase">Scroll to explore</span>
           <ChevronDown className="h-5 w-5 animate-bounce" />
         </div>
