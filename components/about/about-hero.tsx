@@ -12,15 +12,15 @@ export function AboutHero() {
           src="/about-hero.jpg"
           alt="Global pharmaceutical distribution"
           fill
-          className="object-cover mix-blend-multiply opacity-40"
+          className="object-cover opacity-30"
           priority
         />
 
-        {/* Left overlay for text readability */}
-        <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#0a2351]/80 via-[#0a2351]/50 to-transparent" />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a2351]/85 via-[#0a2351]/60 to-[#0a2351]/40" />
 
-        {/* Content */}
-        <div className="absolute inset-0 z-10 flex items-center">
+        {/* Content - aligned to top like WWWW hero */}
+        <div className="absolute inset-0 z-10 flex items-start pt-16">
           <div className="container mx-auto px-8 lg:px-16">
             <div className="max-w-2xl space-y-6">
               <p className="text-sm font-semibold tracking-widest uppercase text-secondary">
