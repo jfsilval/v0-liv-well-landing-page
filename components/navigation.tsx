@@ -46,15 +46,15 @@ export function Navigation() {
       )}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-28">
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logo.png"
               alt="Liv Well Pharmaceuticals"
-              width={280}
-              height={112}
-              className="h-24 w-auto"
+              width={320}
+              height={128}
+              className="h-28 w-auto"
               priority
             />
           </Link>

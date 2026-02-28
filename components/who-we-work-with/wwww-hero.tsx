@@ -5,8 +5,8 @@ import { ChevronDown } from "lucide-react"
 
 export function WwwwHero() {
   return (
-    <section className="relative overflow-hidden mt-24 bg-[#e8edf5]">
-      <div className="relative h-[calc(100vh-6rem)]">
+    <section className="relative overflow-hidden mt-28 bg-[#e8edf5]">
+      <div className="relative h-[calc(100vh-7rem)]">
         <Image
           src="/who-we-work-with-hero.jpg"
           alt="Global pharmaceutical partnerships"

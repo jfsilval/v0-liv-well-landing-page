@@ -5,11 +5,11 @@ import { Shield, Award, Globe, ChevronDown } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden pt-24">
+    <section className="relative min-h-screen overflow-hidden pt-28">
       {/* Background - light grayish-blue matching nav */}
       <div className="absolute inset-0 bg-[#e8edf5]" />
 
-      <div className="grid lg:grid-cols-2 h-[calc(100vh-6rem)] pb-4">
+      <div className="grid lg:grid-cols-2 h-[calc(100vh-7rem)] pb-4">
         {/* Left content */}
         <div className="flex items-center px-8 lg:px-16 relative z-10">
           <div className="space-y-8 max-w-xl pb-8">
@@ -25,40 +25,41 @@ export function HeroSection() {
             </p>
 
             {/* Stats row */}
-            <div className="flex items-start gap-8 pt-2">
-              <div className="flex flex-col items-center text-center gap-1">
-                <div className="flex items-center gap-1.5">
-                  <Globe className="h-4 w-4 text-primary" />
-                  <span className="text-xl font-bold text-primary">10+</span>
+            <div className="flex items-start gap-6 lg:gap-8 pt-2">
+              <div className="flex flex-col items-center text-center gap-1.5">
+                <div className="flex items-center gap-2">
+                  <Globe className="h-5 w-5 text-primary" />
+                  <span className="text-2xl font-bold text-primary">10+</span>
                 </div>
                 <p className="text-xs text-muted-foreground">Countries Served</p>
               </div>
-              <div className="flex flex-col items-center text-center gap-1">
-                <div className="flex items-center gap-1.5">
-                  <Award className="h-4 w-4 text-secondary" />
-                  <span className="text-xl font-bold text-secondary">600+</span>
+              <div className="flex flex-col items-center text-center gap-1.5">
+                <div className="flex items-center gap-2">
+                  <Award className="h-5 w-5 text-secondary" />
+                  <span className="text-2xl font-bold text-secondary">600+</span>
                 </div>
                 <p className="text-xs text-muted-foreground">Products</p>
               </div>
-              <div className="flex flex-col items-center text-center gap-1">
-                <div className="flex items-center gap-1.5">
-                  <Shield className="h-4 w-4 text-accent" />
-                  <span className="text-xl font-bold text-accent">100%</span>
+              <div className="flex flex-col items-center text-center gap-1.5">
+                <div className="flex items-center gap-2">
+                  <Shield className="h-5 w-5 text-accent" />
+                  <span className="text-2xl font-bold text-accent">100%</span>
                 </div>
                 <p className="text-xs text-muted-foreground">Quality Assured</p>
               </div>
               {/* Infinity logo for Commitment */}
-              <div className="flex flex-col items-center text-center gap-1">
-                <div className="h-7 w-14 relative overflow-hidden">
+              <div className="flex flex-col items-center text-center gap-1.5">
+                <div className="h-8 w-16 relative overflow-hidden">
                   <Image
                     src="/logo.png"
                     alt="Commitment to Patients"
-                    width={80}
-                    height={80}
-                    className="w-auto h-12 object-cover object-top absolute top-0 left-1/2 -translate-x-1/2"
+                    width={100}
+                    height={100}
+                    className="w-auto h-14 object-cover object-top absolute top-0 left-1/2 -translate-x-1/2"
                   />
                 </div>
-                <p className="text-xs text-muted-foreground whitespace-pre-line">{"Commitment to\nPatients"}</p>
+                <p className="text-xs text-muted-foreground">Commitment to</p>
+                <p className="text-xs text-muted-foreground -mt-1">Patients</p>
               </div>
 
               {/* Scroll indicator */}
