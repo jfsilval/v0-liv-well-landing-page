@@ -41,20 +41,20 @@ export function Navigation() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-[#e8edf5]/95 backdrop-blur-md shadow-md"
-          : "bg-[#e8edf5]/80 backdrop-blur-sm",
+          ? "bg-[#d5dded]/95 backdrop-blur-md shadow-md"
+          : "bg-[#d5dded]/80 backdrop-blur-sm",
       )}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-28">
+        <div className="flex items-center justify-between h-32">
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logo.png"
               alt="Liv Well Pharmaceuticals"
-              width={320}
-              height={128}
-              className="h-28 w-auto"
+              width={364}
+              height={145}
+              className="h-32 w-auto"
               priority
             />
           </Link>

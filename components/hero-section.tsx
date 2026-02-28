@@ -1,15 +1,16 @@
 "use client"
 
 import Image from "next/image"
-import { Shield, Award, Globe, ChevronDown } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Shield, Award, Globe, ChevronDown, ArrowRight } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden pt-28">
-      {/* Background - light grayish-blue matching nav */}
-      <div className="absolute inset-0 bg-[#e8edf5]" />
+    <section className="relative min-h-screen overflow-hidden pt-32">
+      {/* Background - matching nav color */}
+      <div className="absolute inset-0 bg-[#d5dded]" />
 
-      <div className="grid lg:grid-cols-2 h-[calc(100vh-7rem)] pb-4">
+      <div className="grid lg:grid-cols-2 h-[calc(100vh-8rem)] pb-4">
         {/* Left content */}
         <div className="flex items-center px-8 lg:px-16 relative z-10">
           <div className="space-y-8 max-w-xl pb-8">
@@ -25,7 +26,7 @@ export function HeroSection() {
             </p>
 
             {/* Stats row */}
-            <div className="flex items-start gap-6 lg:gap-8 pt-2">
+            <div className="flex items-start gap-6 lg:gap-10 pt-2">
               <div className="flex flex-col items-center text-center gap-1.5">
                 <div className="flex items-center gap-2">
                   <Globe className="h-5 w-5 text-primary" />
@@ -67,6 +68,22 @@ export function HeroSection() {
                 <span className="text-[9px] tracking-widest uppercase text-muted-foreground">Scroll</span>
                 <ChevronDown className="h-3.5 w-3.5 animate-bounce text-muted-foreground" />
               </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-row gap-4 pt-2">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group">
+                Explore Our Products
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary/10 bg-transparent"
+                asChild
+              >
+                <a href="#contact">Contact Us</a>
+              </Button>
             </div>
           </div>
         </div>
