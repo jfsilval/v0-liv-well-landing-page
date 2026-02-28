@@ -28,7 +28,7 @@ export function HeroSection() {
           </div>
 
           {/* Bottom: stats + buttons */}
-          <div className="max-w-xl space-y-6">
+          <div className="max-w-xl space-y-6 mt-8">
             {/* Stats row */}
             <div className="flex items-start gap-6 lg:gap-10">
               <div className="flex flex-col items-center text-center gap-1.5">
@@ -107,7 +107,7 @@ export function HeroSection() {
         </div>
 
         {/* Scroll indicator - bottom of left panel area */}
-        <div className="absolute bottom-4 left-[42%] -translate-x-1/2 z-20 flex flex-col items-center gap-1">
+        <div className="absolute bottom-4 left-[46%] -translate-x-1/2 z-20 flex flex-col items-center gap-1">
           <span className="text-[9px] tracking-widest uppercase text-muted-foreground">Scroll</span>
           <ChevronDown className="h-4 w-4 animate-bounce text-muted-foreground" />
         </div>
