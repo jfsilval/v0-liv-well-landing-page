@@ -15,7 +15,7 @@ export function HeroSection() {
         <div className="flex flex-col justify-between px-8 lg:px-16 relative z-10 py-4">
           {/* Top: heading + paragraph */}
           <div className="max-w-2xl space-y-6">
-            <h1 className="text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight">
+            <h1 className="text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
               {"Delivering "}
               <span className="text-primary">Trusted Pharmaceutical Products</span>
               {" to Every Corner of the World."}
