@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Facebook, Twitter, Linkedin, Instagram, Mail } from "lucide-react"
+import { Mail } from "lucide-react"
 
 export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance?: boolean }) {
   return (
@@ -141,38 +141,10 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="border-t border-white/20 pt-8 flex justify-center items-center">
             <p className="text-sm text-white/80">
               © {new Date().getFullYear()} Liv Well Pharmaceuticals. All rights reserved.
             </p>
-
-            {/* Social Links */}
-            <div className="flex gap-4">
-              <Link
-                href="#"
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-              >
-                <Facebook className="h-4 w-4" />
-              </Link>
-              <Link
-                href="#"
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-              >
-                <Twitter className="h-4 w-4" />
-              </Link>
-              <Link
-                href="#"
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-              >
-                <Linkedin className="h-4 w-4" />
-              </Link>
-              <Link
-                href="#"
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-              >
-                <Instagram className="h-4 w-4" />
-              </Link>
-            </div>
           </div>
         </div>
       </div>
