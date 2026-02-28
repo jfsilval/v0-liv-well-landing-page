@@ -20,14 +20,14 @@ async function removeWhiteBackground() {
   console.log(`Image: ${width}x${height}, channels: ${channels}`);
 
   // Process pixels: make white/near-white pixels transparent
-  const threshold = 240; // pixels with R,G,B all above this become transparent
+  const threshold = 240;
   for (let i = 0; i < data.length; i += channels) {
     const r = data[i];
     const g = data[i + 1];
     const b = data[i + 2];
     
     if (r >= threshold && g >= threshold && b >= threshold) {
-      data[i + 3] = 0; // Set alpha to 0 (transparent)
+      data[i + 3] = 0;
     }
   }
 
@@ -38,10 +38,9 @@ async function removeWhiteBackground() {
 
   console.log(`Saved transparent logo to: ${outputPath}`);
 
-  // Also create a white version for the footer (white logo on transparent bg)
+  // Create a white version for the footer
   const whiteOutputPath = path.join(publicDir, 'logo-white.png');
   
-  // Re-read and process: make non-transparent pixels white
   const { data: data2, info: info2 } = await sharp(outputPath)
     .ensureAlpha()
     .raw()
@@ -50,10 +49,9 @@ async function removeWhiteBackground() {
   for (let i = 0; i < data2.length; i += info2.channels) {
     const a = data2[i + 3];
     if (a > 0) {
-      // Make pixel white but keep alpha
-      data2[i] = 255;     // R
-      data2[i + 1] = 255; // G
-      data2[i + 2] = 255; // B
+      data2[i] = 255;
+      data2[i + 1] = 255;
+      data2[i + 2] = 255;
     }
   }
 
