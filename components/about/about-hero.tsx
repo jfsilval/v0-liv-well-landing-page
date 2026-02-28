@@ -5,8 +5,8 @@ import { ChevronDown } from "lucide-react"
 
 export function AboutHero() {
   return (
-    <section className="relative overflow-hidden mt-20 bg-[#e8edf5]">
-      <div className="relative h-[calc(100vh-5rem)]">
+    <section className="relative overflow-hidden mt-24 bg-[#e8edf5]">
+      <div className="relative h-[calc(100vh-6rem)]">
         {/* Background image */}
         <Image
           src="/about-hero.jpg"

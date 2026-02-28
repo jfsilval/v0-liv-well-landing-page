@@ -1,13 +1,10 @@
 import sharp from 'sharp';
-import path from 'path';
-import { fileURLToPath } from 'url';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const publicDir = path.join(__dirname, '..', 'public');
+const publicDir = '/vercel/share/v0-project/public';
 
 async function removeWhiteBackground() {
-  const inputPath = path.join(publicDir, 'logo.png');
-  const outputPath = path.join(publicDir, 'logo-transparent.png');
+  const inputPath = `${publicDir}/logo.png`;
+  const outputPath = `${publicDir}/logo-transparent.png`;
 
   // Read image and get raw pixel data
   const image = sharp(inputPath);
@@ -39,7 +36,7 @@ async function removeWhiteBackground() {
   console.log(`Saved transparent logo to: ${outputPath}`);
 
   // Create a white version for the footer
-  const whiteOutputPath = path.join(publicDir, 'logo-white.png');
+  const whiteOutputPath = `${publicDir}/logo-white.png`;
   
   const { data: data2, info: info2 } = await sharp(outputPath)
     .ensureAlpha()

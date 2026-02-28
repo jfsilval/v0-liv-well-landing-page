@@ -5,11 +5,11 @@ import { Shield, Award, Globe, ChevronDown } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden pt-20">
+    <section className="relative min-h-screen overflow-hidden pt-24">
       {/* Background - light grayish-blue matching nav */}
       <div className="absolute inset-0 bg-[#e8edf5]" />
 
-      <div className="grid lg:grid-cols-2 h-[calc(100vh-5rem)] pb-4">
+      <div className="grid lg:grid-cols-2 h-[calc(100vh-6rem)] pb-4">
         {/* Left content */}
         <div className="flex items-center px-8 lg:px-16 relative z-10">
           <div className="space-y-8 max-w-xl pb-8">
@@ -49,16 +49,16 @@ export function HeroSection() {
               </div>
               {/* Infinity logo for Commitment */}
               <div className="flex flex-col items-center text-center gap-1">
-                <div className="h-5 w-10 relative overflow-hidden">
+                <div className="h-7 w-14 relative overflow-hidden">
                   <Image
                     src="/logo.png"
                     alt="Commitment to Patients"
-                    width={60}
-                    height={60}
-                    className="w-auto h-8 object-cover object-top absolute top-0 left-1/2 -translate-x-1/2"
+                    width={80}
+                    height={80}
+                    className="w-auto h-12 object-cover object-top absolute top-0 left-1/2 -translate-x-1/2 mix-blend-multiply"
                   />
                 </div>
-                <p className="text-xs text-muted-foreground">{"Commitment to\nPatients"}</p>
+                <p className="text-xs text-muted-foreground whitespace-pre-line">{"Commitment to\nPatients"}</p>
               </div>
 
               {/* Scroll indicator */}
