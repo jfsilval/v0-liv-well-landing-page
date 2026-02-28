@@ -51,7 +51,7 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
                 height={160}
                 className="h-36 w-auto mb-4 brightness-0 invert"
               />
-              <p className="text-sm text-white/80 leading-relaxed">
+              <p className="text-base text-white/80 leading-relaxed">
                 Trusted pharmaceutical solutions<br />
                 for a healthier world. Innovation,<br />
                 quality, and care in every product.
