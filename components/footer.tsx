@@ -41,9 +41,9 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
             <p className="text-2xl font-semibold text-balance">Quality Generics. Global Reach. Trusted Worldwide.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] gap-8 mb-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] gap-8 mb-8 lg:justify-items-center">
             {/* Company Info */}
-            <div className="min-w-0">
+            <div className="min-w-0 lg:justify-self-start">
               <Image
                 src="/logo.png"
                 alt="Liv Well Pharmaceuticals"
@@ -59,7 +59,7 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
             </div>
 
             {/* Quick Links */}
-            <div className="lg:mx-auto">
+            <div>
               <h3 className="font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 <li>
@@ -86,7 +86,7 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
             </div>
 
             {/* Resources */}
-            <div className="lg:mx-auto">
+            <div>
               <h3 className="font-semibold mb-4">Resources</h3>
               <ul className="space-y-2">
                 <li>
@@ -113,7 +113,7 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
             </div>
 
             {/* Legal */}
-            <div className="lg:mx-auto">
+            <div>
               <h3 className="font-semibold mb-4">Legal</h3>
               <ul className="space-y-2">
                 <li>
