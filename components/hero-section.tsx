@@ -12,8 +12,9 @@ export function HeroSection() {
 
       <div className="grid lg:grid-cols-2 h-[calc(100vh-8rem)] pb-4">
         {/* Left content */}
-        <div className="flex items-center px-8 lg:px-16 relative z-10">
-          <div className="space-y-8 max-w-xl pb-8">
+        <div className="flex flex-col justify-between px-8 lg:px-16 relative z-10 py-6">
+          {/* Top: heading + paragraph */}
+          <div className="max-w-xl space-y-6">
             <h1 className="text-5xl lg:text-[3.5rem] xl:text-[4rem] font-bold leading-[1.1] tracking-tight">
               {"Delivering "}
               <span className="text-primary">Trusted Pharmaceutical Products</span>
@@ -24,9 +25,12 @@ export function HeroSection() {
               Every person on Earth deserves access to high-quality medicines. Inspired by this vision, Liv Well
               Pharmaceuticals continues to innovate and grow, providing trusted healthcare solutions globally.
             </p>
+          </div>
 
+          {/* Bottom: stats, buttons, scroll */}
+          <div className="max-w-xl space-y-6">
             {/* Stats row */}
-            <div className="flex items-start gap-6 lg:gap-10 pt-2">
+            <div className="flex items-start gap-6 lg:gap-10">
               <div className="flex flex-col items-center text-center gap-1.5">
                 <div className="flex items-center gap-2">
                   <Globe className="h-5 w-5 text-primary" />
@@ -71,7 +75,7 @@ export function HeroSection() {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-row gap-4 pt-2">
+            <div className="flex flex-row gap-4">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group">
                 Explore Our Products
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
