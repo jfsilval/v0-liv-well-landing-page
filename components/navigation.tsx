@@ -36,13 +36,17 @@ export function Navigation() {
     return false
   }
 
+  const isHome = pathname === "/"
+
   return (
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
           ? "bg-primary/10 backdrop-blur-md shadow-md"
-          : "bg-primary/10",
+          : isHome
+            ? "bg-transparent"
+            : "bg-primary/10",
       )}
     >
       <div className="container mx-auto px-4">
