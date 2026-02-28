@@ -41,7 +41,7 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
             <p className="text-2xl font-semibold text-balance">Quality Generics. Global Reach. Trusted Worldwide.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] gap-8 mb-8 lg:justify-items-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] gap-8 py-12 lg:justify-items-center lg:items-center">
             {/* Company Info */}
             <div className="min-w-0 lg:justify-self-start">
               <Image
