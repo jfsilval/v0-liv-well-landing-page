@@ -12,10 +12,10 @@ export function HeroSection() {
 
       <div className="relative grid lg:grid-cols-2 h-[calc(100vh-7rem)]">
         {/* Left content */}
-        <div className="flex flex-col justify-between px-8 lg:px-16 relative z-10 py-6">
+        <div className="flex flex-col justify-between px-8 lg:px-16 relative z-10 py-4">
           {/* Top: heading + paragraph */}
-          <div className="max-w-xl space-y-8">
-            <h1 className="text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
+          <div className="max-w-2xl space-y-6">
+            <h1 className="text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight">
               {"Delivering "}
               <span className="text-primary">Trusted Pharmaceutical Products</span>
               {" to Every Corner of the World."}
@@ -28,7 +28,7 @@ export function HeroSection() {
           </div>
 
           {/* Bottom: stats + buttons */}
-          <div className="max-w-xl space-y-6 mt-8">
+          <div className="max-w-xl space-y-5">
             {/* Stats row */}
             <div className="flex items-start gap-6 lg:gap-10">
               <div className="flex flex-col items-center text-center gap-1.5">
