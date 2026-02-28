@@ -38,10 +38,9 @@ function AnimatedStat({ value, label }: { value: string; label: string }) {
 
 export function AboutNumbers() {
   return (
-    <section className="py-24 bg-[#0a2351] relative overflow-hidden">
-      {/* Subtle decorative elements */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+    <section className="py-24 bg-gradient-to-br from-primary via-secondary to-accent relative overflow-hidden">
+      {/* Subtle pattern overlay */}
+      <div className="absolute inset-0 bg-[#0a2351]/60" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
@@ -51,7 +50,7 @@ export function AboutNumbers() {
               By the <span className="text-secondary">Numbers</span>
             </h2>
             <div className="flex justify-center mb-6">
-              <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
+              <div className="w-16 h-1 bg-white/30 rounded-full" />
             </div>
             <p className="text-lg text-white/70">Liv Well Pharmaceuticals in figures</p>
           </div>

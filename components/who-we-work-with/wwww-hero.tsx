@@ -11,9 +11,9 @@ export function WwwwHero() {
           alt="Global pharmaceutical partnerships"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a2351]/80 via-[#0a2351]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a2351]/90 via-[#0a2351]/70 to-[#0a2351]/40" />
 
-        <div className="absolute inset-0 z-10 flex items-start pt-16">
+        <div className="absolute inset-0 z-10 flex items-center">
           <div className="container mx-auto px-8 lg:px-16">
             <div className="max-w-3xl space-y-6">
               <p className="text-sm font-semibold tracking-widest uppercase text-secondary">

@@ -15,7 +15,7 @@ export function AboutPurpose() {
               Our <span className="text-secondary">Purpose</span>
             </h2>
             <div className="flex justify-center mb-6">
-              <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
+              <div className="w-16 h-1 bg-gradient-to-r from-secondary to-accent rounded-full" />
             </div>
             <p className="text-lg text-white/70">What drives us forward</p>
           </div>

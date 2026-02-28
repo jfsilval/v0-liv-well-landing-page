@@ -34,7 +34,7 @@ const reasons = [
 
 export function WwwwReasons() {
   return (
-    <section className="py-12 bg-primary/10">
+    <section className="py-12 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Section header */}

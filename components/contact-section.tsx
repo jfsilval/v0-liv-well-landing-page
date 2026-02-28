@@ -62,16 +62,13 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-[#0a2351]">
+    <section id="contact" className="py-20 bg-primary/5">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-balance text-white">
-            Get in <span className="text-secondary">Touch</span>
+          <h2 className="text-4xl font-bold mb-4 text-balance">
+            Get in <span className="text-primary">Touch</span>
           </h2>
-          <div className="flex justify-center mb-6">
-            <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
-          </div>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Have questions about our products or services? Our team is here to help you.
           </p>
         </div>
@@ -79,40 +76,40 @@ export function ContactSection() {
         <div className="grid lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
           {/* Contact Info */}
           <div className="space-y-4 lg:col-span-2">
-            <Card className="p-6 hover:shadow-lg transition-shadow bg-white/10 border-white/10">
+            <Card className="p-6 hover:shadow-lg transition-shadow">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
-                  <Mail className="h-6 w-6 text-secondary" />
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold mb-2 text-white">Email Us</h3>
-                  <p className="text-sm text-white/70">info@livwellpharmaceuticals.com</p>
-                  <p className="text-sm text-white/70">support@livwellpharmaceuticals.com</p>
+                  <h3 className="font-semibold mb-2">Email Us</h3>
+                  <p className="text-sm text-muted-foreground">info@livwellpharmaceuticals.com</p>
+                  <p className="text-sm text-muted-foreground">support@livwellpharmaceuticals.com</p>
                 </div>
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow bg-white/10 border-white/10">
+            <Card className="p-6 hover:shadow-lg transition-shadow">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0">
                   <Phone className="h-6 w-6 text-secondary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2 text-white">Call Us</h3>
-                  <p className="text-sm text-white/70">+971 4 516 3600 Ext: 8437</p>
-                  <p className="text-sm text-white/70">Sun-Thu 9AM-6PM (GST)</p>
+                  <h3 className="font-semibold mb-2">Call Us</h3>
+                  <p className="text-sm text-muted-foreground">+971 4 516 3600 Ext: 8437</p>
+                  <p className="text-sm text-muted-foreground">Sun-Thu 9AM-6PM (GST)</p>
                 </div>
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow bg-white/10 border-white/10">
+            <Card className="p-6 hover:shadow-lg transition-shadow">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="h-6 w-6 text-secondary" />
+                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="h-6 w-6 text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2 text-white">Address</h3>
-                  <p className="text-sm text-white/70">
+                  <h3 className="font-semibold mb-2">Address</h3>
+                  <p className="text-sm text-muted-foreground">
                     Meydan Grandstand, 6th Floor
                     <br />
                     Meydan Road, Nad Al Sheba

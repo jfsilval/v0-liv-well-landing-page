@@ -7,19 +7,19 @@ import { ArrowRight, Shield, Award, Globe, ChevronDown } from "lucide-react"
 export function HeroSection() {
   return (
     <section className="relative min-h-screen overflow-hidden pt-28">
-      {/* Background - full width matching menu */}
-      <div className="absolute inset-0 bg-primary/10" />
+      {/* Background gradient - only on left side */}
+      <div className="absolute inset-0 w-1/2 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5" />
 
       {/* Decorative circles */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 left-20 w-64 h-64 bg-secondary/10 rounded-full blur-3xl animate-pulse delay-1000" />
 
-      <div className="grid lg:grid-cols-2 h-[calc(100vh-7rem)] pb-4">
+      <div className="grid lg:grid-cols-2 h-[calc(100vh-7rem)]">
         {/* Left content */}
         <div className="flex items-center px-8 lg:px-16 relative z-10">
           <div className="space-y-8 max-w-xl pb-8">
             <h1 className="text-5xl lg:text-6xl font-bold leading-tight text-balance">
-              Delivering <span className="text-primary">Trusted Pharmaceutical Products</span> to Every Corner of the World.
+              Delivering <span className="text-primary">Trusted Pharmaceutical Products</span> to Every Corner of the World
             </h1>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -27,7 +27,7 @@ export function HeroSection() {
               Pharmaceuticals continues to innovate and grow, providing trusted healthcare solutions globally.
             </p>
 
-            {/* Stats + Logo - moved up */}
+            {/* Stats + Logo */}
             <div className="grid grid-cols-4 gap-6">
               <div className="flex flex-col items-center text-center space-y-2">
                 <div className="flex items-center gap-2">
@@ -52,21 +52,20 @@ export function HeroSection() {
               </div>
               {/* Company infinity symbol only - cropped to hide text */}
               <div className="flex flex-col items-center text-center space-y-2">
-                <div className="h-6 overflow-hidden">
+                <div className="h-8 overflow-hidden">
                   <Image
                     src="/logo.png"
                     alt="Liv Well Pharmaceuticals"
-                    width={80}
-                    height={80}
-                    className="w-auto h-10 object-cover object-top"
+                    width={100}
+                    height={100}
+                    className="w-auto h-14 object-cover object-top"
                   />
                 </div>
                 <p className="text-xs text-muted-foreground">Commitment to Patients</p>
               </div>
             </div>
 
-            {/* Buttons - moved to bottom, centered */}
-            <div className="flex flex-row justify-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group">
                 Explore Our Products
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -83,21 +82,19 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Right side - Framed image with uniform ~1cm border on all sides */}
+        {/* Right side - Full height image */}
         <div className="relative hidden lg:block h-full">
-          <div className="absolute inset-4 rounded-xl overflow-hidden shadow-2xl">
-            <img
-              src="/modern-pharmaceutical-laboratory-with-scientist-ex.jpg"
-              alt="Modern pharmaceutical laboratory innovation"
-              className="w-full h-full object-cover object-center"
-            />
-            {/* Transparent gradient overlay with text */}
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent flex flex-col justify-end p-10">
-              <h3 className="text-3xl font-bold text-white mb-3">Innovation in Healthcare</h3>
-              <p className="text-white/90 text-base leading-relaxed max-w-md">
-                Leading the way in pharmaceutical excellence with cutting-edge research and development.
-              </p>
-            </div>
+          <img
+            src="/modern-pharmaceutical-laboratory-with-scientist-ex.jpg"
+            alt="Modern pharmaceutical laboratory innovation"
+            className="w-full h-full object-cover object-center"
+          />
+          {/* Transparent gradient overlay with text */}
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent flex flex-col justify-end p-12">
+            <h3 className="text-3xl font-bold text-white mb-3">Innovation in Healthcare</h3>
+            <p className="text-white/90 text-base leading-relaxed max-w-md">
+              Leading the way in pharmaceutical excellence with cutting-edge research and development.
+            </p>
           </div>
         </div>
       </div>

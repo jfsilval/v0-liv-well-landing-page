@@ -41,7 +41,7 @@ const values = [
 
 export function AboutValues() {
   return (
-    <section className="py-24 bg-primary/10">
+    <section className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}

@@ -66,7 +66,7 @@ export function WwwwAudiences() {
               Does This Sound Like <span className="text-secondary">You?</span>
             </h2>
             <div className="flex justify-center mb-4">
-              <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
+              <div className="w-16 h-1 bg-gradient-to-r from-secondary to-accent rounded-full" />
             </div>
             <p className="text-sm text-white/70 max-w-2xl mx-auto">
               You don{"'"}t need to fit a specific profile to work with Liv Well Pharmaceuticals. But if any of the
@@ -102,17 +102,17 @@ export function WwwwAudiences() {
                   <div className="px-6 pb-6">
                     <div className="space-y-3 mb-5">
                       {audience.body.map((paragraph, pIndex) => (
-                        <p key={pIndex} className="text-sm text-white/70 leading-relaxed">
+                        <p key={pIndex} className="text-base text-white/70 leading-relaxed">
                           {paragraph}
                         </p>
                       ))}
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-4 border-t border-white/10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-white/10">
                       {audience.signals.map((signal, sIndex) => (
                         <div key={sIndex} className="flex items-start gap-2">
                           <Check className="h-4 w-4 mt-0.5 shrink-0 text-secondary" />
-                          <span className="text-sm text-white/70">{signal}</span>
+                          <span className="text-base text-white/70">{signal}</span>
                         </div>
                       ))}
                     </div>

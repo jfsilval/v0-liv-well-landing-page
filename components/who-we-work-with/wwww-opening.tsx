@@ -1,6 +1,6 @@
 export function WwwwOpening() {
   return (
-    <section className="py-16 bg-primary/10">
+    <section className="py-16 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Section header - matching project standard */}

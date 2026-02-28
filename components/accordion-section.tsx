@@ -37,16 +37,13 @@ const faqs = [
 
 export function AccordionSection() {
   return (
-    <section className="py-20 bg-primary/10">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-balance">
               Frequently Asked <span className="text-primary">Questions</span>
             </h2>
-            <div className="flex justify-center mb-6">
-              <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
-            </div>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Learn more about our pharmaceutical solutions and how we can support your healthcare needs.
             </p>
