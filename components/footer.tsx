@@ -59,7 +59,7 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
             </div>
 
             {/* Quick Links */}
-            <div>
+            <div className="lg:mx-auto">
               <h3 className="font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 <li>
@@ -86,7 +86,7 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
             </div>
 
             {/* Resources */}
-            <div>
+            <div className="lg:mx-auto">
               <h3 className="font-semibold mb-4">Resources</h3>
               <ul className="space-y-2">
                 <li>
@@ -113,7 +113,7 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
             </div>
 
             {/* Legal */}
-            <div>
+            <div className="lg:mx-auto">
               <h3 className="font-semibold mb-4">Legal</h3>
               <ul className="space-y-2">
                 <li>
