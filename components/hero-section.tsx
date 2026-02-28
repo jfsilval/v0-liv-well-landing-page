@@ -6,16 +6,16 @@ import { Shield, Award, Globe, ChevronDown, ArrowRight } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden pt-32">
-      {/* Background - matching nav color */}
-      <div className="absolute inset-0 bg-[#d5dded]" />
+    <section className="relative min-h-screen overflow-hidden pt-28">
+      {/* Background - primary at 10% opacity */}
+      <div className="absolute inset-0 bg-primary/10" />
 
-      <div className="grid lg:grid-cols-2 h-[calc(100vh-8rem)] pb-4">
+      <div className="relative grid lg:grid-cols-2 h-[calc(100vh-7rem)]">
         {/* Left content */}
         <div className="flex flex-col justify-between px-8 lg:px-16 relative z-10 py-6">
           {/* Top: heading + paragraph */}
           <div className="max-w-xl space-y-6">
-            <h1 className="text-5xl lg:text-[3.5rem] xl:text-[4rem] font-bold leading-[1.1] tracking-tight">
+            <h1 className="text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
               {"Delivering "}
               <span className="text-primary">Trusted Pharmaceutical Products</span>
               {" to Every Corner of the World."}
@@ -27,7 +27,7 @@ export function HeroSection() {
             </p>
           </div>
 
-          {/* Bottom: stats, buttons, scroll */}
+          {/* Bottom: stats + buttons */}
           <div className="max-w-xl space-y-6">
             {/* Stats row */}
             <div className="flex items-start gap-6 lg:gap-10">
@@ -65,12 +65,6 @@ export function HeroSection() {
                 </div>
                 <p className="text-xs text-muted-foreground">Commitment to</p>
                 <p className="text-xs text-muted-foreground -mt-1">Patients</p>
-              </div>
-
-              {/* Scroll indicator */}
-              <div className="flex flex-col items-center gap-1 ml-auto">
-                <span className="text-[9px] tracking-widest uppercase text-muted-foreground">Scroll</span>
-                <ChevronDown className="h-3.5 w-3.5 animate-bounce text-muted-foreground" />
               </div>
             </div>
 
@@ -110,6 +104,12 @@ export function HeroSection() {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Scroll indicator - absolute bottom center of entire hero frame */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1">
+          <span className="text-[9px] tracking-widest uppercase text-muted-foreground">Scroll</span>
+          <ChevronDown className="h-4 w-4 animate-bounce text-muted-foreground" />
         </div>
       </div>
     </section>
