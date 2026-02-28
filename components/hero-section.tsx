@@ -55,7 +55,7 @@ export function HeroSection() {
                     alt="Commitment to Patients"
                     width={80}
                     height={80}
-                    className="w-auto h-12 object-cover object-top absolute top-0 left-1/2 -translate-x-1/2 mix-blend-multiply"
+                    className="w-auto h-12 object-cover object-top absolute top-0 left-1/2 -translate-x-1/2"
                   />
                 </div>
                 <p className="text-xs text-muted-foreground whitespace-pre-line">{"Commitment to\nPatients"}</p>

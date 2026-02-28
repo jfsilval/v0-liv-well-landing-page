@@ -54,7 +54,7 @@ export function Navigation() {
               alt="Liv Well Pharmaceuticals"
               width={280}
               height={112}
-              className="h-24 w-auto mix-blend-multiply"
+              className="h-24 w-auto"
               priority
             />
           </Link>
