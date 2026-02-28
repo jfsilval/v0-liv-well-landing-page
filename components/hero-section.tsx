@@ -14,7 +14,7 @@ export function HeroSection() {
         {/* Left content */}
         <div className="flex flex-col justify-between px-8 lg:px-16 relative z-10 py-6">
           {/* Top: heading + paragraph */}
-          <div className="max-w-xl space-y-6">
+          <div className="max-w-xl space-y-8">
             <h1 className="text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
               {"Delivering "}
               <span className="text-primary">Trusted Pharmaceutical Products</span>
@@ -63,8 +63,8 @@ export function HeroSection() {
                     className="w-auto h-14 object-cover object-top absolute top-0 left-1/2 -translate-x-1/2"
                   />
                 </div>
-                <p className="text-xs text-muted-foreground">Commitment to</p>
-                <p className="text-xs text-muted-foreground -mt-1">Patients</p>
+                <p className="text-xs text-muted-foreground whitespace-nowrap">Commitment to</p>
+                <p className="text-xs text-muted-foreground -mt-1 whitespace-nowrap">Patients</p>
               </div>
             </div>
 
@@ -106,8 +106,8 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Scroll indicator - absolute bottom center of entire hero frame */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1">
+        {/* Scroll indicator - bottom of left panel area */}
+        <div className="absolute bottom-4 left-[42%] -translate-x-1/2 z-20 flex flex-col items-center gap-1">
           <span className="text-[9px] tracking-widest uppercase text-muted-foreground">Scroll</span>
           <ChevronDown className="h-4 w-4 animate-bounce text-muted-foreground" />
         </div>
