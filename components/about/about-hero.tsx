@@ -5,19 +5,19 @@ import { ChevronDown } from "lucide-react"
 
 export function AboutHero() {
   return (
-    <section className="relative overflow-hidden mt-28 bg-primary/10">
+    <section className="relative overflow-hidden mt-28 bg-[#0a2351]">
       <div className="relative h-[calc(100vh-7rem)]">
-        {/* Background image */}
+        {/* Background image - world map with distribution routes */}
         <Image
           src="/about-hero.jpg"
-          alt="Global pharmaceutical distribution"
+          alt="Global pharmaceutical distribution from Dubai to the world"
           fill
-          className="object-cover opacity-30"
+          className="object-cover opacity-70"
           priority
         />
 
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a2351]/85 via-[#0a2351]/60 to-[#0a2351]/40" />
+        {/* Gradient overlay for text readability on the left */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a2351]/80 via-[#0a2351]/40 to-transparent" />
 
         {/* Content - aligned to top like WWWW hero */}
         <div className="absolute inset-0 z-10 flex items-start pt-16">
