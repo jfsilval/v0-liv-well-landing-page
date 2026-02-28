@@ -37,7 +37,7 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
 
       <div className="bg-[#0a2351] text-white">
         <div className="container mx-auto px-4 py-12">
-          <div className="text-center mb-4 pb-8 border-b border-white/20">
+          <div className="text-center mb-0 pb-8 border-b border-white/20">
             <p className="text-2xl font-semibold text-balance">Quality Generics. Global Reach. Trusted Worldwide.</p>
           </div>
 
