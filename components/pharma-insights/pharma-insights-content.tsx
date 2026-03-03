@@ -3,9 +3,17 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Search, FileText, ArrowRight, ChevronLeft, ChevronRight, AlertCircle } from "lucide-react"
+import {
+  Search,
+  FileText,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  AlertCircle,
+} from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import type { Post } from "@/lib/cms"
 
 interface PharmaInsightsContentProps {
@@ -51,7 +59,7 @@ export function PharmaInsightsContent({
           <h2 className="text-xl font-bold text-foreground mb-2">Something went wrong</h2>
           <p className="text-muted-foreground mb-6">{error}</p>
           <Button asChild>
-            <Link href="/pharma-insights">Retry</Link>
+            <Link href="/pharma-insights">Try again</Link>
           </Button>
         </div>
       </section>
@@ -63,11 +71,13 @@ export function PharmaInsightsContent({
     return (
       <section className="py-24 bg-primary/5">
         <div className="container mx-auto px-4 text-center max-w-lg">
-          <FileText className="h-16 w-16 text-muted-foreground/40 mx-auto mb-6" />
-          <h2 className="text-2xl font-bold text-foreground mb-3">Pharma Insights content coming soon</h2>
-          <p className="text-muted-foreground leading-relaxed">
-            Our editorial team is preparing in-depth analysis for industry professionals.
-          </p>
+          <div className="bg-card border border-border rounded-xl p-10 shadow-sm">
+            <FileText className="h-14 w-14 text-muted-foreground/40 mx-auto mb-5" />
+            <h2 className="text-2xl font-bold text-foreground mb-3">Pharma Insights Coming Soon</h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Our editorial team is preparing in-depth content for industry professionals. Check back soon.
+            </p>
+          </div>
         </div>
       </section>
     )
@@ -76,79 +86,102 @@ export function PharmaInsightsContent({
   const from = (currentPage - 1) * 12 + 1
   const to = Math.min(currentPage * 12, totalDocs)
 
+  // Pagination page numbers (max 5 visible)
+  const getPageNumbers = () => {
+    if (totalPages <= 5) return Array.from({ length: totalPages }, (_, i) => i + 1)
+    const pages: (number | "...")[] = []
+    if (currentPage <= 3) {
+      pages.push(1, 2, 3, 4, "...", totalPages)
+    } else if (currentPage >= totalPages - 2) {
+      pages.push(1, "...", totalPages - 3, totalPages - 2, totalPages - 1, totalPages)
+    } else {
+      pages.push(1, "...", currentPage - 1, currentPage, currentPage + 1, "...", totalPages)
+    }
+    return pages
+  }
+
   return (
     <section className="py-12 bg-primary/5">
       <div className="container mx-auto px-4">
-        {/* Search bar + counter */}
-        <div className="bg-card border border-border rounded-xl shadow-sm p-5 mb-8 flex flex-col md:flex-row items-center gap-4">
+        {/* Search bar + counter - matching products filter card style */}
+        <div className="bg-primary/5 border border-primary/10 rounded-xl shadow-sm p-5 mb-10 flex flex-col md:flex-row items-center gap-4">
           <div className="relative flex-1 w-full">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder="Search articles..."
+              placeholder="Search articles by title or topic..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="pl-10 bg-primary/5 border-primary/10"
+              className="pl-10 bg-white border-primary/15"
             />
           </div>
+          <Button
+            type="button"
+            className="bg-[#0a2351] hover:bg-[#0a2351]/90 text-white shrink-0"
+            onClick={() => {/* search is live */}}
+          >
+            <Search className="h-4 w-4 mr-2" />
+            Search
+          </Button>
           <p className="text-sm text-muted-foreground whitespace-nowrap">
             <span className="font-semibold text-foreground">{totalDocs}</span> articles available
           </p>
         </div>
 
-        {/* Articles grid */}
+        {/* Articles grid - 3 columns */}
         {filteredPosts.length === 0 ? (
           <div className="text-center py-16">
             <Search className="h-10 w-10 text-muted-foreground/40 mx-auto mb-4" />
             <p className="text-muted-foreground">No articles match your search.</p>
           </div>
         ) : (
-          <div className="grid gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
               <article
                 key={post.id}
-                className="bg-card border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:border-l-4 hover:border-l-secondary transition-all duration-300 group"
+                className="bg-card border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:border-t-[3px] hover:border-t-primary transition-all duration-300 group flex flex-col"
               >
-                <div className="flex flex-col md:flex-row">
-                  {/* Image / placeholder */}
-                  <div className="md:w-1/3 relative h-52 md:h-auto min-h-[200px]">
-                    {post.heroImage?.url ? (
-                      <Image
-                        src={post.heroImage.url}
-                        alt={post.heroImage.alt ?? post.title}
-                        fill
-                        className="object-cover"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                        <FileText className="h-12 w-12 text-primary/30" />
-                      </div>
-                    )}
-                  </div>
+                {/* Image - 16:9 ratio */}
+                <div className="relative aspect-video">
+                  {post.heroImage?.url ? (
+                    <Image
+                      src={post.heroImage.url}
+                      alt={post.heroImage.alt ?? post.title}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0a2351] to-[#0f3060] flex items-center justify-center">
+                      <FileText className="h-12 w-12 text-white/30" />
+                    </div>
+                  )}
+                </div>
 
-                  {/* Content */}
-                  <div className="md:w-2/3 p-6 flex flex-col justify-between">
-                    <div>
-                      <p className="text-xs text-muted-foreground mb-2">{formatDate(post.publishedAt)}</p>
-                      <h3 className="text-lg font-semibold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
-                        {post.title}
-                      </h3>
-                      {post.meta?.description && (
-                        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                          {post.meta.description}
-                        </p>
-                      )}
-                    </div>
-                    <div className="mt-4">
-                      <a
-                        href={`${cmsUrl}/posts/${post.slug}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center text-sm font-semibold text-secondary hover:text-secondary/80 transition-colors"
-                      >
-                        Read full article
-                        <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </a>
-                    </div>
+                {/* Content */}
+                <div className="p-5 flex flex-col flex-1">
+                  <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 w-fit text-xs mb-2">
+                    Pharma Insights
+                  </Badge>
+                  <p className="text-xs text-muted-foreground mb-2">{formatDate(post.publishedAt)}</p>
+                  <h3 className="text-base font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h3>
+                  {post.meta?.description && (
+                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-1">
+                      {post.meta.description}
+                    </p>
+                  )}
+
+                  {/* Separator + button */}
+                  <div className="border-t border-border mt-4 pt-4">
+                    <a
+                      href={`${cmsUrl}/posts/${post.slug}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-sm font-semibold text-primary border border-primary/30 rounded-md px-4 py-2 hover:bg-primary/5 transition-colors group/btn"
+                    >
+                      {"Read full article"}
+                      <ArrowRight className="ml-1.5 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                    </a>
                   </div>
                 </div>
               </article>
@@ -158,10 +191,13 @@ export function PharmaInsightsContent({
 
         {/* Pagination */}
         {totalPages > 1 && !query && (
-          <div className="flex flex-col items-center gap-4 mt-10">
+          <div className="flex flex-col items-center gap-4 mt-12">
             <p className="text-sm text-muted-foreground">
-              Showing <span className="font-semibold text-foreground">{from}–{to}</span> of{" "}
-              <span className="font-semibold text-foreground">{totalDocs}</span> articles
+              {"Showing "}
+              <span className="font-semibold text-foreground">{from}–{to}</span>
+              {" of "}
+              <span className="font-semibold text-foreground">{totalDocs}</span>
+              {" articles"}
             </p>
             <div className="flex items-center gap-2">
               <Button
@@ -169,6 +205,7 @@ export function PharmaInsightsContent({
                 size="sm"
                 disabled={!hasPrevPage}
                 asChild={hasPrevPage}
+                className="border-primary/20"
               >
                 {hasPrevPage ? (
                   <Link href={`/pharma-insights?page=${currentPage - 1}`}>
@@ -183,23 +220,28 @@ export function PharmaInsightsContent({
                 )}
               </Button>
 
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-                <Button
-                  key={p}
-                  variant={p === currentPage ? "default" : "outline"}
-                  size="sm"
-                  className={p === currentPage ? "bg-secondary text-secondary-foreground hover:bg-secondary/90" : ""}
-                  asChild
-                >
-                  <Link href={`/pharma-insights?page=${p}`}>{p}</Link>
-                </Button>
-              ))}
+              {getPageNumbers().map((p, i) =>
+                p === "..." ? (
+                  <span key={`ellipsis-${i}`} className="px-2 text-muted-foreground">...</span>
+                ) : (
+                  <Button
+                    key={p}
+                    variant={p === currentPage ? "default" : "outline"}
+                    size="sm"
+                    className={p === currentPage ? "bg-[#0a2351] text-white hover:bg-[#0a2351]/90" : "border-primary/20"}
+                    asChild
+                  >
+                    <Link href={`/pharma-insights?page=${p}`}>{p}</Link>
+                  </Button>
+                )
+              )}
 
               <Button
                 variant="outline"
                 size="sm"
                 disabled={!hasNextPage}
                 asChild={hasNextPage}
+                className="border-primary/20"
               >
                 {hasNextPage ? (
                   <Link href={`/pharma-insights?page=${currentPage + 1}`}>
