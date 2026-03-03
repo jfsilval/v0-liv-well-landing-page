@@ -8,52 +8,50 @@ export function ProductsHero() {
     <section className="relative overflow-hidden pt-28 bg-primary/10">
       <div className="relative grid lg:grid-cols-2 h-[calc(100vh-7rem)]">
         {/* Left content */}
-        <div className="flex flex-col justify-between px-8 lg:px-16 relative z-10 py-6">
+        <div className="flex flex-col justify-center gap-8 px-8 lg:px-16 relative z-10 py-6">
           {/* Top: heading + text */}
-          <div className="max-w-2xl space-y-4">
+          <div className="max-w-2xl space-y-5">
             <p className="text-sm font-semibold tracking-widest uppercase text-secondary">
               Product Portfolio
             </p>
 
-            <h1 className="text-3xl lg:text-4xl font-bold leading-tight text-primary">
+            <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-primary">
               {"Quality, proven, and globally accessible — "}
               <span className="text-secondary">{"that's our standard."}</span>
             </h1>
 
             {/* Mid-statement with left border accent */}
             <div className="border-l-[3px] border-secondary/50 pl-5">
-              <p className="text-base lg:text-lg font-semibold text-foreground leading-snug">
+              <p className="text-lg lg:text-xl font-semibold text-foreground leading-snug">
                 {"Our catalog spans essential generics, specialty care, therapeutic treatments, and consumer wellness solutions."}
               </p>
             </div>
 
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-xl">
+            <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
               {"Thoughtfully assembled to support health ministries, distributors, importers, and care providers in delivering effective treatments where they're needed most."}
             </p>
           </div>
 
-          {/* Middle: stats */}
-          <div className="max-w-2xl space-y-4">
-            <div className="flex items-center justify-center gap-12 lg:gap-16">
-              <div className="flex flex-col items-center text-center gap-1">
-                <div className="flex items-center gap-2">
-                  <Award className="h-5 w-5 text-secondary" />
-                  <span className="text-2xl font-bold text-secondary">600+</span>
-                </div>
-                <p className="text-xs text-muted-foreground">Products</p>
+          {/* Stats */}
+          <div className="flex items-center justify-center gap-12 lg:gap-16">
+            <div className="flex flex-col items-center text-center gap-1">
+              <div className="flex items-center gap-2">
+                <Award className="h-5 w-5 text-secondary" />
+                <span className="text-2xl font-bold text-secondary">600+</span>
               </div>
-              <div className="flex flex-col items-center text-center gap-1">
-                <div className="flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-accent" />
-                  <span className="text-2xl font-bold text-accent">100%</span>
-                </div>
-                <p className="text-xs text-muted-foreground">Quality Assured</p>
+              <p className="text-xs text-muted-foreground">Products</p>
+            </div>
+            <div className="flex flex-col items-center text-center gap-1">
+              <div className="flex items-center gap-2">
+                <Shield className="h-5 w-5 text-accent" />
+                <span className="text-2xl font-bold text-accent">100%</span>
               </div>
+              <p className="text-xs text-muted-foreground">Quality Assured</p>
             </div>
           </div>
 
-          {/* Bottom: filter text + button */}
-          <div className="max-w-2xl space-y-3">
+          {/* Filter text + button */}
+          <div className="space-y-3">
             <p className="text-sm text-muted-foreground leading-relaxed text-center">
               {"Use the filters below to explore our full portfolio. Looking for something specific or can't find what you need?"}
             </p>
