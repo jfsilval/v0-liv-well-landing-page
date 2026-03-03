@@ -37,7 +37,9 @@ export function Navigation() {
     return false
   }
 
+  const isArticlePage = pathname.startsWith("/pharma-insights/") && pathname !== "/pharma-insights"
   const hasHeroBg = pathname === "/" || pathname === "/products" || pathname.startsWith("/pharma-insights")
+  const showWhiteText = isArticlePage && !isScrolled
 
   return (
     <nav
@@ -59,7 +61,7 @@ export function Navigation() {
               alt="Liv Well Pharmaceuticals"
               width={364}
               height={145}
-              className="h-32 w-auto"
+              className={cn("h-32 w-auto transition-all duration-300", showWhiteText && "brightness-0 invert")}
               priority
             />
           </Link>
@@ -71,16 +73,25 @@ export function Navigation() {
                 key={item.id}
                 href={item.href}
                 className={cn(
-                  "text-sm font-semibold tracking-wide transition-all duration-200 pb-1 border-b-2 hover:text-primary",
-                  getIsActive(item)
-                    ? "text-primary border-primary"
-                    : "text-foreground/80 border-transparent hover:border-primary/50",
+                  "text-sm font-semibold tracking-wide transition-all duration-300 pb-1 border-b-2",
+                  showWhiteText
+                    ? getIsActive(item)
+                      ? "text-white border-white"
+                      : "text-white/80 border-transparent hover:text-white hover:border-white/50"
+                    : getIsActive(item)
+                      ? "text-primary border-primary"
+                      : "text-foreground/80 border-transparent hover:text-primary hover:border-primary/50",
                 )}
               >
                 {item.label}
               </Link>
             ))}
-            <button className="text-foreground/80 hover:text-primary transition-colors" aria-label="Search">
+            <button className={cn(
+              "transition-all duration-300",
+              showWhiteText
+                ? "text-white/80 hover:text-white"
+                : "text-foreground/80 hover:text-primary"
+            )} aria-label="Search">
               <Search size={20} />
             </button>
           </div>
