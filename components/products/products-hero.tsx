@@ -15,14 +15,20 @@ export function ProductsHero() {
               Product Portfolio
             </p>
 
-            <h1 className="text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
-              {"Our "}
-              <span className="text-primary">Pharmaceutical</span>
-              {" Products"}
+            <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-primary">
+              {"Quality, proven, and globally accessible — "}
+              <span className="text-secondary">{"that's our standard."}</span>
             </h1>
 
-            <p className="text-base text-muted-foreground leading-relaxed">
-              {"Quality, proven, and globally accessible, that's the standard behind every product Liv Well Pharmaceuticals brings to market. Our catalog spans essential generics, specialty care, therapeutic treatments, and consumer wellness solutions, thoughtfully assembled to support health ministries, distributors, importers, and care providers in delivering effective treatments where they're needed most."}
+            {/* Mid-statement with left border accent */}
+            <div className="border-l-[3px] border-secondary/50 pl-5">
+              <p className="text-lg lg:text-xl font-semibold text-foreground">
+                {"Our catalog spans essential generics, specialty care, therapeutic treatments, and consumer wellness solutions."}
+              </p>
+            </div>
+
+            <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
+              {"Thoughtfully assembled to support health ministries, distributors, importers, and care providers in delivering effective treatments where they're needed most."}
             </p>
           </div>
 
