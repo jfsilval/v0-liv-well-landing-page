@@ -6,13 +6,14 @@ export default function PharmaInsightsLoading() {
     <main className="min-h-screen">
       <Navigation />
 
-      {/* Hero skeleton */}
+      {/* Hero skeleton - full width dark */}
       <section className="relative pt-28 bg-[#0a2351]">
-        <div className="grid lg:grid-cols-5 h-[calc(100vh-7rem)]">
-          <div className="lg:col-span-3 flex flex-col justify-center px-8 lg:px-16">
-            <div className="max-w-2xl space-y-5">
+        <div className="h-[calc(100vh-7rem)] flex items-start pt-16">
+          <div className="container mx-auto px-8 lg:px-16">
+            <div className="max-w-3xl space-y-5">
               <Skeleton className="h-4 w-32 bg-white/10" />
               <Skeleton className="h-12 w-3/4 bg-white/10" />
+              <Skeleton className="h-12 w-2/3 bg-white/10" />
               <Skeleton className="h-5 w-full bg-white/10" />
               <Skeleton className="h-5 w-4/5 bg-white/10" />
               <div className="flex gap-3">
@@ -21,13 +22,10 @@ export default function PharmaInsightsLoading() {
               </div>
             </div>
           </div>
-          <div className="lg:col-span-2 hidden lg:block p-4">
-            <Skeleton className="h-full w-full rounded-xl bg-white/10" />
-          </div>
         </div>
       </section>
 
-      {/* Content skeleton */}
+      {/* Content skeleton - horizontal cards */}
       <section className="py-12 bg-primary/5">
         <div className="container mx-auto px-4">
           {/* Search bar */}
@@ -37,20 +35,20 @@ export default function PharmaInsightsLoading() {
             <Skeleton className="h-5 w-32" />
           </div>
 
-          {/* 3 column card grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="bg-card border border-border rounded-xl overflow-hidden">
-                <Skeleton className="aspect-video w-full rounded-none" />
-                <div className="p-5 space-y-3">
-                  <Skeleton className="h-5 w-28 rounded-full" />
-                  <Skeleton className="h-3 w-24" />
-                  <Skeleton className="h-5 w-3/4" />
+          {/* Horizontal card skeletons */}
+          <div className="space-y-6">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="bg-card border border-border rounded-xl overflow-hidden flex">
+                <Skeleton className="w-1/3 min-h-[220px] rounded-none" />
+                <div className="p-6 flex-1 space-y-3">
+                  <div className="flex gap-3">
+                    <Skeleton className="h-5 w-28 rounded-full" />
+                    <Skeleton className="h-4 w-24" />
+                  </div>
+                  <Skeleton className="h-6 w-3/4" />
                   <Skeleton className="h-4 w-full" />
                   <Skeleton className="h-4 w-5/6" />
-                  <div className="border-t border-border pt-4 mt-4">
-                    <Skeleton className="h-9 w-36" />
-                  </div>
+                  <Skeleton className="h-4 w-32 mt-4" />
                 </div>
               </div>
             ))}

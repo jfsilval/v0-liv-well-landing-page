@@ -103,7 +103,7 @@ export function PharmaInsightsContent({
   return (
     <section className="py-12 bg-primary/5">
       <div className="container mx-auto px-4">
-        {/* Search bar + counter - matching products filter card style */}
+        {/* Search bar + counter */}
         <div className="bg-primary/5 border border-primary/10 rounded-xl shadow-sm p-5 mb-10 flex flex-col md:flex-row items-center gap-4">
           <div className="relative flex-1 w-full">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -117,7 +117,7 @@ export function PharmaInsightsContent({
           <Button
             type="button"
             className="bg-[#0a2351] hover:bg-[#0a2351]/90 text-white shrink-0"
-            onClick={() => {/* search is live */}}
+            onClick={() => {}}
           >
             <Search className="h-4 w-4 mr-2" />
             Search
@@ -127,21 +127,21 @@ export function PharmaInsightsContent({
           </p>
         </div>
 
-        {/* Articles grid - 3 columns */}
+        {/* Articles - horizontal cards */}
         {filteredPosts.length === 0 ? (
           <div className="text-center py-16">
             <Search className="h-10 w-10 text-muted-foreground/40 mx-auto mb-4" />
             <p className="text-muted-foreground">No articles match your search.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="space-y-6">
             {filteredPosts.map((post) => (
               <article
                 key={post.id}
-                className="bg-card border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:border-t-[3px] hover:border-t-primary transition-all duration-300 group flex flex-col"
+                className="bg-card border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col md:flex-row"
               >
-                {/* Image - 16:9 ratio */}
-                <div className="relative aspect-video">
+                {/* Image - 1/3 */}
+                <div className="relative md:w-1/3 aspect-video md:aspect-auto md:min-h-[220px] shrink-0">
                   {post.heroImage?.url ? (
                     <Image
                       src={post.heroImage.url}
@@ -156,28 +156,31 @@ export function PharmaInsightsContent({
                   )}
                 </div>
 
-                {/* Content */}
-                <div className="p-5 flex flex-col flex-1">
-                  <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 w-fit text-xs mb-2">
-                    Pharma Insights
-                  </Badge>
-                  <p className="text-xs text-muted-foreground mb-2">{formatDate(post.publishedAt)}</p>
-                  <h3 className="text-base font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                {/* Content - 2/3 */}
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 text-xs">
+                      Pharma Insights
+                    </Badge>
+                    <p className="text-xs text-muted-foreground">{formatDate(post.publishedAt)}</p>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
                     {post.title}
                   </h3>
+
                   {post.meta?.description && (
-                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-1">
+                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-1 mb-4">
                       {post.meta.description}
                     </p>
                   )}
 
-                  {/* Separator + button */}
-                  <div className="border-t border-border mt-4 pt-4">
+                  <div className="mt-auto">
                     <a
                       href={`${cmsUrl}/posts/${post.slug}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-sm font-semibold text-primary border border-primary/30 rounded-md px-4 py-2 hover:bg-primary/5 transition-colors group/btn"
+                      className="inline-flex items-center text-sm font-semibold text-primary hover:text-primary/80 transition-colors group/btn"
                     >
                       {"Read full article"}
                       <ArrowRight className="ml-1.5 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
