@@ -2,7 +2,7 @@ import { Metadata } from "next"
 import Link from "next/link"
 import { ArrowLeft, Calendar, Clock, User, ChevronRight } from "lucide-react"
 import { getPostBySlug, getPosts } from "@/lib/cms"
-import { RichText, extractPlainText } from "@/components/pharma-insights/rich-text"
+import { RichText } from "@/components/pharma-insights/rich-text"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Navigation } from "@/components/navigation"
@@ -39,10 +39,22 @@ function formatDate(dateString: string) {
   })
 }
 
+function extractPlainText(node: any): string {
+  if (!node) return ''
+  if (node.type === 'text') return node.text || ''
+  if (Array.isArray(node.children)) {
+    return node.children
+      .map((child: any) => extractPlainText(child))
+      .join(' ')
+  }
+  return ''
+}
+
 function calculateReadTime(content: any): number {
-  const text = extractPlainText(content)
-  const words = text.split(/\s+/).filter(Boolean).length
-  return Math.max(1, Math.ceil(words / 200))
+  if (!content?.root) return 1
+  const text = extractPlainText(content.root)
+  const wordCount = text.trim().split(/\s+/).filter(Boolean).length
+  return Math.max(1, Math.ceil(wordCount / 200))
 }
 
 export default async function ArticlePage({ params }: PageProps) {
