@@ -18,7 +18,7 @@ export function PharmaInsightsHero() {
           <div className="container mx-auto px-8 lg:px-16">
             <div className="max-w-3xl space-y-6">
               <p className="text-sm font-semibold tracking-widest uppercase text-secondary">
-                Knowledge Hub
+                Pharma Insights
               </p>
 
               <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-white text-balance">

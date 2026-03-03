@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 
 export function WwwwCta() {
   return (
-    <section className="py-16 bg-[#0a2351] relative overflow-hidden">
+    <section className="py-16 bg-[#0a2351] relative overflow-hidden border-b border-white/20">
       {/* Decorative background */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-1/3 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
