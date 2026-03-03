@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Facebook, Twitter, Linkedin, Instagram, Mail } from "lucide-react"
+import { Mail } from "lucide-react"
 
 export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance?: boolean }) {
   return (
@@ -36,23 +36,25 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
       {/* End of pharmacovigilance section */}
 
       <div className="bg-[#0a2351] text-white">
-        <div className="container mx-auto px-4 py-12">
-          <div className="text-center mb-8 pb-8 border-b border-white/20">
+        <div className="container mx-auto px-4 pb-12">
+          <div className="text-center pt-8 pb-8 border-t border-b border-white/20">
             <p className="text-2xl font-semibold text-balance">Quality Generics. Global Reach. Trusted Worldwide.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] gap-8 py-6 lg:justify-items-center lg:items-center">
             {/* Company Info */}
-            <div>
+            <div className="min-w-0 lg:justify-self-start flex flex-col items-center text-center">
               <Image
                 src="/logo.png"
                 alt="Liv Well Pharmaceuticals"
-                width={400}
+                width={280}
                 height={160}
                 className="h-36 w-auto mb-4 brightness-0 invert"
               />
               <p className="text-sm text-white/80 leading-relaxed">
-                Trusted pharmaceutical solutions for a healthier world. Innovation, quality, and care in every product.
+                Trusted pharmaceutical solutions<br />
+                for a healthier world. Innovation,<br />
+                quality, and care in every product.
               </p>
             </div>
 
@@ -61,22 +63,22 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
               <h3 className="font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#products" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/products" className="text-sm text-white/80 hover:text-white transition-colors">
                     Products
                   </Link>
                 </li>
                 <li>
-                  <Link href="#services" className="text-sm text-white/80 hover:text-white transition-colors">
-                    Services
+                  <Link href="/who-we-work-with" className="text-sm text-white/80 hover:text-white transition-colors">
+                    Who We Work With
                   </Link>
                 </li>
                 <li>
-                  <Link href="#about" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="#contact" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/#contact" className="text-sm text-white/80 hover:text-white transition-colors">
                     Contact
                   </Link>
                 </li>
@@ -88,22 +90,22 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
               <h3 className="font-semibold mb-4">Resources</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">
-                    Patient Information
+                  <Link href="/pharma-insights" className="text-sm text-white/80 hover:text-white transition-colors">
+                    Pharma Insights
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/who-we-work-with" className="text-sm text-white/80 hover:text-white transition-colors">
                     Healthcare Professionals
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">
-                    Clinical Trials
+                  <Link href="/products" className="text-sm text-white/80 hover:text-white transition-colors">
+                    Product Catalog
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/#contact" className="text-sm text-white/80 hover:text-white transition-colors">
                     Pharmacovigilance
                   </Link>
                 </li>
@@ -115,22 +117,22 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
               <h3 className="font-semibold mb-4">Legal</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
                     Terms of Service
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
                     Cookie Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
                     Compliance
                   </Link>
                 </li>
@@ -139,38 +141,10 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="border-t border-white/20 pt-8 flex justify-center items-center">
             <p className="text-sm text-white/80">
               © {new Date().getFullYear()} Liv Well Pharmaceuticals. All rights reserved.
             </p>
-
-            {/* Social Links */}
-            <div className="flex gap-4">
-              <Link
-                href="#"
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-              >
-                <Facebook className="h-4 w-4" />
-              </Link>
-              <Link
-                href="#"
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-              >
-                <Twitter className="h-4 w-4" />
-              </Link>
-              <Link
-                href="#"
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-              >
-                <Linkedin className="h-4 w-4" />
-              </Link>
-              <Link
-                href="#"
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-              >
-                <Instagram className="h-4 w-4" />
-              </Link>
-            </div>
           </div>
         </div>
       </div>

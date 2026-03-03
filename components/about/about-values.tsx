@@ -41,53 +41,57 @@ const values = [
 
 export function AboutValues() {
   return (
-    <section className="py-24 bg-primary/10">
+    <section className="py-12 bg-primary/10">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3 text-balance">
               Our <span className="text-primary">Values</span>
             </h2>
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-4">
               <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
             </div>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Every decision at Liv Well Pharmaceuticals is shaped by five core values that define not just how we work,
               but who we are.
             </p>
           </div>
 
           {/* Values grid - 3 on top, 2 centered below */}
-          <div className="grid md:grid-cols-3 gap-6 mb-6">
+          <div className="grid md:grid-cols-3 gap-4 mb-4">
             {values.slice(0, 3).map((value) => (
               <Card
                 key={value.title}
-                className="p-8 hover:shadow-xl transition-all duration-300 group border-t-4 border-t-transparent hover:border-t-primary"
+                className="p-4 hover:shadow-xl transition-all duration-300 group border-t-4 border-t-transparent hover:border-t-primary"
               >
-                <div
-                  className={`w-14 h-14 rounded-xl ${value.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
-                >
-                  <value.icon className={`h-7 w-7 ${value.color}`} />
+                <div className="flex items-center gap-3 mb-2">
+                  <div
+                    className={`w-9 h-9 rounded-lg ${value.bg} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}
+                  >
+                    <value.icon className={`h-4 w-4 ${value.color}`} />
+                  </div>
+                  <h3 className="text-base font-bold text-foreground">{value.title}</h3>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{value.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{value.text}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{value.text}</p>
               </Card>
             ))}
           </div>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {values.slice(3).map((value) => (
               <Card
                 key={value.title}
-                className="p-8 hover:shadow-xl transition-all duration-300 group border-t-4 border-t-transparent hover:border-t-primary"
+                className="p-4 hover:shadow-xl transition-all duration-300 group border-t-4 border-t-transparent hover:border-t-primary"
               >
-                <div
-                  className={`w-14 h-14 rounded-xl ${value.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
-                >
-                  <value.icon className={`h-7 w-7 ${value.color}`} />
+                <div className="flex items-center gap-3 mb-2">
+                  <div
+                    className={`w-9 h-9 rounded-lg ${value.bg} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}
+                  >
+                    <value.icon className={`h-4 w-4 ${value.color}`} />
+                  </div>
+                  <h3 className="text-base font-bold text-foreground">{value.title}</h3>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{value.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{value.text}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{value.text}</p>
               </Card>
             ))}
           </div>

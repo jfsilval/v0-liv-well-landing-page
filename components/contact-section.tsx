@@ -125,11 +125,11 @@ export function ContactSection() {
           </div>
 
           {/* Contact Form */}
-          <Card className="lg:col-span-3 p-8">
+          <Card className="lg:col-span-3 p-8 bg-white/10 border-white/10">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name">
+                  <Label htmlFor="name" className="text-white">
                     Name <span className="text-destructive">*</span>
                   </Label>
                   <Input
@@ -138,13 +138,13 @@ export function ContactSection() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your name"
-                    className={errors.name ? "border-destructive" : ""}
+                    className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.name ? "border-destructive" : ""}`}
                   />
                   {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email">
+                  <Label htmlFor="email" className="text-white">
                     Email <span className="text-destructive">*</span>
                   </Label>
                   <Input
@@ -154,7 +154,7 @@ export function ContactSection() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="your@email.com"
-                    className={errors.email ? "border-destructive" : ""}
+                    className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.email ? "border-destructive" : ""}`}
                   />
                   {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
                 </div>
@@ -162,7 +162,7 @@ export function ContactSection() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone</Label>
+                  <Label htmlFor="phone" className="text-white">Phone</Label>
                   <Input
                     id="phone"
                     name="phone"
@@ -170,23 +170,25 @@ export function ContactSection() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+1 (555) 000-0000"
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white/40"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
+                  <Label htmlFor="subject" className="text-white">Subject</Label>
                   <Input
                     id="subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="How can we help?"
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white/40"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message">
+                <Label htmlFor="message" className="text-white">
                   Message <span className="text-destructive">*</span>
                 </Label>
                 <Textarea
@@ -196,12 +198,12 @@ export function ContactSection() {
                   onChange={handleChange}
                   placeholder="Tell us about your inquiry..."
                   rows={6}
-                  className={errors.message ? "border-destructive" : ""}
+                  className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.message ? "border-destructive" : ""}`}
                 />
                 {errors.message && <p className="text-sm text-destructive">{errors.message}</p>}
               </div>
 
-              <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button type="submit" size="lg" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground">
                 Send Message
               </Button>
             </form>

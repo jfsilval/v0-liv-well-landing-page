@@ -1,12 +1,10 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Poppins } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-// <CHANGE> Updated fonts for pharmaceutical branding
-const _inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
-const _poppins = Poppins({
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
+const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-poppins",
@@ -16,20 +14,17 @@ export const metadata: Metadata = {
   title: "Liv Well Pharmaceuticals",
   description:
     "Leading pharmaceutical company providing innovative healthcare solutions worldwide. Quality medicines and healthcare products you can trust.",
-  generator: "v0.app",
   icons: {
-  shortcut: "/favicon.ico",
-  icon: [
-    { url: "/favicon.ico" },
-    { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-    { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-    { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-    { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
-  ],
-  apple: [
-    { url: "/apple-touch-icon.png" },
-  ],
-},
+    shortcut: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png" }],
+  },
 }
 
 export default function RootLayout({
@@ -39,9 +34,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>
+      <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
         {children}
-        <Analytics />
       </body>
     </html>
   )

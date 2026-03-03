@@ -1,15 +1,13 @@
-"use client"
-
 import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 
-export function WwwwHero() {
+export function PharmaInsightsHero() {
   return (
     <section className="relative overflow-hidden mt-28 bg-primary/10">
       <div className="relative h-[calc(100vh-7rem)]">
         <Image
-          src="/who-we-work-with-hero.jpg"
-          alt="Global pharmaceutical partnerships"
+          src="/insights-hero.jpg"
+          alt="Pharmaceutical research and analysis"
           fill
           className="object-cover mix-blend-multiply opacity-40"
           priority
@@ -20,26 +18,27 @@ export function WwwwHero() {
           <div className="container mx-auto px-8 lg:px-16">
             <div className="max-w-3xl space-y-6">
               <p className="text-sm font-semibold tracking-widest uppercase text-secondary">
-                Who We Work With
+                Pharma Insights
               </p>
 
-              <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-white">
-                If you are responsible for<br />
-                pharmaceutical procurement —<br />
-                <span className="text-secondary">Liv Well is built for you.</span>
+              <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-white text-balance">
+                Strategic intelligence for{" "}
+                <span className="text-secondary">healthcare decision-makers.</span>
               </h1>
 
               {/* Mid-statement with left border accent */}
               <div className="border-l-[3px] border-secondary/50 pl-5">
                 <p className="text-lg lg:text-xl font-semibold text-white">
-                  Your pharmaceutical supply chain deserves a partner who takes it as seriously as you do.
+                  Industry analysis, regulatory perspectives, and market insights from the Liv Well team.
                 </p>
               </div>
 
               <p className="text-base text-white/70 leading-relaxed max-w-xl">
-                From large-scale government tenders to targeted portfolio additions for local distribution, we ensure
-                access to quality generic pharmaceuticals for partners worldwide.
+                Explore curated content designed for health ministries, distributors, importers, and care providers
+                navigating the global pharmaceutical landscape.
               </p>
+
+
             </div>
           </div>
         </div>
