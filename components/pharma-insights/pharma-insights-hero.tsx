@@ -1,6 +1,5 @@
 import Image from "next/image"
-import { ChevronDown, FileText, Globe } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
+import { ChevronDown } from "lucide-react"
 
 export function PharmaInsightsHero() {
   return (
@@ -39,17 +38,7 @@ export function PharmaInsightsHero() {
                 navigating the global pharmaceutical landscape.
               </p>
 
-              {/* Badges */}
-              <div className="flex gap-3 pt-1">
-                <Badge variant="secondary" className="bg-secondary/20 text-secondary border-secondary/30 px-4 py-1.5">
-                  <FileText className="h-3.5 w-3.5 mr-1.5" />
-                  Expert Analysis
-                </Badge>
-                <Badge variant="secondary" className="bg-accent/20 text-accent border-accent/30 px-4 py-1.5">
-                  <Globe className="h-3.5 w-3.5 mr-1.5" />
-                  Industry Intelligence
-                </Badge>
-              </div>
+
             </div>
           </div>
         </div>

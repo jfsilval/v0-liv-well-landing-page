@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer"
 import { getPosts } from "@/lib/cms"
 import { PharmaInsightsHero } from "@/components/pharma-insights/pharma-insights-hero"
 import { PharmaInsightsContent } from "@/components/pharma-insights/pharma-insights-content"
-import { PharmaInsightsCTA } from "@/components/pharma-insights/pharma-insights-cta"
+
 
 export const metadata: Metadata = {
   title: "Pharma Insights | Liv Well Pharmaceuticals",
@@ -44,7 +44,6 @@ export default async function PharmaInsightsPage({
         error={error}
       />
 
-      <PharmaInsightsCTA />
       <Footer showPharmacovigilance={false} />
     </main>
   )
