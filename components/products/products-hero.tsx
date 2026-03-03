@@ -5,19 +5,19 @@ import { Button } from "@/components/ui/button"
 
 export function ProductsHero() {
   return (
-    <section className="relative overflow-hidden mt-28 bg-primary/10">
+    <section className="relative overflow-hidden mt-28 bg-[#0a2351]">
       <div className="relative h-[calc(100vh-7rem)]">
         {/* Background image */}
         <Image
           src="/products-hero.jpg"
           alt="Pharmaceutical products portfolio"
           fill
-          className="object-cover opacity-30"
+          className="object-cover opacity-50"
           priority
         />
 
-        {/* Overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a2351]/85 via-[#0a2351]/60 to-[#0a2351]/40" />
+        {/* Gradient overlay - left side for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a2351]/90 via-[#0a2351]/50 to-transparent" />
 
         {/* Content */}
         <div className="absolute inset-0 z-10 flex items-start pt-16">
