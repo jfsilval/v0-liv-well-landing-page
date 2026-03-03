@@ -1,3 +1,14 @@
+const CMS_URL =
+  process.env.NEXT_PUBLIC_CMS_URL || 'https://cms-payload-livwell.vercel.app'
+
+// ─── Helper: convierte URLs relativas del CMS a absolutas ───────────────────
+export function resolveMediaUrl(url: string | null | undefined): string | null {
+  if (!url) return null
+  if (url.startsWith('http')) return url
+  return `${CMS_URL}${url}`
+}
+
+// ─── Tipos ──────────────────────────────────────────────────────────────────
 export type Product = {
   id: number
   nombre: string
@@ -7,6 +18,28 @@ export type Product = {
   activo: boolean
   forma_farmaceutica: string
   concentraciones: string
+}
+
+export type Post = {
+  id: number
+  title: string
+  slug: string
+  publishedAt: string
+  heroImage?: {
+    url: string
+    alt?: string
+    thumbnailURL?: string
+    width?: number
+    height?: number
+  } | null
+  categories?: Array<{ id: number; title: string; slug: string }>
+  meta?: {
+    title?: string
+    description?: string
+  }
+  content?: any
+  populatedAuthors?: Array<{ id: number; name: string }>
+  _status?: string
 }
 
 export type CMSList<T> = {
@@ -20,73 +53,7 @@ export type CMSList<T> = {
   prevPage: number | null
 }
 
-export type Post = {
-  id: string
-  title: string
-  slug: string
-  publishedAt: string
-  heroImage?: { url: string; alt?: string } | null
-  categories?: Array<{ id: string; title: string }>
-  meta?: { title?: string; description?: string }
-  content?: any
-  populatedAuthors?: Array<{ id: string; name: string }>
-}
-
-const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL ?? ""
-
-export function resolveMediaUrl(url: string): string {
-  if (!url) return ""
-  if (url.startsWith("http")) return url
-  return `${CMS_URL}${url.startsWith("/") ? "" : "/"}${url}`
-}
-
-export async function getPostBySlug(slug: string): Promise<Post | null> {
-  const url = `${CMS_URL}/api/posts?where[slug][equals]=${encodeURIComponent(slug)}&limit=1&depth=2`
-
-  const res = await fetch(url, { next: { revalidate: 60 } })
-
-  if (!res.ok) {
-    console.log("[v0] CMS getPostBySlug error:", res.status)
-    return null
-  }
-
-  const data: CMSList<Post> = await res.json()
-  const post = data.docs[0] ?? null
-
-  if (post?.heroImage?.url) {
-    post.heroImage.url = resolveMediaUrl(post.heroImage.url)
-  }
-
-  return post
-}
-
-export async function getPosts(params?: {
-  page?: number
-  limit?: number
-  categoryTitle?: string
-}): Promise<CMSList<Post>> {
-  const searchParams = new URLSearchParams()
-
-  if (params?.page) searchParams.set("page", String(params.page))
-  if (params?.limit) searchParams.set("limit", String(params.limit))
-  if (params?.categoryTitle) {
-    searchParams.set("where[categories.title][equals]", params.categoryTitle)
-  }
-
-  const qs = searchParams.toString()
-  const url = `${CMS_URL}/api/posts${qs ? `?${qs}` : ""}`
-
-  const res = await fetch(url, { next: { revalidate: 60 } })
-
-  if (!res.ok) {
-    const body = await res.text().catch(() => "")
-    console.log("[v0] CMS posts error:", res.status, body)
-    throw new Error(`Failed to fetch posts: ${res.status} ${res.statusText}`)
-  }
-
-  return res.json()
-}
-
+// ─── Products ────────────────────────────────────────────────────────────────
 export async function getProducts(params?: {
   page?: number
   limit?: number
@@ -95,40 +62,77 @@ export async function getProducts(params?: {
   sub_categoria?: string
   clasificacion_atc?: string
 }): Promise<CMSList<Product>> {
-  const searchParams = new URLSearchParams()
+  const qs = new URLSearchParams()
+  qs.set('limit', String(params?.limit ?? 20))
+  qs.set('page', String(params?.page ?? 1))
+  if (params?.nombre)
+    qs.set('where[nombre][like]', params.nombre)
+  if (params?.categoria)
+    qs.set('where[categoria][like]', params.categoria)
+  if (params?.sub_categoria)
+    qs.set('where[sub_categoria][like]', params.sub_categoria)
+  if (params?.clasificacion_atc)
+    qs.set('where[clasificacion_atc][like]', params.clasificacion_atc)
 
-  if (params?.page) searchParams.set("page", String(params.page))
-  if (params?.limit) searchParams.set("limit", String(params.limit))
-
-  // Always filter by active products only
-  searchParams.set("where[activo][equals]", "true")
-
-  // User-provided filters
-  if (params?.nombre) {
-    searchParams.set("where[nombre][contains]", params.nombre)
-  }
-  if (params?.categoria) {
-    searchParams.set("where[categoria][contains]", params.categoria)
-  }
-  if (params?.sub_categoria) {
-    searchParams.set("where[sub_categoria][contains]", params.sub_categoria)
-  }
-  if (params?.clasificacion_atc) {
-    searchParams.set("where[clasificacion_atc][contains]", params.clasificacion_atc)
-  }
-
-  const qs = searchParams.toString()
-  const url = `${CMS_URL}/api/products${qs ? `?${qs}` : ""}`
-
-  console.log("[v0] Fetching products from:", url)
-
-  const res = await fetch(url, { next: { revalidate: 60 } })
-
-  if (!res.ok) {
-    const body = await res.text().catch(() => "")
-    console.log("[v0] CMS error response:", res.status, body)
-    throw new Error(`Failed to fetch products: ${res.status} ${res.statusText}`)
-  }
-
+  const res = await fetch(`${CMS_URL}/api/products?${qs}`, {
+    next: { revalidate: 3600 },
+  })
+  if (!res.ok) throw new Error('Failed to fetch products')
   return res.json()
 }
+
+// ─── Posts (lista) ───────────────────────────────────────────────────────────
+export async function getPosts(params?: {
+  page?: number
+  limit?: number
+  categoryTitle?: string
+}): Promise<CMSList<Post>> {
+  const qs = new URLSearchParams()
+  qs.set('limit', String(params?.limit ?? 12))
+  qs.set('page', String(params?.page ?? 1))
+  qs.set('depth', '2')
+  qs.set('sort', '-publishedAt')
+  if (params?.categoryTitle)
+    qs.set('where[categories.title][equals]', params.categoryTitle)
+
+  const res = await fetch(`${CMS_URL}/api/posts?${qs}`, {
+    next: { revalidate: 3600 },
+  })
+  if (!res.ok) throw new Error('Failed to fetch posts')
+
+  const data: CMSList<Post> = await res.json()
+
+  // Resolver URLs relativas de imágenes
+  data.docs = data.docs.map((post) => ({
+    ...post,
+    heroImage: post.heroImage
+      ? { ...post.heroImage, url: resolveMediaUrl(post.heroImage.url) ?? '' }
+      : null,
+  }))
+
+  return data
+}
+
+// ─── Post individual por slug ────────────────────────────────────────────────
+export async function getPostBySlug(slug: string): Promise<Post | null> {
+  const qs = new URLSearchParams()
+  qs.set('where[slug][equals]', slug)
+  qs.set('depth', '2')
+  qs.set('limit', '1')
+
+  const res = await fetch(`${CMS_URL}/api/posts?${qs}`, {
+    next: { revalidate: 3600 },
+  })
+  if (!res.ok) return null
+
+  const data: CMSList<Post> = await res.json()
+  const post = data.docs?.[0] ?? null
+
+  if (post?.heroImage?.url) {
+    post.heroImage.url = resolveMediaUrl(post.heroImage.url) ?? ''
+  }
+
+  return post
+}
+
+
