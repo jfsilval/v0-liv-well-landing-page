@@ -46,7 +46,7 @@ export default async function ProductsPage({
       <Navigation />
       <ProductsHero />
 
-      <section className="bg-background py-12">
+      <section className="bg-primary/5 py-12">
         <div className="container mx-auto px-4">
           {/* Filters */}
           <ProductsFilters

@@ -62,7 +62,7 @@ export function ProductsFilters({
 
   return (
     <form onSubmit={handleSubmit} className="mb-8">
-      <div className="bg-card border border-border rounded-xl shadow-sm p-6">
+      <div className="bg-primary/5 border border-primary/10 rounded-xl shadow-sm p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
           <div className="space-y-1.5">
             <Label htmlFor="nombre" className="text-sm font-medium">Active Ingredient</Label>
@@ -71,7 +71,7 @@ export function ProductsFilters({
               name="nombre"
               placeholder="e.g. Paracetamol"
               defaultValue={nombre ?? ""}
-              className="bg-background"
+              className="bg-white border-primary/15"
             />
           </div>
           <div className="space-y-1.5">
@@ -81,7 +81,7 @@ export function ProductsFilters({
               name="categoria"
               placeholder="e.g. Analgesics"
               defaultValue={categoria ?? ""}
-              className="bg-background"
+              className="bg-white border-primary/15"
             />
           </div>
           <div className="space-y-1.5">
@@ -91,7 +91,7 @@ export function ProductsFilters({
               name="sub_categoria"
               placeholder="e.g. Non-opioid"
               defaultValue={subCategoria ?? ""}
-              className="bg-background"
+              className="bg-white border-primary/15"
             />
           </div>
           <div className="space-y-1.5">
@@ -101,7 +101,7 @@ export function ProductsFilters({
               name="clasificacion_atc"
               placeholder="e.g. N02BE01"
               defaultValue={clasificacionAtc ?? ""}
-              className="bg-background"
+              className="bg-white border-primary/15"
             />
           </div>
         </div>
@@ -126,7 +126,7 @@ export function ProductsFilters({
               name="limit"
               defaultValue={limit}
               onChange={handleLimitChange}
-              className="h-9 rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              className="h-9 rounded-md border border-primary/15 bg-white px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
               <option value="10">10</option>
               <option value="20">20</option>

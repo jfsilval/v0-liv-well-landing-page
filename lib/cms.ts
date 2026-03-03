@@ -4,7 +4,7 @@ export type Product = {
   categoria: string
   sub_categoria: string
   clasificacion_atc: string
-  activo_en_catalogo: string
+  activo: boolean
   forma_farmaceutica: string
   concentraciones: string
 }
@@ -35,35 +35,33 @@ export async function getProducts(params?: {
   if (params?.page) searchParams.set("page", String(params.page))
   if (params?.limit) searchParams.set("limit", String(params.limit))
 
-  // Always filter by active on catalog
-  let whereIndex = 0
-  searchParams.set(`where[and][${whereIndex}][activo_en_catalogo][equals]`, "Yes")
-  whereIndex++
+  // Always filter by active products only
+  searchParams.set("where[activo][equals]", "true")
 
-  // User-provided filters using Payload CMS "where" syntax
+  // User-provided filters
   if (params?.nombre) {
-    searchParams.set(`where[and][${whereIndex}][nombre][contains]`, params.nombre)
-    whereIndex++
+    searchParams.set("where[nombre][contains]", params.nombre)
   }
   if (params?.categoria) {
-    searchParams.set(`where[and][${whereIndex}][categoria][contains]`, params.categoria)
-    whereIndex++
+    searchParams.set("where[categoria][contains]", params.categoria)
   }
   if (params?.sub_categoria) {
-    searchParams.set(`where[and][${whereIndex}][sub_categoria][contains]`, params.sub_categoria)
-    whereIndex++
+    searchParams.set("where[sub_categoria][contains]", params.sub_categoria)
   }
   if (params?.clasificacion_atc) {
-    searchParams.set(`where[and][${whereIndex}][clasificacion_atc][contains]`, params.clasificacion_atc)
-    whereIndex++
+    searchParams.set("where[clasificacion_atc][contains]", params.clasificacion_atc)
   }
 
   const qs = searchParams.toString()
   const url = `${CMS_URL}/api/products${qs ? `?${qs}` : ""}`
 
+  console.log("[v0] Fetching products from:", url)
+
   const res = await fetch(url, { next: { revalidate: 60 } })
 
   if (!res.ok) {
+    const body = await res.text().catch(() => "")
+    console.log("[v0] CMS error response:", res.status, body)
     throw new Error(`Failed to fetch products: ${res.status} ${res.statusText}`)
   }
 
