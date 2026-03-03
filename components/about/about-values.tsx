@@ -63,14 +63,16 @@ export function AboutValues() {
             {values.slice(0, 3).map((value) => (
               <Card
                 key={value.title}
-                className="p-5 hover:shadow-xl transition-all duration-300 group border-t-4 border-t-transparent hover:border-t-primary"
+                className="p-4 hover:shadow-xl transition-all duration-300 group border-t-4 border-t-transparent hover:border-t-primary"
               >
-                <div
-                  className={`w-10 h-10 rounded-lg ${value.bg} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}
-                >
-                  <value.icon className={`h-5 w-5 ${value.color}`} />
+                <div className="flex items-center gap-3 mb-2">
+                  <div
+                    className={`w-9 h-9 rounded-lg ${value.bg} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}
+                  >
+                    <value.icon className={`h-4 w-4 ${value.color}`} />
+                  </div>
+                  <h3 className="text-base font-bold text-foreground">{value.title}</h3>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">{value.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{value.text}</p>
               </Card>
             ))}
@@ -79,14 +81,16 @@ export function AboutValues() {
             {values.slice(3).map((value) => (
               <Card
                 key={value.title}
-                className="p-5 hover:shadow-xl transition-all duration-300 group border-t-4 border-t-transparent hover:border-t-primary"
+                className="p-4 hover:shadow-xl transition-all duration-300 group border-t-4 border-t-transparent hover:border-t-primary"
               >
-                <div
-                  className={`w-10 h-10 rounded-lg ${value.bg} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}
-                >
-                  <value.icon className={`h-5 w-5 ${value.color}`} />
+                <div className="flex items-center gap-3 mb-2">
+                  <div
+                    className={`w-9 h-9 rounded-lg ${value.bg} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}
+                  >
+                    <value.icon className={`h-4 w-4 ${value.color}`} />
+                  </div>
+                  <h3 className="text-base font-bold text-foreground">{value.title}</h3>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">{value.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{value.text}</p>
               </Card>
             ))}
