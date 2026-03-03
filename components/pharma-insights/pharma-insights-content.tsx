@@ -135,17 +135,24 @@ export function PharmaInsightsContent({
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
-            {filteredPosts.map((post) => (
+            {filteredPosts.map((post) => {
+              const imageUrl = post.heroImage?.url
+                ? post.heroImage.url.startsWith('/')
+                  ? `${process.env.NEXT_PUBLIC_CMS_URL}${post.heroImage.url}`
+                  : post.heroImage.url
+                : null
+
+              return (
               <article
                 key={post.id}
                 className="bg-card border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col w-full"
               >
                 {/* Image */}
                 <div className="relative aspect-video shrink-0">
-                  {post.heroImage?.url ? (
+                  {imageUrl ? (
                     <Image
-                      src={post.heroImage.url}
-                      alt={post.heroImage.alt ?? post.title}
+                      src={imageUrl}
+                      alt={post.heroImage?.alt ?? post.title}
                       fill
                       className="object-cover"
                     />
@@ -186,7 +193,8 @@ export function PharmaInsightsContent({
                   </div>
                 </div>
               </article>
-            ))}
+              )
+            })}
           </div>
         )}
 
