@@ -43,7 +43,7 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
 
           <div className="grid md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] gap-8 py-6 lg:justify-items-center lg:items-center">
             {/* Company Info */}
-            <div className="min-w-0 lg:justify-self-start">
+            <div className="min-w-0 lg:justify-self-start flex flex-col items-center text-center">
               <Image
                 src="/logo.png"
                 alt="Liv Well Pharmaceuticals"
