@@ -27,7 +27,7 @@ export function Navigation() {
     { id: "about", label: "ABOUT US", href: "/about" },
     { id: "clients", label: "WHO WE WORK WITH", href: "/who-we-work-with" },
     { id: "health", label: "YOUR HEALTH", href: "/#health" },
-    { id: "products", label: "PRODUCTS", href: "/#products" },
+    { id: "products", label: "PRODUCTS", href: "/products" },
     { id: "contact", label: "CONTACT", href: "/#contact" },
   ]
 
