@@ -52,8 +52,6 @@ export function WwwwCta() {
           </div>
         </div>
 
-        {/* Bottom divider matching footer container width */}
-        <div className="border-b border-white/20 mt-8" />
       </div>
     </section>
   )
