@@ -102,7 +102,9 @@ export function Navigation() {
               variant="ghost"
               size="sm"
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              aria-label={isMobileOpen ? "Close menu" : "Open menu"}
+              aria-label="Open menu"
+              aria-expanded={isMobileOpen}
+              aria-controls="mobile-menu"
             >
               {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
@@ -111,7 +113,15 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {isMobileOpen && (
-          <div className="lg:hidden pb-4 border-t border-border/30">
+          <div
+            id="mobile-menu"
+            role="navigation"
+            aria-label="Mobile navigation"
+            className="lg:hidden pb-4 border-t border-border/30"
+            onKeyDown={(e) => {
+              if (e.key === "Escape") setIsMobileOpen(false)
+            }}
+          >
             <div className="flex flex-col gap-2 pt-4">
               {navItems.map((item) => (
                 <Link

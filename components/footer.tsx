@@ -63,22 +63,22 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
               <h3 className="font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#products" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/products" className="text-sm text-white/80 hover:text-white transition-colors">
                     Products
                   </Link>
                 </li>
                 <li>
-                  <Link href="#services" className="text-sm text-white/80 hover:text-white transition-colors">
-                    Services
+                  <Link href="/who-we-work-with" className="text-sm text-white/80 hover:text-white transition-colors">
+                    Who We Work With
                   </Link>
                 </li>
                 <li>
-                  <Link href="#about" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="#contact" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/#contact" className="text-sm text-white/80 hover:text-white transition-colors">
                     Contact
                   </Link>
                 </li>
@@ -90,22 +90,22 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
               <h3 className="font-semibold mb-4">Resources</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">
-                    Patient Information
+                  <Link href="/pharma-insights" className="text-sm text-white/80 hover:text-white transition-colors">
+                    Pharma Insights
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/who-we-work-with" className="text-sm text-white/80 hover:text-white transition-colors">
                     Healthcare Professionals
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">
-                    Clinical Trials
+                  <Link href="/products" className="text-sm text-white/80 hover:text-white transition-colors">
+                    Product Catalog
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/#contact" className="text-sm text-white/80 hover:text-white transition-colors">
                     Pharmacovigilance
                   </Link>
                 </li>
@@ -117,22 +117,22 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
               <h3 className="font-semibold mb-4">Legal</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
                     Terms of Service
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
                     Cookie Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
                     Compliance
                   </Link>
                 </li>
