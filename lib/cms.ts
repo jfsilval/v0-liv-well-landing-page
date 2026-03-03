@@ -27,10 +27,38 @@ export type Post = {
   publishedAt: string
   heroImage?: { url: string; alt?: string } | null
   categories?: Array<{ id: string; title: string }>
-  meta?: { description?: string }
+  meta?: { title?: string; description?: string }
+  content?: any
+  populatedAuthors?: Array<{ id: string; name: string }>
 }
 
 const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL ?? ""
+
+export function resolveMediaUrl(url: string): string {
+  if (!url) return ""
+  if (url.startsWith("http")) return url
+  return `${CMS_URL}${url.startsWith("/") ? "" : "/"}${url}`
+}
+
+export async function getPostBySlug(slug: string): Promise<Post | null> {
+  const url = `${CMS_URL}/api/posts?where[slug][equals]=${encodeURIComponent(slug)}&limit=1&depth=2`
+
+  const res = await fetch(url, { next: { revalidate: 60 } })
+
+  if (!res.ok) {
+    console.log("[v0] CMS getPostBySlug error:", res.status)
+    return null
+  }
+
+  const data: CMSList<Post> = await res.json()
+  const post = data.docs[0] ?? null
+
+  if (post?.heroImage?.url) {
+    post.heroImage.url = resolveMediaUrl(post.heroImage.url)
+  }
+
+  return post
+}
 
 export async function getPosts(params?: {
   page?: number

@@ -44,7 +44,7 @@ export function PharmaInsightsContent({
   error,
 }: PharmaInsightsContentProps) {
   const [query, setQuery] = useState("")
-  const cmsUrl = process.env.NEXT_PUBLIC_CMS_URL ?? ""
+
 
   const filteredPosts = query
     ? posts.filter((p) => p.title.toLowerCase().includes(query.toLowerCase()))
@@ -176,15 +176,13 @@ export function PharmaInsightsContent({
                   )}
 
                   <div className="mt-auto">
-                    <a
-                      href={`${cmsUrl}/posts/${post.slug}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href={`/pharma-insights/${post.slug}`}
                       className="inline-flex items-center text-sm font-semibold text-primary hover:text-primary/80 transition-colors group/btn"
                     >
                       {"Read full article"}
                       <ArrowRight className="ml-1.5 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </article>
