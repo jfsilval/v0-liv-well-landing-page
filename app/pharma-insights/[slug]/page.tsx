@@ -103,26 +103,26 @@ export default async function ArticlePage({ params }: PageProps) {
       <Navigation />
       <main className="min-h-screen bg-background">
         {/* Article Header */}
-        <section className="bg-[#0a2351] pt-28 pb-12">
+        <section className="bg-primary/10 pt-28 pb-12">
           <div className="container mx-auto px-4 max-w-[900px]">
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-1.5 text-sm text-white/50 mb-8">
-              <Link href="/" className="hover:text-white/80 transition-colors">Home</Link>
+            <nav className="flex items-center gap-1.5 text-sm text-muted-foreground mb-8">
+              <Link href="/" className="hover:text-primary transition-colors">Home</Link>
               <ChevronRight className="h-3.5 w-3.5" />
-              <Link href="/pharma-insights" className="hover:text-white/80 transition-colors">Pharma Insights</Link>
+              <Link href="/pharma-insights" className="hover:text-primary transition-colors">Pharma Insights</Link>
               <ChevronRight className="h-3.5 w-3.5" />
-              <span className="text-white/70 line-clamp-1">{post.title}</span>
+              <span className="text-foreground/70 line-clamp-1">{post.title}</span>
             </nav>
 
             <Badge className="bg-secondary/20 text-secondary border-secondary/30 px-3 py-1 mb-5">
               PHARMA INSIGHTS
             </Badge>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 line-clamp-2 text-balance">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary leading-tight mb-6 line-clamp-2 text-balance">
               {post.title}
             </h1>
 
-            <div className="flex flex-wrap items-center gap-4 text-sm text-white/60">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-1.5">
                 <Calendar className="h-4 w-4" />
                 {formatDate(post.publishedAt)}

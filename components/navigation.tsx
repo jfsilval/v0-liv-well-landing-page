@@ -37,7 +37,7 @@ export function Navigation() {
     return false
   }
 
-  const hasHeroBg = pathname === "/" || pathname === "/products" || pathname === "/pharma-insights"
+  const hasHeroBg = pathname === "/" || pathname === "/products" || pathname.startsWith("/pharma-insights")
 
   return (
     <nav
