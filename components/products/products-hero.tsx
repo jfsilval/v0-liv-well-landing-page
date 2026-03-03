@@ -8,7 +8,7 @@ export function ProductsHero() {
     <section className="relative min-h-screen overflow-hidden pt-28 bg-primary/10">
       <div className="relative grid lg:grid-cols-2 h-[calc(100vh-7rem)]">
         {/* Left content */}
-        <div className="flex flex-col justify-between px-8 lg:px-16 relative z-10 py-4">
+        <div className="flex flex-col justify-start gap-8 px-8 lg:px-16 relative z-10 py-4">
           {/* Top: heading + text */}
           <div className="max-w-2xl space-y-6">
             <p className="text-sm font-semibold tracking-widest uppercase text-secondary">
@@ -74,7 +74,7 @@ export function ProductsHero() {
               src="/products-hero.jpg"
               alt="Innovative pharmaceutical capsule with DNA technology"
               fill
-              className="object-cover object-center"
+              className="object-contain object-center"
               priority
             />
           </div>
