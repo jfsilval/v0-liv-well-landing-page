@@ -38,7 +38,7 @@ function AnimatedStat({ value, label }: { value: string; label: string }) {
 
 export function AboutNumbers() {
   return (
-    <section className="py-24 bg-[#0a2351] relative overflow-hidden border-b border-white/20">
+    <section className="py-24 bg-[#0a2351] relative overflow-hidden">
       {/* Subtle decorative elements */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
