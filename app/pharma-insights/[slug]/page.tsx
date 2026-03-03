@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowLeft, Calendar, Clock, User, ChevronRight } from "lucide-react"
 import { getPostBySlug, getPosts, resolveMediaUrl } from "@/lib/cms"
 import { RichText } from "@/components/pharma-insights/rich-text"
@@ -145,11 +146,14 @@ export default async function ArticlePage({ params }: PageProps) {
 
         {/* Hero Image - full width, no side margins */}
         {heroImageUrl && (
-          <div className="w-full">
-            <img
+          <div className="relative w-full h-[450px] overflow-hidden">
+            <Image
               src={heroImageUrl}
               alt={post.heroImage?.alt || post.title}
-              className="w-full h-[450px] object-cover"
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
             />
           </div>
         )}

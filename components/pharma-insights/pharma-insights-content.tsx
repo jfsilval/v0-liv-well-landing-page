@@ -149,13 +149,14 @@ export function PharmaInsightsContent({
                 className="bg-card border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col w-full"
               >
                 {/* Image */}
-                <div className="relative aspect-video shrink-0">
+                <div className="relative w-full aspect-[16/9] overflow-hidden">
                   {imageUrl ? (
                     <Image
                       src={imageUrl}
                       alt={post.heroImage?.alt ?? post.title}
                       fill
                       className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   ) : (
                     <div className="absolute inset-0 bg-gradient-to-br from-[#0a2351] to-[#0f3060] flex items-center justify-center">
