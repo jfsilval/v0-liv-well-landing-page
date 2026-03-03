@@ -20,7 +20,44 @@ export type CMSList<T> = {
   prevPage: number | null
 }
 
+export type Post = {
+  id: string
+  title: string
+  slug: string
+  publishedAt: string
+  heroImage?: { url: string; alt?: string } | null
+  categories?: Array<{ id: string; title: string }>
+  meta?: { description?: string }
+}
+
 const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL ?? ""
+
+export async function getPosts(params?: {
+  page?: number
+  limit?: number
+  categoryTitle?: string
+}): Promise<CMSList<Post>> {
+  const searchParams = new URLSearchParams()
+
+  if (params?.page) searchParams.set("page", String(params.page))
+  if (params?.limit) searchParams.set("limit", String(params.limit))
+  if (params?.categoryTitle) {
+    searchParams.set("where[categories.title][equals]", params.categoryTitle)
+  }
+
+  const qs = searchParams.toString()
+  const url = `${CMS_URL}/api/posts${qs ? `?${qs}` : ""}`
+
+  const res = await fetch(url, { next: { revalidate: 60 } })
+
+  if (!res.ok) {
+    const body = await res.text().catch(() => "")
+    console.log("[v0] CMS posts error:", res.status, body)
+    throw new Error(`Failed to fetch posts: ${res.status} ${res.statusText}`)
+  }
+
+  return res.json()
+}
 
 export async function getProducts(params?: {
   page?: number

@@ -26,7 +26,7 @@ export function Navigation() {
     { id: "home", label: "HOME", href: "/" },
     { id: "about", label: "ABOUT US", href: "/about" },
     { id: "clients", label: "WHO WE WORK WITH", href: "/who-we-work-with" },
-    { id: "health", label: "PHARMA INSIGHTS", href: "/#health" },
+    { id: "health", label: "PHARMA INSIGHTS", href: "/pharma-insights" },
     { id: "products", label: "PRODUCTS", href: "/products" },
     { id: "contact", label: "CONTACT", href: "/#contact" },
   ]
@@ -37,7 +37,7 @@ export function Navigation() {
     return false
   }
 
-  const hasHeroBg = pathname === "/" || pathname === "/products"
+  const hasHeroBg = pathname === "/" || pathname === "/products" || pathname === "/pharma-insights"
 
   return (
     <nav
