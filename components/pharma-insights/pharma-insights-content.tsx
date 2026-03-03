@@ -134,14 +134,14 @@ export function PharmaInsightsContent({
             <p className="text-muted-foreground">No articles match your search.</p>
           </div>
         ) : (
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
             {filteredPosts.map((post) => (
               <article
                 key={post.id}
-                className="bg-card border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col md:flex-row"
+                className="bg-card border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col w-full"
               >
-                {/* Image - 1/3 */}
-                <div className="relative md:w-1/3 aspect-video md:aspect-auto md:min-h-[220px] shrink-0">
+                {/* Image */}
+                <div className="relative aspect-video shrink-0">
                   {post.heroImage?.url ? (
                     <Image
                       src={post.heroImage.url}
