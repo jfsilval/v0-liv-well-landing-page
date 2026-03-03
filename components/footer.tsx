@@ -36,8 +36,8 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
       {/* End of pharmacovigilance section */}
 
       <div className="bg-[#0a2351] text-white">
-        <div className="container mx-auto px-4 pt-8 pb-12">
-          <div className="text-center mb-0 pb-8 border-b border-white/20">
+        <div className="container mx-auto px-4 pb-12">
+          <div className="text-center pt-8 pb-8 border-b border-white/20">
             <p className="text-2xl font-semibold text-balance">Quality Generics. Global Reach. Trusted Worldwide.</p>
           </div>
 
