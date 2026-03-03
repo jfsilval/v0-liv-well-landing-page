@@ -87,6 +87,10 @@ function renderNode(node: LexicalNode, key: string): ReactNode {
     case "linebreak":
       return <br key={key} />
 
+    case "block":
+      // Skip CMS embedded blocks (e.g. farmacovigilancia, forms, etc.)
+      return null
+
     default:
       // Unknown node: render children if they exist
       return children ? <>{children}</> : null
