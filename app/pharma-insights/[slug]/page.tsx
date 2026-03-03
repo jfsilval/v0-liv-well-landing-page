@@ -81,7 +81,7 @@ export default async function ArticlePage({ params }: PageProps) {
             </div>
           </div>
         </main>
-        <Footer />
+        <Footer showPharmacovigilance={false} />
       </>
     )
   }
@@ -203,7 +203,7 @@ export default async function ArticlePage({ params }: PageProps) {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer showPharmacovigilance={false} />
     </>
   )
 }
