@@ -74,7 +74,7 @@ export function ProductsHero() {
               src="/products-hero.jpg"
               alt="Innovative pharmaceutical capsule with DNA technology"
               fill
-              className="object-contain object-center"
+              className="object-cover object-center"
               priority
             />
           </div>
