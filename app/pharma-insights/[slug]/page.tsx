@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 import Link from "next/link"
 import { ArrowLeft, Calendar, Clock, User, ChevronRight } from "lucide-react"
-import { getPostBySlug, getPosts } from "@/lib/cms"
+import { getPostBySlug, getPosts, resolveMediaUrl } from "@/lib/cms"
 import { RichText } from "@/components/pharma-insights/rich-text"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: post.meta?.title || post.title,
       description: post.meta?.description,
-      images: post.heroImage?.url ? [post.heroImage.url] : undefined,
+      images: post.heroImage?.url ? [resolveMediaUrl(post.heroImage.url)] : undefined,
     },
   }
 }
@@ -65,7 +65,7 @@ export default async function ArticlePage({ params }: PageProps) {
     return (
       <>
         <Navigation />
-        <main className="min-h-screen bg-background pt-28">
+        <main className="min-h-screen bg-primary/10 pt-28">
           <div className="container mx-auto px-4 py-24 text-center">
             <div className="bg-card border border-border rounded-xl p-12 max-w-lg mx-auto shadow-sm">
               <h1 className="text-2xl font-bold text-foreground mb-3">Article not found</h1>
@@ -88,6 +88,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
   const readTime = calculateReadTime(post.content)
   const authorName = post.populatedAuthors?.[0]?.name
+  const heroImageUrl = post.heroImage?.url ? resolveMediaUrl(post.heroImage.url) : null
 
   // Fetch related articles
   let relatedPosts: typeof post[] = []
@@ -101,28 +102,28 @@ export default async function ArticlePage({ params }: PageProps) {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen bg-background">
-        {/* Article Header */}
-        <section className="bg-primary/10 pt-28 pb-12">
+      <main className="min-h-screen bg-primary/10">
+        {/* Article Header - dark navy */}
+        <section className="bg-[#0a2351] pt-28 pb-12">
           <div className="container mx-auto px-4 max-w-[900px]">
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-1.5 text-sm text-muted-foreground mb-8">
-              <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+            <nav className="flex items-center gap-1.5 text-sm text-white/50 mb-8">
+              <Link href="/" className="hover:text-white/80 transition-colors">Home</Link>
               <ChevronRight className="h-3.5 w-3.5" />
-              <Link href="/pharma-insights" className="hover:text-primary transition-colors">Pharma Insights</Link>
+              <Link href="/pharma-insights" className="hover:text-white/80 transition-colors">Pharma Insights</Link>
               <ChevronRight className="h-3.5 w-3.5" />
-              <span className="text-foreground/70 line-clamp-1">{post.title}</span>
+              <span className="text-white/70">{post.title}</span>
             </nav>
 
             <Badge className="bg-secondary/20 text-secondary border-secondary/30 px-3 py-1 mb-5">
               PHARMA INSIGHTS
             </Badge>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary leading-tight mb-6 line-clamp-2 text-balance">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 text-balance">
               {post.title}
             </h1>
 
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-white/60">
               <div className="flex items-center gap-1.5">
                 <Calendar className="h-4 w-4" />
                 {formatDate(post.publishedAt)}
@@ -141,31 +142,29 @@ export default async function ArticlePage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* Hero Image */}
-        {post.heroImage?.url && (
-          <section className="bg-background">
-            <div className="container mx-auto px-4 max-w-[900px] -mt-0">
-              <img
-                src={post.heroImage.url}
-                alt={post.heroImage.alt || post.title}
-                className="w-full object-cover max-h-[500px] rounded-b-xl shadow-lg"
-              />
-            </div>
-          </section>
+        {/* Hero Image - full width, no side margins */}
+        {heroImageUrl && (
+          <div className="w-full">
+            <img
+              src={heroImageUrl}
+              alt={post.heroImage?.alt || post.title}
+              className="w-full h-[450px] object-cover"
+            />
+          </div>
         )}
 
-        {/* Article Content */}
-        <section className="py-12 bg-background">
+        {/* Article Content - improved typography */}
+        <section className="py-12 bg-primary/10">
           <div className="container mx-auto px-4">
-            <div className="max-w-[800px] mx-auto">
+            <div className="max-w-[780px] mx-auto text-[17px] leading-[1.8] text-[#374151]">
               <RichText content={post.content} />
             </div>
           </div>
         </section>
 
         {/* Article Footer */}
-        <section className="pb-16 bg-background">
-          <div className="container mx-auto px-4 max-w-[800px]">
+        <section className="pb-16 bg-primary/10">
+          <div className="container mx-auto px-4 max-w-[780px]">
             <hr className="border-border mb-8" />
 
             <Button

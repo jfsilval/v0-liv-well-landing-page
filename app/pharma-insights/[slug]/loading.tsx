@@ -5,9 +5,9 @@ export default function ArticleLoading() {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen bg-background">
-        {/* Header skeleton */}
-        <section className="bg-[#0a2351] pt-28 pb-12">
+      <main className="min-h-screen bg-primary/10">
+        {/* Header skeleton - dark navy, 220px */}
+        <section className="bg-[#0a2351] pt-28 pb-12 min-h-[220px]">
           <div className="container mx-auto px-4 max-w-[900px]">
             <Skeleton className="h-4 w-60 bg-white/10 mb-8" />
             <Skeleton className="h-6 w-32 bg-white/10 rounded-full mb-5" />
@@ -21,13 +21,11 @@ export default function ArticleLoading() {
           </div>
         </section>
 
-        {/* Image skeleton */}
-        <div className="container mx-auto px-4 max-w-[900px]">
-          <Skeleton className="w-full h-[400px] rounded-b-xl" />
-        </div>
+        {/* Image skeleton - full width */}
+        <Skeleton className="w-full h-[450px] rounded-none" />
 
         {/* Content skeleton */}
-        <div className="container mx-auto px-4 max-w-[800px] py-12 space-y-4">
+        <div className="container mx-auto px-4 max-w-[780px] py-12 space-y-4">
           <Skeleton className="h-5 w-full" />
           <Skeleton className="h-5 w-[90%]" />
           <Skeleton className="h-5 w-full" />
