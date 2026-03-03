@@ -26,10 +26,10 @@ export function ProductsHero() {
             </p>
           </div>
 
-          {/* Bottom: stats + filter text + button */}
+          {/* Bottom: stats centered + filter text + centered button */}
           <div className="max-w-2xl space-y-5">
-            {/* Stats row */}
-            <div className="flex items-start gap-8 lg:gap-12">
+            {/* Stats row - centered */}
+            <div className="flex items-center justify-center gap-12 lg:gap-16">
               <div className="flex flex-col items-center text-center gap-1.5">
                 <div className="flex items-center gap-2">
                   <Award className="h-5 w-5 text-secondary" />
@@ -46,38 +46,38 @@ export function ProductsHero() {
               </div>
             </div>
 
-            {/* Filter text + contact button */}
-            <div className="flex flex-col gap-3">
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {"Use the filters below to explore our full portfolio. Looking for something specific or can't find what you need?"}
-              </p>
-              <div>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-primary text-primary hover:bg-primary/10 bg-transparent group"
-                  asChild
-                >
-                  <Link href="/contact">
-                    Contact Us
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </Button>
-              </div>
+            {/* Filter text */}
+            <p className="text-sm text-muted-foreground leading-relaxed text-center">
+              {"Use the filters below to explore our full portfolio. Looking for something specific or can't find what you need?"}
+            </p>
+
+            {/* Contact button - centered */}
+            <div className="flex justify-center">
+              <Button
+                size="lg"
+                className="bg-[#0a2351] hover:bg-[#0a2351]/90 text-white group"
+                asChild
+              >
+                <Link href="/contact">
+                  Contact Us
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
 
-        {/* Right: capsule image - bigger */}
-        <div className="hidden lg:flex items-center justify-center relative p-4">
-          <Image
-            src="/products-hero.jpg"
-            alt="Innovative pharmaceutical capsule with DNA technology"
-            width={612}
-            height={612}
-            className="object-contain w-full h-auto max-h-[85vh] drop-shadow-2xl"
-            priority
-          />
+        {/* Right side - Framed image matching home page pattern */}
+        <div className="relative hidden lg:block h-full">
+          <div className="absolute inset-4 rounded-xl overflow-hidden shadow-2xl bg-[#0a2351]">
+            <Image
+              src="/products-hero.jpg"
+              alt="Innovative pharmaceutical capsule with DNA technology"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+          </div>
         </div>
 
         {/* Scroll indicator */}
