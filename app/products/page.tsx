@@ -10,7 +10,7 @@ import { ProductsError } from "@/components/products/products-error"
 export const metadata = {
   title: "Products | Liv Well Pharmaceuticals",
   description:
-    "Browse our comprehensive range of high-quality pharmaceutical products. Over 1,000 products including essential generics, biosimilars, and specialty care solutions.",
+    "Browse our comprehensive range of high-quality pharmaceutical products. Over 600 products including essential generics, biosimilars, and specialty care solutions.",
 }
 
 export default async function ProductsPage({

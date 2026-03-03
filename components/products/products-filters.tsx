@@ -1,8 +1,11 @@
+"use client"
+
+import { useRouter } from "next/navigation"
+import { useCallback } from "react"
 import { Search, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import Link from "next/link"
 
 export function ProductsFilters({
   nombre,
@@ -19,8 +22,46 @@ export function ProductsFilters({
   limit: number
   hasFilters: boolean
 }) {
+  const router = useRouter()
+
+  const handleSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault()
+      const formData = new FormData(e.currentTarget)
+      const params = new URLSearchParams()
+
+      const nombre = formData.get("nombre") as string
+      const categoria = formData.get("categoria") as string
+      const sub_categoria = formData.get("sub_categoria") as string
+      const clasificacion_atc = formData.get("clasificacion_atc") as string
+      const limit = formData.get("limit") as string
+
+      if (nombre) params.set("nombre", nombre)
+      if (categoria) params.set("categoria", categoria)
+      if (sub_categoria) params.set("sub_categoria", sub_categoria)
+      if (clasificacion_atc) params.set("clasificacion_atc", clasificacion_atc)
+      if (limit) params.set("limit", limit)
+      params.set("page", "1")
+
+      router.push(`/products?${params.toString()}`)
+    },
+    [router]
+  )
+
+  const handleLimitChange = useCallback(
+    (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const form = e.currentTarget.closest("form")
+      if (form) form.requestSubmit()
+    },
+    []
+  )
+
+  const handleClear = useCallback(() => {
+    router.push("/products")
+  }, [router])
+
   return (
-    <form action="/products" method="GET" className="mb-8">
+    <form onSubmit={handleSubmit} className="mb-8">
       <div className="bg-card border border-border rounded-xl shadow-sm p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
           <div className="space-y-1.5">
@@ -72,11 +113,9 @@ export function ProductsFilters({
           </Button>
 
           {hasFilters && (
-            <Button variant="outline" asChild>
-              <Link href={`/products?limit=${limit}`}>
-                <X className="h-4 w-4 mr-2" />
-                Clear Filters
-              </Link>
+            <Button type="button" variant="outline" onClick={handleClear}>
+              <X className="h-4 w-4 mr-2" />
+              Clear Filters
             </Button>
           )}
 
@@ -86,6 +125,7 @@ export function ProductsFilters({
               id="limit"
               name="limit"
               defaultValue={limit}
+              onChange={handleLimitChange}
               className="h-9 rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
               <option value="10">10</option>

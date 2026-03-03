@@ -22,8 +22,9 @@ export function HeroSection() {
             </h1>
 
             <p className="text-base text-muted-foreground leading-relaxed">
-              Every person on Earth deserves access to high-quality medicines. Inspired by this vision, Liv Well
-              Pharmaceuticals continues to innovate and grow, providing trusted healthcare solutions globally.
+              At Liv Well Pharmaceuticals, we are committed to making high-quality pharmaceutical products accessible
+              worldwide. Driven by innovation and a patient-first approach, we deliver trusted healthcare solutions
+              across borders, ensuring every community has the care it deserves.
             </p>
           </div>
 

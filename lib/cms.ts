@@ -4,7 +4,7 @@ export type Product = {
   categoria: string
   sub_categoria: string
   clasificacion_atc: string
-  activo: boolean
+  activo_en_catalogo: string
   forma_farmaceutica: string
   concentraciones: string
 }
@@ -34,10 +34,29 @@ export async function getProducts(params?: {
 
   if (params?.page) searchParams.set("page", String(params.page))
   if (params?.limit) searchParams.set("limit", String(params.limit))
-  if (params?.nombre) searchParams.set("nombre", params.nombre)
-  if (params?.categoria) searchParams.set("categoria", params.categoria)
-  if (params?.sub_categoria) searchParams.set("sub_categoria", params.sub_categoria)
-  if (params?.clasificacion_atc) searchParams.set("clasificacion_atc", params.clasificacion_atc)
+
+  // Always filter by active on catalog
+  let whereIndex = 0
+  searchParams.set(`where[and][${whereIndex}][activo_en_catalogo][equals]`, "Yes")
+  whereIndex++
+
+  // User-provided filters using Payload CMS "where" syntax
+  if (params?.nombre) {
+    searchParams.set(`where[and][${whereIndex}][nombre][contains]`, params.nombre)
+    whereIndex++
+  }
+  if (params?.categoria) {
+    searchParams.set(`where[and][${whereIndex}][categoria][contains]`, params.categoria)
+    whereIndex++
+  }
+  if (params?.sub_categoria) {
+    searchParams.set(`where[and][${whereIndex}][sub_categoria][contains]`, params.sub_categoria)
+    whereIndex++
+  }
+  if (params?.clasificacion_atc) {
+    searchParams.set(`where[and][${whereIndex}][clasificacion_atc][contains]`, params.clasificacion_atc)
+    whereIndex++
+  }
 
   const qs = searchParams.toString()
   const url = `${CMS_URL}/api/products${qs ? `?${qs}` : ""}`

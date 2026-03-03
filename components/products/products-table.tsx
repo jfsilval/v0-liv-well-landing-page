@@ -17,12 +17,12 @@ export function ProductsTable({ products }: { products: Product[] }) {
       <table className="w-full text-sm">
         <thead>
           <tr className="bg-[#0a2351] text-white">
-            <th className="text-left font-semibold px-4 py-3">Active Ingredient</th>
+            <th className="text-left font-semibold px-4 py-3">ATC</th>
             <th className="text-left font-semibold px-4 py-3">Category</th>
             <th className="text-left font-semibold px-4 py-3">Subcategory</th>
-            <th className="text-left font-semibold px-4 py-3">ATC</th>
-            <th className="text-left font-semibold px-4 py-3">Pharmaceutical Form</th>
-            <th className="text-left font-semibold px-4 py-3">Concentration</th>
+            <th className="text-left font-semibold px-4 py-3">Active Ingredient</th>
+            <th className="text-left font-semibold px-4 py-3">Dosage Form</th>
+            <th className="text-left font-semibold px-4 py-3">Strength</th>
           </tr>
         </thead>
         <tbody>
@@ -33,10 +33,10 @@ export function ProductsTable({ products }: { products: Product[] }) {
                 i % 2 === 0 ? "bg-background" : "bg-muted/30"
               }`}
             >
-              <td className="px-4 py-3 font-medium text-foreground">{product.nombre}</td>
+              <td className="px-4 py-3 text-muted-foreground font-mono text-xs">{product.clasificacion_atc}</td>
               <td className="px-4 py-3 text-muted-foreground">{product.categoria}</td>
               <td className="px-4 py-3 text-muted-foreground">{product.sub_categoria}</td>
-              <td className="px-4 py-3 text-muted-foreground font-mono text-xs">{product.clasificacion_atc}</td>
+              <td className="px-4 py-3 font-medium text-foreground">{product.nombre}</td>
               <td className="px-4 py-3 text-muted-foreground">{product.forma_farmaceutica}</td>
               <td className="px-4 py-3 text-muted-foreground">{product.concentraciones}</td>
             </tr>
