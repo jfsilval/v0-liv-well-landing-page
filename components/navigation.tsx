@@ -37,7 +37,7 @@ export function Navigation() {
     return false
   }
 
-  const isHome = pathname === "/"
+  const hasHeroBg = pathname === "/" || pathname === "/products"
 
   return (
     <nav
@@ -45,7 +45,7 @@ export function Navigation() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
           ? "bg-primary/10 backdrop-blur-md shadow-md"
-          : isHome
+          : hasHeroBg
             ? "bg-transparent"
             : "bg-primary/10",
       )}

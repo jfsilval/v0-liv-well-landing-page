@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Shield, Award, Globe, ChevronDown, ArrowRight } from "lucide-react"
+import { Shield, Award, ChevronDown, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function ProductsHero() {
@@ -28,15 +28,8 @@ export function ProductsHero() {
 
           {/* Bottom: stats + filter text + button */}
           <div className="max-w-2xl space-y-5">
-            {/* Stats row - same as home page */}
-            <div className="flex items-start gap-6 lg:gap-10">
-              <div className="flex flex-col items-center text-center gap-1.5">
-                <div className="flex items-center gap-2">
-                  <Globe className="h-5 w-5 text-primary" />
-                  <span className="text-2xl font-bold text-primary">10+</span>
-                </div>
-                <p className="text-xs text-muted-foreground">Countries Served</p>
-              </div>
+            {/* Stats row */}
+            <div className="flex items-start gap-8 lg:gap-12">
               <div className="flex flex-col items-center text-center gap-1.5">
                 <div className="flex items-center gap-2">
                   <Award className="h-5 w-5 text-secondary" />
@@ -50,20 +43,6 @@ export function ProductsHero() {
                   <span className="text-2xl font-bold text-accent">100%</span>
                 </div>
                 <p className="text-xs text-muted-foreground">Quality Assured</p>
-              </div>
-              {/* Infinity logo for Commitment */}
-              <div className="flex flex-col items-center text-center gap-1.5">
-                <div className="h-8 w-16 relative overflow-hidden">
-                  <Image
-                    src="/logo.png"
-                    alt="Commitment to Patients"
-                    width={100}
-                    height={100}
-                    className="w-auto h-14 object-cover object-top absolute top-0 left-1/2 -translate-x-1/2"
-                  />
-                </div>
-                <p className="text-xs text-muted-foreground whitespace-nowrap">Commitment to</p>
-                <p className="text-xs text-muted-foreground -mt-1 whitespace-nowrap">Patients</p>
               </div>
             </div>
 
@@ -89,14 +68,14 @@ export function ProductsHero() {
           </div>
         </div>
 
-        {/* Right: capsule image */}
-        <div className="hidden lg:flex items-center justify-center relative p-8">
+        {/* Right: capsule image - bigger */}
+        <div className="hidden lg:flex items-center justify-center relative p-4">
           <Image
             src="/products-hero.jpg"
             alt="Innovative pharmaceutical capsule with DNA technology"
             width={612}
             height={612}
-            className="object-contain w-full h-auto max-h-[75vh] drop-shadow-2xl"
+            className="object-contain w-full h-auto max-h-[85vh] drop-shadow-2xl"
             priority
           />
         </div>
