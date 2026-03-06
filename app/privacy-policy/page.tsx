@@ -13,7 +13,7 @@ export default function PrivacyPolicyPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="bg-muted pt-28 py-12 border-b border-border">
+      <section className="bg-primary/10 pt-28 py-12 border-b border-border">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold text-primary mb-4 font-sans">
             Privacy Policy
