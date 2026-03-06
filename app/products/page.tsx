@@ -31,7 +31,7 @@ export default async function ProductsPage({
 
   let data = null
   let error = null
-  let categoryData = { categories: [] as string[], subCategories: [] as string[] }
+  let categoryData = { categories: [] as string[], subCategories: [] as string[], categoryToSubcategories: {} as Record<string, string[]> }
 
   try {
     const [productsData, categoriesData] = await Promise.all([
@@ -64,6 +64,7 @@ export default async function ProductsPage({
             hasFilters={hasFilters}
             categories={categoryData.categories}
             subCategories={categoryData.subCategories}
+            categoryToSubcategories={categoryData.categoryToSubcategories}
           />
 
           {/* Results */}

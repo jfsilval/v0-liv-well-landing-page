@@ -1,11 +1,12 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { useCallback } from "react"
-import { Search, X } from "lucide-react"
+import { useCallback, useState, useRef, useEffect } from "react"
+import { Search, X, ChevronDown, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { cn } from "@/lib/utils"
 
 export function ProductsFilters({
   nombre,
@@ -16,6 +17,7 @@ export function ProductsFilters({
   hasFilters,
   categories,
   subCategories,
+  categoryToSubcategories,
 }: {
   nombre?: string
   categoria?: string
@@ -25,8 +27,47 @@ export function ProductsFilters({
   hasFilters: boolean
   categories: string[]
   subCategories: string[]
+  categoryToSubcategories: Record<string, string[]>
 }) {
   const router = useRouter()
+  const [selectedCategory, setSelectedCategory] = useState(categoria ?? "")
+  const [selectedSubCategory, setSelectedSubCategory] = useState(subCategoria ?? "")
+  const [comboboxOpen, setComboboxOpen] = useState(false)
+  const [comboboxSearch, setComboboxSearch] = useState("")
+  const comboboxRef = useRef<HTMLDivElement>(null)
+
+  // Get subcategories based on whether a category is selected
+  const availableSubcategories = selectedCategory
+    ? categoryToSubcategories[selectedCategory] || []
+    : subCategories
+
+  // Filter subcategories for combobox search
+  const filteredSubcategories = comboboxSearch
+    ? availableSubcategories.filter((sub) =>
+        sub.toLowerCase().includes(comboboxSearch.toLowerCase())
+      )
+    : availableSubcategories
+
+  // Close combobox when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (comboboxRef.current && !comboboxRef.current.contains(event.target as Node)) {
+        setComboboxOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
+
+  // Reset subcategory when category changes
+  useEffect(() => {
+    if (selectedCategory && selectedSubCategory) {
+      const validSubs = categoryToSubcategories[selectedCategory] || []
+      if (!validSubs.includes(selectedSubCategory)) {
+        setSelectedSubCategory("")
+      }
+    }
+  }, [selectedCategory, selectedSubCategory, categoryToSubcategories])
 
   const handleSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
@@ -35,21 +76,19 @@ export function ProductsFilters({
       const params = new URLSearchParams()
 
       const nombre = formData.get("nombre") as string
-      const categoria = formData.get("categoria") as string
-      const sub_categoria = formData.get("sub_categoria") as string
       const clasificacion_atc = formData.get("clasificacion_atc") as string
       const limit = formData.get("limit") as string
 
       if (nombre) params.set("nombre", nombre)
-      if (categoria) params.set("categoria", categoria)
-      if (sub_categoria) params.set("sub_categoria", sub_categoria)
+      if (selectedCategory) params.set("categoria", selectedCategory)
+      if (selectedSubCategory) params.set("sub_categoria", selectedSubCategory)
       if (clasificacion_atc) params.set("clasificacion_atc", clasificacion_atc)
       if (limit) params.set("limit", limit)
       params.set("page", "1")
 
       router.push(`/products?${params.toString()}`)
     },
-    [router]
+    [router, selectedCategory, selectedSubCategory]
   )
 
   const handleLimitChange = useCallback(
@@ -60,15 +99,41 @@ export function ProductsFilters({
     []
   )
 
-  const handleSelectChange = useCallback(
+  const handleCategoryChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
-      const form = e.currentTarget.closest("form")
-      if (form) form.requestSubmit()
+      const newCategory = e.target.value
+      setSelectedCategory(newCategory)
+      // Clear subcategory when category changes
+      if (newCategory !== selectedCategory) {
+        setSelectedSubCategory("")
+      }
+      // Auto-submit
+      setTimeout(() => {
+        const form = e.currentTarget.closest("form")
+        if (form) form.requestSubmit()
+      }, 0)
+    },
+    [selectedCategory]
+  )
+
+  const handleSubcategorySelect = useCallback(
+    (value: string) => {
+      setSelectedSubCategory(value)
+      setComboboxOpen(false)
+      setComboboxSearch("")
+      // Auto-submit
+      setTimeout(() => {
+        const form = document.querySelector("form")
+        if (form) form.requestSubmit()
+      }, 0)
     },
     []
   )
 
   const handleClear = useCallback(() => {
+    setSelectedCategory("")
+    setSelectedSubCategory("")
+    setComboboxSearch("")
     router.push("/products")
   }, [router])
 
@@ -91,8 +156,8 @@ export function ProductsFilters({
             <select
               id="categoria"
               name="categoria"
-              defaultValue={categoria ?? ""}
-              onChange={handleSelectChange}
+              value={selectedCategory}
+              onChange={handleCategoryChange}
               className="flex h-9 w-full rounded-md border border-primary/15 bg-white px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
               <option value="">All Categories</option>
@@ -104,21 +169,68 @@ export function ProductsFilters({
             </select>
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="sub_categoria" className="text-sm font-medium">Subcategory</Label>
-            <select
-              id="sub_categoria"
-              name="sub_categoria"
-              defaultValue={subCategoria ?? ""}
-              onChange={handleSelectChange}
-              className="flex h-9 w-full rounded-md border border-primary/15 bg-white px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-            >
-              <option value="">All Subcategories</option>
-              {subCategories.map((sub) => (
-                <option key={sub} value={sub}>
-                  {sub}
-                </option>
-              ))}
-            </select>
+            <Label htmlFor="sub_categoria" className="text-sm font-medium">
+              Subcategory {selectedCategory && <span className="text-muted-foreground font-normal">({availableSubcategories.length})</span>}
+            </Label>
+            {/* Combobox with search */}
+            <div ref={comboboxRef} className="relative">
+              <button
+                type="button"
+                onClick={() => setComboboxOpen(!comboboxOpen)}
+                className="flex h-9 w-full items-center justify-between rounded-md border border-primary/15 bg-white px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              >
+                <span className={selectedSubCategory ? "text-foreground" : "text-muted-foreground"}>
+                  {selectedSubCategory || "All Subcategories"}
+                </span>
+                <ChevronDown className="h-4 w-4 opacity-50" />
+              </button>
+              
+              {comboboxOpen && (
+                <div className="absolute z-50 mt-1 w-full rounded-md border border-border bg-white shadow-lg">
+                  <div className="p-2 border-b border-border">
+                    <Input
+                      placeholder="Search subcategories..."
+                      value={comboboxSearch}
+                      onChange={(e) => setComboboxSearch(e.target.value)}
+                      className="h-8 text-sm"
+                      autoFocus
+                    />
+                  </div>
+                  <div className="max-h-60 overflow-y-auto p-1">
+                    <button
+                      type="button"
+                      onClick={() => handleSubcategorySelect("")}
+                      className={cn(
+                        "flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-sm hover:bg-muted",
+                        !selectedSubCategory && "bg-muted"
+                      )}
+                    >
+                      {!selectedSubCategory && <Check className="h-4 w-4" />}
+                      <span className={!selectedSubCategory ? "font-medium" : ""}>All Subcategories</span>
+                    </button>
+                    {filteredSubcategories.length > 0 ? (
+                      filteredSubcategories.map((sub) => (
+                        <button
+                          key={sub}
+                          type="button"
+                          onClick={() => handleSubcategorySelect(sub)}
+                          className={cn(
+                            "flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-sm hover:bg-muted text-left",
+                            selectedSubCategory === sub && "bg-muted"
+                          )}
+                        >
+                          {selectedSubCategory === sub && <Check className="h-4 w-4" />}
+                          <span className={selectedSubCategory === sub ? "font-medium" : ""}>{sub}</span>
+                        </button>
+                      ))
+                    ) : (
+                      <p className="px-2 py-4 text-sm text-muted-foreground text-center">No subcategories found</p>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+            <input type="hidden" name="sub_categoria" value={selectedSubCategory} />
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="clasificacion_atc" className="text-sm font-medium">ATC Classification</Label>
