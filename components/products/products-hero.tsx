@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 
 export function ProductsHero() {
   return (
-    <section className="relative overflow-hidden pt-28 bg-primary/10">
+    <section className="relative overflow-hidden mt-28 bg-primary/10">
       <div className="relative grid lg:grid-cols-2 min-h-[calc(100vh-7rem)]">
         {/* Left content */}
         <div className="flex flex-col justify-center gap-6 px-8 lg:px-16 relative z-10 py-8">
