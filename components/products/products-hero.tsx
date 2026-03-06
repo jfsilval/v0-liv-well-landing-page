@@ -77,6 +77,7 @@ export function ProductsHero() {
               src="/products-hero.jpg"
               alt="Innovative pharmaceutical capsule with DNA technology"
               fill
+              sizes="50vw"
               className="object-cover object-[57%_center]"
               priority
             />

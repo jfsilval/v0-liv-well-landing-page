@@ -15,9 +15,9 @@ export function ProductsFilters({
   clasificacionAtc,
   limit,
   hasFilters,
-  categories,
-  subCategories,
-  categoryToSubcategories,
+  categories = [],
+  subCategories = [],
+  categoryToSubcategories = {},
 }: {
   nombre?: string
   categoria?: string
@@ -25,9 +25,9 @@ export function ProductsFilters({
   clasificacionAtc?: string
   limit: number
   hasFilters: boolean
-  categories: string[]
-  subCategories: string[]
-  categoryToSubcategories: Record<string, string[]>
+  categories?: string[]
+  subCategories?: string[]
+  categoryToSubcategories?: Record<string, string[]>
 }) {
   const router = useRouter()
   const [selectedCategory, setSelectedCategory] = useState(categoria ?? "")
