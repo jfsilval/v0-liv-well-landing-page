@@ -112,7 +112,7 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
                   </Link>
                 </li>
                 <li>
-                  <Link href="/privacy-policy" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/terms-of-service" className="text-sm text-white/80 hover:text-white transition-colors">
                     Terms of Service
                   </Link>
                 </li>
