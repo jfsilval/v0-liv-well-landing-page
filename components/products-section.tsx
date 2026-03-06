@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Pill, Activity, Stethoscope, Dna } from "lucide-react"
@@ -55,10 +56,12 @@ export function ProductsSection() {
             return (
               <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
                 <div className="relative h-48 overflow-hidden">
-                  <img
+                  <Image
                     src={product.image || "/placeholder.svg"}
                     alt={product.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-4 flex items-center gap-3">

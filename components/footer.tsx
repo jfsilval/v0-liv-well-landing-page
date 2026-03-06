@@ -49,6 +49,7 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
                 alt="Liv Well Pharmaceuticals"
                 width={280}
                 height={160}
+                sizes="(max-width: 768px) 200px, 280px"
                 className="h-36 w-auto mb-4 brightness-0 invert"
               />
               <p className="text-sm text-white/80 leading-relaxed">

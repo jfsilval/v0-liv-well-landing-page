@@ -11,6 +11,7 @@ export function WwwwHero() {
           src="/who-we-work-with-hero.jpg"
           alt="Global pharmaceutical partnerships"
           fill
+          sizes="100vw"
           className="object-cover mix-blend-multiply opacity-40"
           priority
         />

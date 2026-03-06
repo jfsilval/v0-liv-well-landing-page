@@ -12,6 +12,7 @@ export function AboutHero() {
           src="/about-hero.jpg"
           alt="Global pharmaceutical distribution from Dubai to the world"
           fill
+          sizes="100vw"
           className="object-cover opacity-70"
           priority
         />

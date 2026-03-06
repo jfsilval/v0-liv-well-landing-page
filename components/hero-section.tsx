@@ -94,6 +94,7 @@ export function HeroSection() {
               src="/hero-scientist-lab.jpg"
               alt="Pharmaceutical scientist in modern laboratory"
               fill
+              sizes="50vw"
               className="object-cover object-center"
               priority
             />
