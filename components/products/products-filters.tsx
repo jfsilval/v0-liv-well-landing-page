@@ -14,6 +14,8 @@ export function ProductsFilters({
   clasificacionAtc,
   limit,
   hasFilters,
+  categories,
+  subCategories,
 }: {
   nombre?: string
   categoria?: string
@@ -21,6 +23,8 @@ export function ProductsFilters({
   clasificacionAtc?: string
   limit: number
   hasFilters: boolean
+  categories: string[]
+  subCategories: string[]
 }) {
   const router = useRouter()
 
@@ -56,6 +60,14 @@ export function ProductsFilters({
     []
   )
 
+  const handleSelectChange = useCallback(
+    (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const form = e.currentTarget.closest("form")
+      if (form) form.requestSubmit()
+    },
+    []
+  )
+
   const handleClear = useCallback(() => {
     router.push("/products")
   }, [router])
@@ -76,23 +88,37 @@ export function ProductsFilters({
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="categoria" className="text-sm font-medium">Category</Label>
-            <Input
+            <select
               id="categoria"
               name="categoria"
-              placeholder="e.g. Analgesics"
               defaultValue={categoria ?? ""}
-              className="bg-white border-primary/15"
-            />
+              onChange={handleSelectChange}
+              className="flex h-9 w-full rounded-md border border-primary/15 bg-white px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            >
+              <option value="">All Categories</option>
+              {categories.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="sub_categoria" className="text-sm font-medium">Subcategory</Label>
-            <Input
+            <select
               id="sub_categoria"
               name="sub_categoria"
-              placeholder="e.g. Non-opioid"
               defaultValue={subCategoria ?? ""}
-              className="bg-white border-primary/15"
-            />
+              onChange={handleSelectChange}
+              className="flex h-9 w-full rounded-md border border-primary/15 bg-white px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            >
+              <option value="">All Subcategories</option>
+              {subCategories.map((sub) => (
+                <option key={sub} value={sub}>
+                  {sub}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="clasificacion_atc" className="text-sm font-medium">ATC Classification</Label>

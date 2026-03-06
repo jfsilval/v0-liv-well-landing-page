@@ -1,6 +1,6 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { getProducts } from "@/lib/cms"
+import { getProducts, getProductCategories } from "@/lib/cms"
 import { ProductsHero } from "@/components/products/products-hero"
 import { ProductsFilters } from "@/components/products/products-filters"
 import { ProductsTable } from "@/components/products/products-table"
@@ -31,9 +31,15 @@ export default async function ProductsPage({
 
   let data = null
   let error = null
+  let categoryData = { categories: [] as string[], subCategories: [] as string[] }
 
   try {
-    data = await getProducts({ page, limit, nombre, categoria, sub_categoria, clasificacion_atc })
+    const [productsData, categoriesData] = await Promise.all([
+      getProducts({ page, limit, nombre, categoria, sub_categoria, clasificacion_atc }),
+      getProductCategories(),
+    ])
+    data = productsData
+    categoryData = categoriesData
   } catch (e) {
     error = e instanceof Error ? e.message : "An unexpected error occurred while fetching products."
   }
@@ -56,6 +62,8 @@ export default async function ProductsPage({
             clasificacionAtc={clasificacion_atc}
             limit={limit}
             hasFilters={hasFilters}
+            categories={categoryData.categories}
+            subCategories={categoryData.subCategories}
           />
 
           {/* Results */}

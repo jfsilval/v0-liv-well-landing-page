@@ -63,18 +63,13 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
               <h3 className="font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/products" className="text-sm text-white/80 hover:text-white transition-colors">
-                    Products
+                  <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
+                    About Us
                   </Link>
                 </li>
                 <li>
                   <Link href="/who-we-work-with" className="text-sm text-white/80 hover:text-white transition-colors">
                     Who We Work With
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
-                    About Us
                   </Link>
                 </li>
                 <li>
@@ -95,13 +90,8 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
                   </Link>
                 </li>
                 <li>
-                  <Link href="/who-we-work-with" className="text-sm text-white/80 hover:text-white transition-colors">
-                    Healthcare Professionals
-                  </Link>
-                </li>
-                <li>
                   <Link href="/products" className="text-sm text-white/80 hover:text-white transition-colors">
-                    Product Catalog
+                    Products Catalog
                   </Link>
                 </li>
                 <li>
@@ -117,23 +107,18 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
               <h3 className="font-semibold mb-4">Legal</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/privacy-policy" className="text-sm text-white/80 hover:text-white transition-colors">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/privacy-policy" className="text-sm text-white/80 hover:text-white transition-colors">
                     Terms of Service
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link href="/privacy-policy" className="text-sm text-white/80 hover:text-white transition-colors">
                     Cookie Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
-                    Compliance
                   </Link>
                 </li>
               </ul>

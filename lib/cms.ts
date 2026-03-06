@@ -81,6 +81,33 @@ export async function getProducts(params?: {
   return res.json()
 }
 
+// ─── Product Categories (distinct values) ────────────────────────────────────
+export async function getProductCategories(): Promise<{
+  categories: string[]
+  subCategories: string[]
+}> {
+  // Fetch all products to extract unique categories and subcategories
+  const res = await fetch(`${CMS_URL}/api/products?limit=1000`, {
+    next: { revalidate: 3600 },
+  })
+  if (!res.ok) throw new Error('Failed to fetch product categories')
+  
+  const data: CMSList<Product> = await res.json()
+  
+  const categoriesSet = new Set<string>()
+  const subCategoriesSet = new Set<string>()
+  
+  data.docs.forEach((product) => {
+    if (product.categoria) categoriesSet.add(product.categoria)
+    if (product.sub_categoria) subCategoriesSet.add(product.sub_categoria)
+  })
+  
+  return {
+    categories: Array.from(categoriesSet).sort(),
+    subCategories: Array.from(subCategoriesSet).sort(),
+  }
+}
+
 // ─── Posts (lista) ───────────────────────────────────────────────────────────
 export async function getPosts(params?: {
   page?: number
