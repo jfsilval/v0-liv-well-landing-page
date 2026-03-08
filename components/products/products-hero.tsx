@@ -33,7 +33,7 @@ export function ProductsHero() {
           </div>
 
           {/* Stats - bigger and centered */}
-          <div className="flex flex-row justify-center gap-10">
+          <div className="my-auto flex flex-row justify-center gap-10 w-full">
             <div className="flex flex-col items-center text-center gap-1">
               <div className="flex items-center gap-2">
                 <Award className="h-6 w-6 text-secondary" />
@@ -51,7 +51,7 @@ export function ProductsHero() {
           </div>
 
           {/* Filter text + button grouped at bottom */}
-          <div className="mt-auto flex flex-col items-center gap-3 pb-8 w-full">
+          <div className="flex flex-col items-center gap-3 pb-8 w-full">
             <p className="text-sm text-muted-foreground text-center max-w-lg">
               Use the filters below to explore our full portfolio. Looking for something specific or can't find what you need?
             </p>
