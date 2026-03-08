@@ -209,7 +209,7 @@ export function ContactSection() {
                 {errors.message && <p id="message-error" role="alert" className="text-sm text-destructive">{errors.message}</p>}
               </div>
 
-              <Button type="submit" size="lg" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+              <Button type="submit" size="lg"                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                 Send Message
               </Button>
             </form>

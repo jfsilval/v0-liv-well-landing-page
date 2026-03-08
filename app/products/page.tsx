@@ -48,7 +48,7 @@ export default async function ProductsPage({
   const to = data ? Math.min(data.page * limit, data.totalDocs) : 0
 
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen">
       <Navigation />
       <ProductsHero />
 

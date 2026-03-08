@@ -25,7 +25,7 @@ export function PharmaInsightsCTA() {
           <h2 className="text-2xl lg:text-3xl font-bold text-white mb-3 text-balance">
             Stay Ahead in Pharmaceutical Intelligence
           </h2>
-          <p className="text-white/70 leading-relaxed max-w-2xl mx-auto mb-8">
+          <p className="text-white/90 leading-relaxed max-w-2xl mx-auto mb-8">
             Receive curated insights directly from the Liv Well team — regulatory updates, market analysis,
             and industry developments that help you make better decisions.
           </p>
@@ -33,7 +33,7 @@ export function PharmaInsightsCTA() {
           {submitted ? (
             <div className="bg-secondary/20 border border-secondary/30 rounded-xl p-6 max-w-md mx-auto">
               <p className="text-secondary font-semibold">Thank you for subscribing!</p>
-              <p className="text-white/60 text-sm mt-1">{"You'll receive our next insight directly in your inbox."}</p>
+              <p className="text-white/80 text-sm mt-1">{"You'll receive our next insight directly in your inbox."}</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
@@ -54,7 +54,7 @@ export function PharmaInsightsCTA() {
             </form>
           )}
 
-          <p className="text-white/40 text-xs mt-4">No spam. Unsubscribe anytime.</p>
+          <p className="text-white/70 text-xs mt-4">No spam. Unsubscribe anytime.</p>
         </div>
       </div>
     </section>

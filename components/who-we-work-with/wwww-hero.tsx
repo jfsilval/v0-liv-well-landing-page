@@ -46,7 +46,7 @@ export function WwwwHero() {
         </div>
 
         {/* Scroll indicator */}
-        <div aria-hidden="true" className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60">
+        <div aria-hidden="true" className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/80">
           <span className="text-xs tracking-widest uppercase">Scroll to explore</span>
           <ChevronDown className="h-5 w-5 animate-bounce" />
         </div>
