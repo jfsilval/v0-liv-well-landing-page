@@ -7,9 +7,9 @@ export function ProductsHero() {
   return (
     <section className="relative overflow-hidden mt-28 bg-primary/10">
       <div className="relative grid lg:grid-cols-2 min-h-[calc(100vh-7rem)]">
-        {/* Left content */}
-        <div className="flex flex-col items-start justify-start gap-4 px-8 lg:px-16 relative z-10 py-4 pt-16 lg:pt-20">
-          {/* Top: heading + text */}
+        {/* Left content - flex col h-full for 3-zone layout */}
+        <div className="flex flex-col h-full px-8 lg:px-16 pt-10 pb-8 relative z-10">
+          {/* Top: label + heading + blockquote + paragraph */}
           <div className="max-w-2xl space-y-3">
             <p className="text-sm font-semibold tracking-widest uppercase text-secondary">
               Product Portfolio
@@ -30,45 +30,43 @@ export function ProductsHero() {
             <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
               {"Thoughtfully assembled to support health ministries, distributors, importers, and care providers in delivering effective treatments where they're needed most."}
             </p>
-
-
           </div>
 
-          {/* Stats */}
-          <div className="flex items-center justify-center gap-8 lg:gap-12">
-            <div className="flex flex-col items-center text-center gap-0.5">
-              <div className="flex items-center gap-1">
-                <Award className="h-4 w-4 text-secondary" />
-                <span className="text-xl font-bold text-secondary">600+</span>
+          {/* Stats - bigger and centered */}
+          <div className="flex flex-row justify-center gap-10 mt-6">
+            <div className="flex flex-col items-center text-center gap-1">
+              <div className="flex items-center gap-2">
+                <Award className="h-6 w-6 text-secondary" />
+                <span className="text-3xl font-bold text-secondary">600+</span>
               </div>
               <p className="text-xs text-muted-foreground">Products</p>
             </div>
-            <div className="flex flex-col items-center text-center gap-0.5">
-              <div className="flex items-center gap-1">
-                <Shield className="h-4 w-4 text-accent" />
-                <span className="text-xl font-bold text-accent">100%</span>
+            <div className="flex flex-col items-center text-center gap-1">
+              <div className="flex items-center gap-2">
+                <Shield className="h-6 w-6 text-accent" />
+                <span className="text-3xl font-bold text-accent">100%</span>
               </div>
               <p className="text-xs text-muted-foreground">Quality Assured</p>
             </div>
           </div>
 
-          {/* Filter text + button */}
-          <div className="space-y-1">
-            <p className="text-sm text-muted-foreground leading-relaxed text-center">
-              {"Use the filters below to explore our full portfolio. Looking for something specific or can't find what you need?"}
-            </p>
-            <div className="flex justify-center">
-              <Button
-                size="lg"
-                className="bg-[#0a2351] hover:bg-[#0a2351]/90 text-white group"
-                asChild
-              >
-                <Link href="/contact">
-                  Contact Us
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-            </div>
+          {/* Filter text - generous spacing */}
+          <p className="text-sm text-muted-foreground mt-8 mb-6 text-center">
+            {"Use the filters below to explore our full portfolio. Looking for something specific or can't find what you need?"}
+          </p>
+
+          {/* Contact Us button - anchored to bottom */}
+          <div className="mt-auto flex justify-center pb-8">
+            <Button
+              size="lg"
+              className="bg-[#0a2351] hover:bg-[#0a2351]/90 text-white group"
+              asChild
+            >
+              <Link href="/contact">
+                Contact Us
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
           </div>
         </div>
 
