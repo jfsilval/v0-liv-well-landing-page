@@ -39,14 +39,14 @@ export function ProductsHero() {
                 <Award className="h-6 w-6 text-secondary" />
                 <span className="text-3xl font-bold text-secondary">600+</span>
               </div>
-              <p className="text-xs text-muted-foreground">Products</p>
+              <p className="text-xs text-foreground">Products</p>
             </div>
             <div className="flex flex-col items-center text-center gap-1">
               <div className="flex items-center gap-2">
                 <Shield className="h-6 w-6 text-accent" />
                 <span className="text-3xl font-bold text-accent">100%</span>
               </div>
-              <p className="text-xs text-muted-foreground">Quality Assured</p>
+              <p className="text-xs text-foreground">Quality Assured</p>
             </div>
           </div>
 

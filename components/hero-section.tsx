@@ -38,7 +38,7 @@ export function HeroSection() {
                   <span className="text-2xl font-bold text-primary">10+</span>
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground">Countries Served</p>
+              <p className="text-xs text-foreground">Countries Served</p>
             </div>
 
             {/* Stat 2 */}
@@ -49,7 +49,7 @@ export function HeroSection() {
                   <span className="text-2xl font-bold text-secondary">600+</span>
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground">Products</p>
+              <p className="text-xs text-foreground">Products</p>
             </div>
 
             {/* Stat 3 */}
@@ -60,7 +60,7 @@ export function HeroSection() {
                   <span className="text-2xl font-bold text-accent">100%</span>
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground">Quality Assured</p>
+              <p className="text-xs text-foreground">Quality Assured</p>
             </div>
 
             {/* Stat 4 */}
@@ -74,12 +74,12 @@ export function HeroSection() {
                   className="h-16 w-auto object-top"
                 />
               </div>
-              <p className="text-xs text-muted-foreground">Commitment to Patients</p>
+              <p className="text-xs text-foreground">Commitment to Patients</p>
             </div>
           </div>
 
           {/* Zone 3: BOTTOM - buttons */}
-          <div className="flex flex-row justify-center gap-4 w-full max-w-xl">
+          <div className="flex flex-row justify-center gap-4 pt-2 w-full">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group">
               Explore Our Products
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

@@ -85,7 +85,7 @@ export function InfoCardsSection() {
           </h2>
 
           <div className="text-center max-w-3xl mx-auto">
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white" style={{ letterSpacing: "-0.02em" }}>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white" style={{ letterSpacing: "-0.02em" }}>
               Making quality<br />
               <span
                 className="text-transparent bg-clip-text"
@@ -94,7 +94,7 @@ export function InfoCardsSection() {
                 medicine<br />
                 accessible.
               </span>
-            </h3>
+              </h2>
 
             <p className="text-base md:text-lg text-white/60 leading-relaxed mt-8">
               We believe that safe, effective medicines should be within reach for every patient — regardless of geography or circumstance.
