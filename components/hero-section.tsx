@@ -10,80 +10,88 @@ export function HeroSection() {
       {/* Background - primary at 10% opacity */}
       <div className="absolute inset-0 bg-primary/10" />
 
-      <div className="relative grid lg:grid-cols-2 h-[calc(100vh-7rem)]">
-        {/* Left content */}
-        <div className="flex flex-col justify-between px-8 lg:px-16 relative z-10 py-4">
-          {/* Top: heading + paragraph */}
-          <div className="max-w-2xl space-y-6">
-            <h1 className="text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
+      <div className="relative grid lg:grid-cols-2 min-h-[calc(100vh-7rem)]">
+        {/* Left content - 3-zone layout */}
+        <div className="flex flex-col h-full px-8 lg:px-16 pt-10 pb-8 relative z-10">
+          {/* Zone 1: TOP - title + paragraph */}
+          <div className="max-w-xl space-y-6">
+            <h1 className="text-5xl lg:text-6xl font-bold leading-tight text-balance">
               {"Delivering "}
               <span className="text-primary">Trusted Pharmaceutical Products</span>
               {" to Every Corner of the World."}
             </h1>
-
-            <p className="text-base text-muted-foreground leading-relaxed">
-              At Liv Well Pharmaceuticals, we are committed to making high-quality pharmaceutical products accessible
-              worldwide. Driven by innovation and a patient-first approach, we deliver trusted healthcare solutions
-              across borders, ensuring every community has the care it deserves.
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              At Liv Well Pharmaceuticals, we are committed to making high-quality pharmaceutical
+              products accessible worldwide. Driven by innovation and a patient-first approach, we
+              deliver trusted healthcare solutions across borders, ensuring every community has the
+              care it deserves.
             </p>
           </div>
 
-          {/* Bottom: stats + buttons */}
-          <div className="max-w-xl space-y-5">
-            {/* Stats row */}
-            <div className="flex items-start gap-6 lg:gap-10">
-              <div className="flex flex-col items-center text-center gap-1.5">
+          {/* Zone 2: MIDDLE - stats centered via my-auto */}
+          <div className="my-auto flex flex-row flex-wrap justify-center gap-8 w-full">
+            {/* Stat 1 */}
+            <div className="flex flex-col items-center text-center space-y-2">
+              <div className="h-9 flex items-center justify-center">
                 <div className="flex items-center gap-2">
                   <Globe className="h-5 w-5 text-primary" />
                   <span className="text-2xl font-bold text-primary">10+</span>
                 </div>
-                <p className="text-xs text-muted-foreground">Countries Served</p>
               </div>
-              <div className="flex flex-col items-center text-center gap-1.5">
+              <p className="text-xs text-muted-foreground">Countries Served</p>
+            </div>
+
+            {/* Stat 2 */}
+            <div className="flex flex-col items-center text-center space-y-2">
+              <div className="h-9 flex items-center justify-center">
                 <div className="flex items-center gap-2">
                   <Award className="h-5 w-5 text-secondary" />
                   <span className="text-2xl font-bold text-secondary">600+</span>
                 </div>
-                <p className="text-xs text-muted-foreground">Products</p>
               </div>
-              <div className="flex flex-col items-center text-center gap-1.5">
+              <p className="text-xs text-muted-foreground">Products</p>
+            </div>
+
+            {/* Stat 3 */}
+            <div className="flex flex-col items-center text-center space-y-2">
+              <div className="h-9 flex items-center justify-center">
                 <div className="flex items-center gap-2">
                   <Shield className="h-5 w-5 text-accent" />
                   <span className="text-2xl font-bold text-accent">100%</span>
                 </div>
-                <p className="text-xs text-muted-foreground">Quality Assured</p>
               </div>
-              {/* Infinity logo for Commitment */}
-              <div className="flex flex-col items-center text-center gap-1.5">
-                <div className="h-8 w-16 relative overflow-hidden">
-                  <Image
-                    src="/logo.png"
-                    alt="Commitment to Patients"
-                    width={100}
-                    height={100}
-                    className="w-auto h-14 object-cover object-top absolute top-0 left-1/2 -translate-x-1/2"
-                  />
-                </div>
-                <p className="text-xs text-muted-foreground whitespace-nowrap">Commitment to</p>
-                <p className="text-xs text-muted-foreground -mt-1 whitespace-nowrap">Patients</p>
-              </div>
+              <p className="text-xs text-muted-foreground">Quality Assured</p>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-row gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group">
-                Explore Our Products
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-primary text-primary hover:bg-primary/10 bg-transparent"
-                asChild
-              >
-                <a href="#contact">Contact Us</a>
-              </Button>
+            {/* Stat 4 */}
+            <div className="flex flex-col items-center text-center space-y-2">
+              <div className="h-9 overflow-hidden flex items-start justify-center">
+                <Image
+                  src="/logo.png"
+                  alt="Liv Well Pharmaceuticals"
+                  width={60}
+                  height={60}
+                  className="h-16 w-auto object-top"
+                />
+              </div>
+              <p className="text-xs text-muted-foreground">Commitment to Patients</p>
             </div>
+          </div>
+
+          {/* Zone 3: BOTTOM - buttons */}
+          <div className="flex flex-row justify-center gap-4 w-full max-w-xl">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group">
+              Explore Our Products
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary/10 bg-transparent"
+              asChild
+            >
+              <a href="#contact">Contact Us</a>
+            </Button>
           </div>
         </div>
 
@@ -94,6 +102,7 @@ export function HeroSection() {
               src="/hero-scientist-lab.jpg"
               alt="Pharmaceutical scientist in modern laboratory"
               fill
+              sizes="50vw"
               className="object-cover object-center"
               priority
             />

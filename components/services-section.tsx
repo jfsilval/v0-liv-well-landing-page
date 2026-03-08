@@ -3,6 +3,12 @@
 import { Card } from "@/components/ui/card"
 import { Microscope, Heart, Shield, Truck, Users, FlaskConical } from "lucide-react"
 
+const colorMap = {
+  primary: { bg: "bg-primary/10", text: "text-primary" },
+  secondary: { bg: "bg-secondary/10", text: "text-secondary" },
+  accent: { bg: "bg-accent/10", text: "text-accent" },
+} as const
+
 const services = [
   {
     icon: Microscope,
@@ -64,9 +70,9 @@ export function ServicesSection() {
                 className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 group cursor-pointer border-2 hover:border-primary/20"
               >
                 <div
-                  className={`w-14 h-14 rounded-xl bg-${service.color}/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                  className={`w-14 h-14 rounded-xl ${colorMap[service.color as keyof typeof colorMap].bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
                 >
-                  <Icon className={`h-7 w-7 text-${service.color}`} />
+                  <Icon className={`h-7 w-7 ${colorMap[service.color as keyof typeof colorMap].text}`} />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
                   {service.title}

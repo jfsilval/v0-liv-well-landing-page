@@ -1,9 +1,11 @@
+import dynamic from "next/dynamic"
 import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/hero-section"
-import { InfoCardsSection } from "@/components/info-cards-section"
-import { AccordionSection } from "@/components/accordion-section"
-import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
+
+const InfoCardsSection = dynamic(() => import("@/components/info-cards-section").then(mod => ({ default: mod.InfoCardsSection })))
+const AccordionSection = dynamic(() => import("@/components/accordion-section").then(mod => ({ default: mod.AccordionSection })))
+const ContactSection = dynamic(() => import("@/components/contact-section").then(mod => ({ default: mod.ContactSection })))
 
 export default function Page() {
   return (

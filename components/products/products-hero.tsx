@@ -7,10 +7,10 @@ export function ProductsHero() {
   return (
     <section className="relative overflow-hidden mt-28 bg-primary/10">
       <div className="relative grid lg:grid-cols-2 min-h-[calc(100vh-7rem)]">
-        {/* Left content */}
-        <div className="flex flex-col justify-center gap-6 px-8 lg:px-16 relative z-10 py-8">
-          {/* Top: heading + text */}
-          <div className="max-w-2xl space-y-4">
+        {/* Left content - flex col h-full for 3-zone layout */}
+        <div className="flex flex-col h-full px-8 lg:px-16 pt-10 pb-8 relative z-10">
+          {/* Top: label + heading + blockquote + paragraph */}
+          <div className="max-w-2xl space-y-3">
             <p className="text-sm font-semibold tracking-widest uppercase text-secondary">
               Product Portfolio
             </p>
@@ -32,41 +32,39 @@ export function ProductsHero() {
             </p>
           </div>
 
-          {/* Stats */}
-          <div className="flex items-center justify-center gap-12 lg:gap-16">
+          {/* Stats - bigger and centered */}
+          <div className="my-auto flex flex-row justify-center gap-10 w-full">
             <div className="flex flex-col items-center text-center gap-1">
               <div className="flex items-center gap-2">
-                <Award className="h-5 w-5 text-secondary" />
-                <span className="text-2xl font-bold text-secondary">600+</span>
+                <Award className="h-6 w-6 text-secondary" />
+                <span className="text-3xl font-bold text-secondary">600+</span>
               </div>
               <p className="text-xs text-muted-foreground">Products</p>
             </div>
             <div className="flex flex-col items-center text-center gap-1">
               <div className="flex items-center gap-2">
-                <Shield className="h-5 w-5 text-accent" />
-                <span className="text-2xl font-bold text-accent">100%</span>
+                <Shield className="h-6 w-6 text-accent" />
+                <span className="text-3xl font-bold text-accent">100%</span>
               </div>
               <p className="text-xs text-muted-foreground">Quality Assured</p>
             </div>
           </div>
 
-          {/* Filter text + button */}
-          <div className="space-y-2">
-            <p className="text-sm text-muted-foreground leading-relaxed text-center">
-              {"Use the filters below to explore our full portfolio. Looking for something specific or can't find what you need?"}
+          {/* Filter text + button grouped at bottom */}
+          <div className="flex flex-col items-center gap-3 pb-8 w-full">
+            <p className="text-sm text-muted-foreground text-center max-w-lg">
+              Use the filters below to explore our full portfolio. Looking for something specific or can't find what you need?
             </p>
-            <div className="flex justify-center">
-              <Button
-                size="lg"
-                className="bg-[#0a2351] hover:bg-[#0a2351]/90 text-white group"
-                asChild
-              >
-                <Link href="/contact">
-                  Contact Us
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-            </div>
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              asChild
+            >
+              <a href="/#contact">
+                Contact Us
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
           </div>
         </div>
 
@@ -77,6 +75,7 @@ export function ProductsHero() {
               src="/products-hero.jpg"
               alt="Innovative pharmaceutical capsule with DNA technology"
               fill
+              sizes="50vw"
               className="object-cover object-[57%_center]"
               priority
             />

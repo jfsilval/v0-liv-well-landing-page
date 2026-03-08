@@ -9,34 +9,32 @@ const stats = [
   { value: "\u221E", label: "Commitment to Patients" },
 ]
 
-function AnimatedStat({ value, label }: { value: string; label: string }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
+export function AboutNumbers() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set())
 
   useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Number(entry.target.getAttribute("data-index"))
+          if (entry.isIntersecting) {
+            setVisibleItems((prev) => new Set(prev).add(index))
+          }
+        })
       },
-      { threshold: 0.3 },
+      { threshold: 0.3 }
     )
-    if (ref.current) observer.observe(ref.current)
+
+    const items = container.querySelectorAll("[data-index]")
+    items.forEach((item) => observer.observe(item))
+
     return () => observer.disconnect()
   }, [])
 
-  return (
-    <div
-      ref={ref}
-      className={`text-center transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-    >
-      <p className="text-6xl md:text-7xl font-bold text-white mb-3">{value}</p>
-      <div className="w-12 h-0.5 bg-secondary mx-auto mb-3" />
-      <p className="text-white/70 text-lg tracking-wide">{label}</p>
-    </div>
-  )
-}
-
-export function AboutNumbers() {
   return (
     <section className="py-24 bg-[#0a2351] relative overflow-hidden">
       {/* Subtle decorative elements */}
@@ -57,9 +55,19 @@ export function AboutNumbers() {
           </div>
 
           {/* Stats grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
-            {stats.map((stat) => (
-              <AnimatedStat key={stat.label} value={stat.value} label={stat.label} />
+          <div ref={containerRef} className="grid grid-cols-2 lg:grid-cols-4 gap-12">
+            {stats.map((stat, index) => (
+              <div
+                key={stat.label}
+                data-index={index}
+                className={`text-center transition-all duration-700 ${
+                  visibleItems.has(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
+              >
+                <p className="text-6xl md:text-7xl font-bold text-white mb-3">{stat.value}</p>
+                <div className="w-12 h-0.5 bg-secondary mx-auto mb-3" />
+                <p className="text-white/70 text-lg tracking-wide">{stat.label}</p>
+              </div>
             ))}
           </div>
         </div>

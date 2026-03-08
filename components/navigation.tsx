@@ -59,6 +59,7 @@ export function Navigation() {
               alt="Liv Well Pharmaceuticals"
               width={364}
               height={145}
+              sizes="(max-width: 768px) 200px, 364px"
               className={cn("h-32 w-auto transition-all duration-300", showWhiteText && "brightness-0 invert")}
               priority
             />
