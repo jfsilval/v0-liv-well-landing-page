@@ -71,7 +71,7 @@ export function ContactSection() {
           <div className="flex justify-center mb-6" aria-hidden="true">
             <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
           </div>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
             Have questions about our products or services? Our team is here to help you.
           </p>
         </div>
@@ -86,8 +86,8 @@ export function ContactSection() {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold mb-2 text-white">Email Us</h3>
-                  <p className="text-sm text-white/70">info@livwellpharmaceuticals.com</p>
-                  <p className="text-sm text-white/70">support@livwellpharmaceuticals.com</p>
+                  <p className="text-sm text-white/90">info@livwellpharmaceuticals.com</p>
+                  <p className="text-sm text-white/90">support@livwellpharmaceuticals.com</p>
                 </div>
               </div>
             </Card>
@@ -99,8 +99,8 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-2 text-white">Call Us</h3>
-                  <p className="text-sm text-white/70">+971 4 516 3600 Ext: 8437</p>
-                  <p className="text-sm text-white/70">Sun-Thu 9AM-6PM (GST)</p>
+                  <p className="text-sm text-white/90">+971 4 516 3600 Ext: 8437</p>
+                  <p className="text-sm text-white/90">Sun-Thu 9AM-6PM (GST)</p>
                 </div>
               </div>
             </Card>
@@ -112,7 +112,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-2 text-white">Address</h3>
-                  <p className="text-sm text-white/70">
+                  <p className="text-sm text-white/90">
                     Meydan Grandstand, 6th Floor
                     <br />
                     Meydan Road, Nad Al Sheba

@@ -108,7 +108,7 @@ export function HeroSection() {
             />
             {/* Gradient overlay with text */}
             <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent flex flex-col justify-end p-10">
-              <h3 className="text-3xl font-bold text-white mb-3">Innovation in Healthcare</h3>
+              <h2 className="text-3xl font-bold text-white mb-3">Innovation in Healthcare</h2>
               <p className="text-white/90 text-base leading-relaxed max-w-md">
                 Leading the way in pharmaceutical excellence with cutting-edge research and development.
               </p>

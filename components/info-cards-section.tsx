@@ -96,7 +96,7 @@ export function InfoCardsSection() {
               </span>
               </h2>
 
-            <p className="text-base md:text-lg text-white/60 leading-relaxed mt-8">
+            <p className="text-base md:text-lg text-white/90 leading-relaxed mt-8">
               We believe that safe, effective medicines should be within reach for every patient — regardless of geography or circumstance.
             </p>
           </div>
