@@ -30,35 +30,48 @@ export function HeroSection() {
 
           {/* Zone 2: MIDDLE - stats centered via my-auto */}
           <div className="my-auto flex flex-row flex-wrap justify-center gap-8 w-full">
+            {/* Stat 1 */}
             <div className="flex flex-col items-center text-center space-y-2">
-              <div className="flex items-center gap-2">
-                <Globe className="h-6 w-6 text-primary" />
-                <span className="text-3xl font-bold text-primary">10+</span>
+              <div className="h-9 flex items-center justify-center">
+                <div className="flex items-center gap-2">
+                  <Globe className="h-5 w-5 text-primary" />
+                  <span className="text-2xl font-bold text-primary">10+</span>
+                </div>
               </div>
               <p className="text-xs text-muted-foreground">Countries Served</p>
             </div>
+
+            {/* Stat 2 */}
             <div className="flex flex-col items-center text-center space-y-2">
-              <div className="flex items-center gap-2">
-                <Award className="h-6 w-6 text-secondary" />
-                <span className="text-3xl font-bold text-secondary">600+</span>
+              <div className="h-9 flex items-center justify-center">
+                <div className="flex items-center gap-2">
+                  <Award className="h-5 w-5 text-secondary" />
+                  <span className="text-2xl font-bold text-secondary">600+</span>
+                </div>
               </div>
               <p className="text-xs text-muted-foreground">Products</p>
             </div>
+
+            {/* Stat 3 */}
             <div className="flex flex-col items-center text-center space-y-2">
-              <div className="flex items-center gap-2">
-                <Shield className="h-6 w-6 text-accent" />
-                <span className="text-3xl font-bold text-accent">100%</span>
+              <div className="h-9 flex items-center justify-center">
+                <div className="flex items-center gap-2">
+                  <Shield className="h-5 w-5 text-accent" />
+                  <span className="text-2xl font-bold text-accent">100%</span>
+                </div>
               </div>
               <p className="text-xs text-muted-foreground">Quality Assured</p>
             </div>
+
+            {/* Stat 4 */}
             <div className="flex flex-col items-center text-center space-y-2">
-              <div className="flex items-center justify-center h-8">
+              <div className="h-9 overflow-hidden flex items-start justify-center">
                 <Image
                   src="/logo.png"
                   alt="Liv Well Pharmaceuticals"
-                  width={80}
-                  height={32}
-                  className="h-8 w-auto object-contain"
+                  width={60}
+                  height={60}
+                  className="h-16 w-auto object-top"
                 />
               </div>
               <p className="text-xs text-muted-foreground">Commitment to Patients</p>
