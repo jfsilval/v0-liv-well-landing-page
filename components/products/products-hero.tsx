@@ -8,9 +8,9 @@ export function ProductsHero() {
     <section className="relative overflow-hidden mt-28 bg-primary/10">
       <div className="relative grid lg:grid-cols-2 min-h-[calc(100vh-7rem)]">
         {/* Left content */}
-        <div className="flex flex-col justify-center gap-6 px-8 lg:px-16 relative z-10 py-8">
+        <div className="flex flex-col justify-center gap-8 px-8 lg:px-16 relative z-10 py-8">
           {/* Top: heading + text */}
-          <div className="max-w-2xl space-y-4">
+          <div className="max-w-2xl space-y-5">
             <p className="text-sm font-semibold tracking-widest uppercase text-secondary">
               Product Portfolio
             </p>
@@ -51,7 +51,7 @@ export function ProductsHero() {
           </div>
 
           {/* Filter text + button */}
-          <div className="space-y-2">
+          <div className="space-y-4">
             <p className="text-sm text-muted-foreground leading-relaxed text-center">
               {"Use the filters below to explore our full portfolio. Looking for something specific or can't find what you need?"}
             </p>
