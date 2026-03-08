@@ -28,10 +28,9 @@ export function HeroSection() {
             </p>
           </div>
 
-          {/* Bottom: stats + buttons */}
-          <div className="w-full space-y-5">
-            {/* Stats row - centered, bigger */}
-            <div className="flex items-start justify-center gap-8 lg:gap-12">
+          {/* Middle: stats - centered between text above and buttons below */}
+          <div className="w-full flex justify-center">
+            <div className="flex items-start gap-8 lg:gap-12">
               <div className="flex flex-col items-center text-center gap-1.5">
                 <div className="flex items-center gap-2">
                   <Globe className="h-5 w-5 text-primary" />
@@ -67,22 +66,22 @@ export function HeroSection() {
                 <p className="text-sm text-muted-foreground whitespace-nowrap">Commitment</p>
               </div>
             </div>
+          </div>
 
-            {/* Action Buttons - centered, large */}
-            <div className="flex flex-row justify-center gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group">
-                Explore Products
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-primary text-primary hover:bg-primary/10 bg-transparent"
-                asChild
-              >
-                <a href="#contact">Contact Us</a>
-              </Button>
-            </div>
+          {/* Bottom: Action Buttons - centered */}
+          <div className="flex flex-row justify-center gap-4 pb-6">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group">
+              Explore Products
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary/10 bg-transparent"
+              asChild
+            >
+              <a href="#contact">Contact Us</a>
+            </Button>
           </div>
         </div>
 
