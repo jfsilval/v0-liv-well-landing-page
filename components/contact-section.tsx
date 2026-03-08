@@ -68,7 +68,7 @@ export function ContactSection() {
           <h2 className="text-4xl font-bold mb-4 text-balance text-white">
             Get in <span className="text-secondary">Touch</span>
           </h2>
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mb-6" aria-hidden="true">
             <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
           </div>
           <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
@@ -81,7 +81,7 @@ export function ContactSection() {
           <div className="space-y-4 lg:col-span-2">
             <Card className="p-6 hover:shadow-lg transition-shadow bg-white/10 border-white/10">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0" aria-hidden="true">
                   <Mail className="h-6 w-6 text-secondary" />
                 </div>
                 <div className="flex-1">
@@ -94,7 +94,7 @@ export function ContactSection() {
 
             <Card className="p-6 hover:shadow-lg transition-shadow bg-white/10 border-white/10">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center flex-shrink-0" aria-hidden="true">
                   <Phone className="h-6 w-6 text-secondary" />
                 </div>
                 <div>
@@ -107,7 +107,7 @@ export function ContactSection() {
 
             <Card className="p-6 hover:shadow-lg transition-shadow bg-white/10 border-white/10">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0" aria-hidden="true">
                   <MapPin className="h-6 w-6 text-secondary" />
                 </div>
                 <div>
@@ -130,7 +130,7 @@ export function ContactSection() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-white">
-                    Name <span className="text-destructive">*</span>
+                    Name <span className="text-destructive" aria-hidden="true">*</span>
                   </Label>
                   <Input
                     id="name"
@@ -138,14 +138,16 @@ export function ContactSection() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your name"
+                    aria-required="true"
+                    aria-describedby={errors.name ? "name-error" : undefined}
                     className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.name ? "border-destructive" : ""}`}
                   />
-                  {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
+                  {errors.name && <p id="name-error" role="alert" className="text-sm text-destructive">{errors.name}</p>}
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-white">
-                    Email <span className="text-destructive">*</span>
+                    Email <span className="text-destructive" aria-hidden="true">*</span>
                   </Label>
                   <Input
                     id="email"
@@ -154,9 +156,11 @@ export function ContactSection() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="your@email.com"
+                    aria-required="true"
+                    aria-describedby={errors.email ? "email-error" : undefined}
                     className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.email ? "border-destructive" : ""}`}
                   />
-                  {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
+                  {errors.email && <p id="email-error" role="alert" className="text-sm text-destructive">{errors.email}</p>}
                 </div>
               </div>
 
@@ -189,7 +193,7 @@ export function ContactSection() {
 
               <div className="space-y-2">
                 <Label htmlFor="message" className="text-white">
-                  Message <span className="text-destructive">*</span>
+                  Message <span className="text-destructive" aria-hidden="true">*</span>
                 </Label>
                 <Textarea
                   id="message"
@@ -198,9 +202,11 @@ export function ContactSection() {
                   onChange={handleChange}
                   placeholder="Tell us about your inquiry..."
                   rows={6}
+                  aria-required="true"
+                  aria-describedby={errors.message ? "message-error" : undefined}
                   className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.message ? "border-destructive" : ""}`}
                 />
-                {errors.message && <p className="text-sm text-destructive">{errors.message}</p>}
+                {errors.message && <p id="message-error" role="alert" className="text-sm text-destructive">{errors.message}</p>}
               </div>
 
               <Button type="submit" size="lg" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground">

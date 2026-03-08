@@ -44,7 +44,7 @@ export function AccordionSection() {
             <h2 className="text-4xl font-bold mb-4 text-balance">
               Frequently Asked <span className="text-primary">Questions</span>
             </h2>
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-6" aria-hidden="true">
               <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
             </div>
             <p className="text-lg text-muted-foreground leading-relaxed">

@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function CookiePolicyPage() {
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen">
       <Navigation />
       
       {/* Hero Section */}

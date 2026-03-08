@@ -49,7 +49,7 @@ export function AboutValues() {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3 text-balance">
               Our <span className="text-primary">Values</span>
             </h2>
-            <div className="flex justify-center mb-4">
+            <div className="flex justify-center mb-4" aria-hidden="true">
               <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
             </div>
             <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -67,6 +67,7 @@ export function AboutValues() {
               >
                 <div className="flex items-center gap-3 mb-2">
                   <div
+                    aria-hidden="true"
                     className={`w-9 h-9 rounded-lg ${value.bg} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}
                   >
                     <value.icon className={`h-4 w-4 ${value.color}`} />
@@ -85,6 +86,7 @@ export function AboutValues() {
               >
                 <div className="flex items-center gap-3 mb-2">
                   <div
+                    aria-hidden="true"
                     className={`w-9 h-9 rounded-lg ${value.bg} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}
                   >
                     <value.icon className={`h-4 w-4 ${value.color}`} />

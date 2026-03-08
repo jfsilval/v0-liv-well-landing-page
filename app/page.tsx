@@ -9,7 +9,7 @@ const ContactSection = dynamic(() => import("@/components/contact-section").then
 
 export default function Page() {
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen">
       <Navigation />
       <HeroSection />
       <InfoCardsSection />

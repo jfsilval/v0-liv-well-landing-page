@@ -42,7 +42,7 @@ export function WwwwReasons() {
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">
               Why Liv Well <span className="text-primary">Pharmaceuticals</span>
             </h2>
-            <div className="flex justify-center mb-4">
+            <div className="flex justify-center mb-4" aria-hidden="true">
               <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
             </div>
             <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
@@ -62,6 +62,7 @@ export function WwwwReasons() {
                 >
                   <div className="flex items-center gap-3 mb-2">
                     <div
+                      aria-hidden="true"
                       className={`w-10 h-10 rounded-lg ${reason.bg} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}
                     >
                       <Icon className={`h-5 w-5 ${reason.color}`} />

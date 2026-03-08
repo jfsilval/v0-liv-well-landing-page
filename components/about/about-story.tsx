@@ -35,7 +35,7 @@ export function AboutStory() {
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">
               Our <span className="text-primary">Story</span>
             </h2>
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-6" aria-hidden="true">
               <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
             </div>
             <p className="text-lg text-muted-foreground">Built on a simple belief</p>
@@ -75,6 +75,7 @@ export function AboutStory() {
                 >
                   <div className="flex items-start gap-4">
                     <div
+                      aria-hidden="true"
                       className={`w-12 h-12 rounded-lg ${card.bg} flex items-center justify-center flex-shrink-0`}
                     >
                       <card.icon className={`h-6 w-6 ${card.color}`} />
