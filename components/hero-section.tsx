@@ -12,8 +12,8 @@ export function HeroSection() {
 
       <div className="relative grid lg:grid-cols-2 min-h-[calc(100vh-7rem)]">
         {/* Left content */}
-        <div className="flex flex-col justify-between px-8 lg:px-16 relative z-10 py-3">
-          {/* Top: heading + paragraph */}
+        <div className="flex flex-col justify-center gap-8 px-8 lg:px-16 relative z-10 py-3">
+          {/* Heading + paragraph + stats + buttons flow naturally */}
           <div className="max-w-2xl space-y-4">
             <h1 className="text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight">
               {"Delivering "}
@@ -28,27 +28,27 @@ export function HeroSection() {
             </p>
           </div>
 
-          {/* Middle: stats - centered between text above and buttons below */}
+          {/* Stats - flows naturally with gap-8 */}
           <div className="w-full flex justify-center">
             <div className="flex items-start gap-8 lg:gap-12">
               <div className="flex flex-col items-center text-center gap-1.5">
                 <div className="flex items-center gap-2">
-                  <Globe className="h-5 w-5 text-primary" />
-                  <span className="text-2xl font-bold text-primary">10+</span>
+                  <Globe className="h-6 w-6 text-primary" />
+                  <span className="text-3xl font-bold text-primary">10+</span>
                 </div>
                 <p className="text-sm text-muted-foreground">Countries Served</p>
               </div>
               <div className="flex flex-col items-center text-center gap-1.5">
                 <div className="flex items-center gap-2">
-                  <Award className="h-5 w-5 text-secondary" />
-                  <span className="text-2xl font-bold text-secondary">600+</span>
+                  <Award className="h-6 w-6 text-secondary" />
+                  <span className="text-3xl font-bold text-secondary">600+</span>
                 </div>
                 <p className="text-sm text-muted-foreground">Products</p>
               </div>
               <div className="flex flex-col items-center text-center gap-1.5">
                 <div className="flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-accent" />
-                  <span className="text-2xl font-bold text-accent">100%</span>
+                  <Shield className="h-6 w-6 text-accent" />
+                  <span className="text-3xl font-bold text-accent">100%</span>
                 </div>
                 <p className="text-sm text-muted-foreground">Quality Assured</p>
               </div>
@@ -60,7 +60,7 @@ export function HeroSection() {
                     alt="Commitment to Patients"
                     width={100}
                     height={100}
-                    className="w-auto h-12 object-cover object-top absolute top-0 left-1/2 -translate-x-1/2"
+                    className="w-auto h-11 object-cover object-top absolute top-0 left-1/2 -translate-x-1/2"
                   />
                 </div>
                 <p className="text-sm text-muted-foreground whitespace-nowrap">Commitment</p>
@@ -68,8 +68,8 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Bottom: Action Buttons - centered */}
-          <div className="flex flex-row justify-center gap-4 pb-6">
+          {/* Buttons - flows naturally with gap-8 */}
+          <div className="flex flex-row justify-center gap-4">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group">
               Explore Products
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

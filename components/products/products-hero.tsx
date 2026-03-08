@@ -8,7 +8,7 @@ export function ProductsHero() {
     <section className="relative overflow-hidden mt-28 bg-primary/10">
       <div className="relative grid lg:grid-cols-2 min-h-[calc(100vh-7rem)]">
         {/* Left content */}
-        <div className="flex flex-col justify-center gap-4 px-8 lg:px-16 relative z-10 py-4">
+        <div className="flex flex-col items-start justify-start gap-4 px-8 lg:px-16 relative z-10 py-4 pt-16 lg:pt-20">
           {/* Top: heading + text */}
           <div className="max-w-2xl space-y-3">
             <p className="text-sm font-semibold tracking-widest uppercase text-secondary">
