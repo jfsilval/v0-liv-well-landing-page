@@ -27,9 +27,7 @@ export function ProductsHero() {
               </p>
             </div>
 
-            <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
-              {"Thoughtfully assembled to support health ministries, distributors, importers, and care providers in delivering effective treatments where they're needed most."}
-            </p>
+
           </div>
 
           {/* Stats */}
