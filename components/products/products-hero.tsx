@@ -6,11 +6,11 @@ import { Button } from "@/components/ui/button"
 export function ProductsHero() {
   return (
     <section className="relative overflow-hidden mt-28 bg-primary/10">
-      <div className="relative grid lg:grid-cols-2 h-[calc(100vh-8rem)]">
+      <div className="relative grid lg:grid-cols-2 min-h-[calc(100vh-7rem)]">
         {/* Left content */}
-        <div className="flex flex-col justify-center gap-6 px-8 lg:px-16 relative z-10 py-6">
+        <div className="flex flex-col justify-center gap-4 px-8 lg:px-16 relative z-10 py-4">
           {/* Top: heading + text */}
-          <div className="max-w-2xl space-y-4">
+          <div className="max-w-2xl space-y-3">
             <p className="text-sm font-semibold tracking-widest uppercase text-secondary">
               Product Portfolio
             </p>
@@ -33,25 +33,25 @@ export function ProductsHero() {
           </div>
 
           {/* Stats */}
-          <div className="flex items-center justify-center gap-12 lg:gap-16">
-            <div className="flex flex-col items-center text-center gap-1">
-              <div className="flex items-center gap-2">
-                <Award className="h-5 w-5 text-secondary" />
-                <span className="text-2xl font-bold text-secondary">600+</span>
+          <div className="flex items-center justify-center gap-8 lg:gap-12">
+            <div className="flex flex-col items-center text-center gap-0.5">
+              <div className="flex items-center gap-1">
+                <Award className="h-4 w-4 text-secondary" />
+                <span className="text-xl font-bold text-secondary">600+</span>
               </div>
               <p className="text-xs text-muted-foreground">Products</p>
             </div>
-            <div className="flex flex-col items-center text-center gap-1">
-              <div className="flex items-center gap-2">
-                <Shield className="h-5 w-5 text-accent" />
-                <span className="text-2xl font-bold text-accent">100%</span>
+            <div className="flex flex-col items-center text-center gap-0.5">
+              <div className="flex items-center gap-1">
+                <Shield className="h-4 w-4 text-accent" />
+                <span className="text-xl font-bold text-accent">100%</span>
               </div>
               <p className="text-xs text-muted-foreground">Quality Assured</p>
             </div>
           </div>
 
           {/* Filter text + button */}
-          <div className="space-y-2">
+          <div className="space-y-1">
             <p className="text-sm text-muted-foreground leading-relaxed text-center">
               {"Use the filters below to explore our full portfolio. Looking for something specific or can't find what you need?"}
             </p>

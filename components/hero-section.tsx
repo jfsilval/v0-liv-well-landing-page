@@ -10,12 +10,12 @@ export function HeroSection() {
       {/* Background - primary at 10% opacity */}
       <div className="absolute inset-0 bg-primary/10" />
 
-      <div className="relative grid lg:grid-cols-2 h-[calc(100vh-7rem)]">
+      <div className="relative grid lg:grid-cols-2 min-h-[calc(100vh-7rem)]">
         {/* Left content */}
-        <div className="flex flex-col justify-between px-8 lg:px-16 relative z-10 py-4">
+        <div className="flex flex-col justify-between px-8 lg:px-16 relative z-10 py-3">
           {/* Top: heading + paragraph */}
-          <div className="max-w-2xl space-y-6">
-            <h1 className="text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
+          <div className="max-w-2xl space-y-4">
+            <h1 className="text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight">
               {"Delivering "}
               <span className="text-primary">Trusted Pharmaceutical Products</span>
               {" to Every Corner of the World."}
@@ -29,54 +29,53 @@ export function HeroSection() {
           </div>
 
           {/* Bottom: stats + buttons */}
-          <div className="max-w-xl space-y-5">
+          <div className="max-w-xl space-y-3">
             {/* Stats row */}
-            <div className="flex items-start gap-6 lg:gap-10">
-              <div className="flex flex-col items-center text-center gap-1.5">
-                <div className="flex items-center gap-2">
-                  <Globe className="h-5 w-5 text-primary" />
-                  <span className="text-2xl font-bold text-primary">10+</span>
+            <div className="flex items-start gap-4 lg:gap-6">
+              <div className="flex flex-col items-center text-center gap-1">
+                <div className="flex items-center gap-1.5">
+                  <Globe className="h-4 w-4 text-primary" />
+                  <span className="text-lg font-bold text-primary">10+</span>
                 </div>
-                <p className="text-xs text-muted-foreground">Countries Served</p>
+                <p className="text-xs text-muted-foreground">Countries</p>
               </div>
-              <div className="flex flex-col items-center text-center gap-1.5">
-                <div className="flex items-center gap-2">
-                  <Award className="h-5 w-5 text-secondary" />
-                  <span className="text-2xl font-bold text-secondary">600+</span>
+              <div className="flex flex-col items-center text-center gap-1">
+                <div className="flex items-center gap-1.5">
+                  <Award className="h-4 w-4 text-secondary" />
+                  <span className="text-lg font-bold text-secondary">600+</span>
                 </div>
                 <p className="text-xs text-muted-foreground">Products</p>
               </div>
-              <div className="flex flex-col items-center text-center gap-1.5">
-                <div className="flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-accent" />
-                  <span className="text-2xl font-bold text-accent">100%</span>
+              <div className="flex flex-col items-center text-center gap-1">
+                <div className="flex items-center gap-1.5">
+                  <Shield className="h-4 w-4 text-accent" />
+                  <span className="text-lg font-bold text-accent">100%</span>
                 </div>
-                <p className="text-xs text-muted-foreground">Quality Assured</p>
+                <p className="text-xs text-muted-foreground">Quality</p>
               </div>
               {/* Infinity logo for Commitment */}
-              <div className="flex flex-col items-center text-center gap-1.5">
-                <div className="h-8 w-16 relative overflow-hidden">
+              <div className="flex flex-col items-center text-center gap-1">
+                <div className="h-6 w-14 relative overflow-hidden">
                   <Image
                     src="/logo.png"
                     alt="Commitment to Patients"
                     width={100}
                     height={100}
-                    className="w-auto h-14 object-cover object-top absolute top-0 left-1/2 -translate-x-1/2"
+                    className="w-auto h-10 object-cover object-top absolute top-0 left-1/2 -translate-x-1/2"
                   />
                 </div>
-                <p className="text-xs text-muted-foreground whitespace-nowrap">Commitment to</p>
-                <p className="text-xs text-muted-foreground -mt-1 whitespace-nowrap">Patients</p>
+                <p className="text-xs text-muted-foreground whitespace-nowrap">Commitment</p>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-row gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group">
-                Explore Our Products
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            <div className="flex flex-row gap-3">
+              <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground group">
+                Explore Products
+                <ArrowRight className="ml-1.5 h-3 w-3 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
-                size="lg"
+                size="sm"
                 variant="outline"
                 className="border-primary text-primary hover:bg-primary/10 bg-transparent"
                 asChild
