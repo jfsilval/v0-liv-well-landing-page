@@ -174,9 +174,9 @@ export function PharmaInsightsContent({
                     <p className="text-xs text-muted-foreground">{formatDate(post.publishedAt)}</p>
                   </div>
 
-                  <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                  <h2 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
                     {post.title}
-                  </h3>
+                  </h2>
 
                   {post.meta?.description && (
                     <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-1 mb-4">

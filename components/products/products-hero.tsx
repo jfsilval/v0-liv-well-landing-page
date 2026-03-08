@@ -11,13 +11,13 @@ export function ProductsHero() {
         <div className="flex flex-col h-full px-8 lg:px-16 pt-10 pb-8 relative z-10">
           {/* Top: label + heading + blockquote + paragraph */}
           <div className="max-w-2xl space-y-3">
-            <p className="text-sm font-semibold tracking-widest uppercase text-secondary">
+            <p className="text-sm font-semibold tracking-widest uppercase text-teal-700">
               Product Portfolio
             </p>
 
             <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-primary">
               {"Quality, proven, and globally accessible — "}
-              <span className="text-secondary">{"that's our standard."}</span>
+              <span className="text-teal-700">{"that's our standard."}</span>
             </h1>
 
             {/* Mid-statement with left border accent */}
@@ -36,15 +36,15 @@ export function ProductsHero() {
           <div className="my-auto flex flex-row justify-center gap-10 w-full">
             <div className="flex flex-col items-center text-center gap-1">
               <div className="flex items-center gap-2">
-                <Award className="h-6 w-6 text-secondary" />
-                <span className="text-3xl font-bold text-secondary">600+</span>
+                <Award className="h-6 w-6 text-teal-700" />
+                <span className="text-3xl font-bold text-teal-700">600+</span>
               </div>
               <p className="text-xs text-foreground">Products</p>
             </div>
             <div className="flex flex-col items-center text-center gap-1">
               <div className="flex items-center gap-2">
-                <Shield className="h-6 w-6 text-accent" />
-                <span className="text-3xl font-bold text-accent">100%</span>
+                <Shield className="h-6 w-6 text-green-700" />
+                <span className="text-3xl font-bold text-green-700">100%</span>
               </div>
               <p className="text-xs text-foreground">Quality Assured</p>
             </div>

@@ -9,7 +9,7 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
       <div className="bg-gradient-to-r from-primary via-secondary to-accent py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <h3 className="text-2xl font-bold mb-4 text-white">Pharmacovigilance</h3>
+            <h2 className="text-2xl font-bold mb-4 text-white">Pharmacovigilance</h2>
             <p className="text-white/90 mb-4 leading-relaxed">
               If you have presented a suspected adverse reaction associated with the use of any medication of Liv Well
               Pharmaceuticals, we would appreciate sharing your report to our Pharmacovigilance team by sending an email
@@ -61,7 +61,7 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
 
             {/* Quick Links */}
             <div>
-              <h3 className="font-semibold mb-4">Quick Links</h3>
+              <h2 className="font-semibold mb-4">Quick Links</h2>
               <ul className="space-y-2">
                 <li>
                   <Link href="/about" className="text-sm text-white/80 hover:text-white transition-colors">
@@ -83,7 +83,7 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
 
             {/* Resources */}
             <div>
-              <h3 className="font-semibold mb-4">Resources</h3>
+              <h2 className="font-semibold mb-4">Resources</h2>
               <ul className="space-y-2">
                 <li>
                   <Link href="/pharma-insights" className="text-sm text-white/80 hover:text-white transition-colors">
@@ -105,7 +105,7 @@ export function Footer({ showPharmacovigilance = true }: { showPharmacovigilance
 
             {/* Legal */}
             <div>
-              <h3 className="font-semibold mb-4">Legal</h3>
+              <h2 className="font-semibold mb-4">Legal</h2>
               <ul className="space-y-2">
                 <li>
                   <Link href="/privacy-policy" className="text-sm text-white/80 hover:text-white transition-colors">
