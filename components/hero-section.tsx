@@ -51,14 +51,14 @@ export function HeroSection() {
               </div>
               <p className="text-xs text-muted-foreground">Quality Assured</p>
             </div>
-            <div className="flex flex-col items-center text-center space-y-2">
-              <div className="h-7 overflow-hidden">
+            <div className="flex flex-col items-center text-center space-y-2 min-w-[70px]">
+              <div className="flex items-center justify-center h-9">
                 <Image
                   src="/logo.png"
                   alt="Liv Well Pharmaceuticals"
                   width={80}
                   height={80}
-                  className="w-auto h-11 object-cover object-top"
+                  className="w-auto h-9 object-cover object-top"
                 />
               </div>
               <p className="text-xs text-muted-foreground">Commitment to Patients</p>

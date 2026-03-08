@@ -33,7 +33,7 @@ export function ProductsHero() {
           </div>
 
           {/* Stats - bigger and centered */}
-          <div className="flex flex-row justify-center gap-10 mt-6">
+          <div className="flex flex-row justify-center gap-10">
             <div className="flex flex-col items-center text-center gap-1">
               <div className="flex items-center gap-2">
                 <Award className="h-6 w-6 text-secondary" />
@@ -50,22 +50,20 @@ export function ProductsHero() {
             </div>
           </div>
 
-          {/* Filter text - generous spacing */}
-          <p className="text-sm text-muted-foreground mt-8 mb-6 text-center">
-            {"Use the filters below to explore our full portfolio. Looking for something specific or can't find what you need?"}
-          </p>
-
-          {/* Contact Us button - anchored to bottom */}
-          <div className="mt-auto flex justify-center pb-8">
+          {/* Filter text + button grouped at bottom */}
+          <div className="mt-auto flex flex-col items-center gap-3 pb-8 w-full">
+            <p className="text-sm text-muted-foreground text-center max-w-lg">
+              Use the filters below to explore our full portfolio. Looking for something specific or can't find what you need?
+            </p>
             <Button
               size="lg"
-              className="bg-[#0a2351] hover:bg-[#0a2351]/90 text-white group"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
               asChild
             >
-              <Link href="/contact">
+              <a href="/#contact">
                 Contact Us
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
             </Button>
           </div>
         </div>
