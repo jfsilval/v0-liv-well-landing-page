@@ -29,7 +29,7 @@ export function HeroSection() {
           </div>
 
           {/* Zone 2: MIDDLE - stats centered via my-auto */}
-          <div className="my-auto flex flex-row flex-wrap justify-center gap-8 w-full max-w-xl">
+          <div className="my-auto flex flex-row flex-wrap justify-center gap-8 w-full">
             <div className="flex flex-col items-center text-center space-y-2">
               <div className="flex items-center gap-2">
                 <Globe className="h-6 w-6 text-primary" />
@@ -51,15 +51,15 @@ export function HeroSection() {
               </div>
               <p className="text-xs text-muted-foreground">Quality Assured</p>
             </div>
-            <div className="flex flex-col items-center text-center space-y-2 min-w-[70px]">
+            <div className="flex flex-col items-center text-center space-y-2 min-w-[80px]">
               <div className="flex items-center justify-center gap-2">
-                <div className="h-8 w-12 overflow-hidden">
+                <div className="h-10 w-20 overflow-hidden flex-shrink-0">
                   <Image
                     src="/logo.png"
                     alt="Liv Well infinity symbol"
-                    width={80}
-                    height={80}
-                    className="w-auto h-14 object-top object-cover"
+                    width={120}
+                    height={120}
+                    className="w-auto h-20 object-top object-cover"
                   />
                 </div>
               </div>
