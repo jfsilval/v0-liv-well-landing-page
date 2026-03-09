@@ -80,7 +80,7 @@ export function HeroSection() {
 
           {/* Zone 3: BOTTOM - buttons */}
           <div className="flex flex-row justify-center gap-4 pt-2 w-full">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white group">
+            <Button size="lg" className="bg-[#0a2351] hover:bg-[#0a2351]/90 text-white group">
               Explore Our Products
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
@@ -119,7 +119,7 @@ export function HeroSection() {
         {/* Scroll indicator - bottom of left panel area */}
         <div aria-hidden="true" className="absolute bottom-4 left-[46%] -translate-x-1/2 z-20 flex flex-col items-center gap-1">
           <span className="text-[9px] tracking-widest uppercase text-foreground/80">Scroll</span>
-          <ChevronDown className="h-4 w-4 animate-bounce text-muted-foreground" />
+          <ChevronDown className="h-4 w-4 animate-bounce text-foreground/80" />
         </div>
       </div>
     </section>
