@@ -106,7 +106,7 @@ export default async function ArticlePage({ params }: PageProps) {
       <Navigation />
       <main id="main-content" className="min-h-screen bg-primary/10">
         {/* Article Header - dark navy */}
-        <section className="bg-[#0a2351] pt-28 pb-12">
+        <section className="bg-[#0a2351] pt-28 pb-12 relative z-0">
           <div className="container mx-auto px-4 max-w-[900px]">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-1.5 text-sm text-white/70 mb-8">
@@ -146,7 +146,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
         {/* Hero Image - full width, no side margins */}
         {heroImageUrl && (
-          <div className="relative w-full h-[280px] md:h-[400px] lg:h-[560px] overflow-hidden">
+          <div className="relative w-full h-[280px] md:h-[400px] lg:h-[560px] overflow-hidden z-10">
             <Image
               src={heroImageUrl}
               alt={post.heroImage?.alt || post.title}
