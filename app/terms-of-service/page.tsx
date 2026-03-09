@@ -3,8 +3,9 @@ import { Footer } from "@/components/footer"
 import { TermsOfServiceContent } from "@/components/terms-of-service/terms-of-service-content"
 
 export const metadata = {
-  title: "Terms of Service | Liv Well Pharmaceuticals",
-  description: "Terms of Service for Liv Well Pharmaceuticals — governing access and use of our website.",
+  title: 'Terms of Service',
+  description: 'Read the Terms of Service governing the use of the Liv Well Pharmaceuticals website.',
+  robots: { index: false },
 }
 
 export default function TermsOfServicePage() {

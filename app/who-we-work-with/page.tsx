@@ -7,9 +7,15 @@ import { WwwwReasons } from "@/components/who-we-work-with/wwww-reasons"
 import { WwwwCta } from "@/components/who-we-work-with/wwww-cta"
 
 export const metadata = {
-  title: "Who We Work With | Liv Well Pharmaceuticals",
-  description:
-    "Discover how Liv Well Pharmaceuticals partners with governments, distributors, and international organisations to deliver quality generic medicines worldwide.",
+  title: 'Who We Work With',
+  description: 'Discover the partners, distributors, and healthcare professionals who trust Liv Well Pharmaceuticals for quality generic medicines across the globe.',
+  openGraph: {
+    title: 'Who We Work With',
+    description: 'Partners, distributors, and healthcare professionals who trust Liv Well Pharmaceuticals.',
+    images: [{ url: '/logo.png', width: 1200, height: 630 }],
+    siteName: 'Liv Well Pharmaceuticals',
+  },
+  twitter: { card: 'summary_large_image' },
 }
 
 export default function WhoWeWorkWithPage() {

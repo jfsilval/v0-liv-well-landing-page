@@ -6,10 +6,16 @@ import { PharmaInsightsHero } from "@/components/pharma-insights/pharma-insights
 import { PharmaInsightsContent } from "@/components/pharma-insights/pharma-insights-content"
 
 
-export const metadata: Metadata = {
-  title: "Pharma Insights | Liv Well Pharmaceuticals",
-  description:
-    "Strategic intelligence, regulatory perspectives, and industry analysis for healthcare professionals and decision-makers navigating today's global pharmaceutical landscape.",
+export const metadata = {
+  title: 'Pharma Insights',
+  description: 'Latest news, research, and insights from the pharmaceutical industry. Stay informed with expert analysis from the team at Liv Well Pharmaceuticals.',
+  openGraph: {
+    title: 'Pharma Insights',
+    description: 'Latest news, research, and pharmaceutical industry insights from Liv Well Pharmaceuticals.',
+    images: [{ url: '/logo.png', width: 1200, height: 630 }],
+    siteName: 'Liv Well Pharmaceuticals',
+  },
+  twitter: { card: 'summary_large_image' },
 }
 
 export default async function PharmaInsightsPage({

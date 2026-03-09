@@ -12,10 +12,35 @@ const poppins = Poppins({
   display: "swap",
 })
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ||
+  'https://www.livwellpharmaceuticals.com'
+
 export const metadata: Metadata = {
-  title: "Liv Well Pharmaceuticals",
-  description:
-    "Leading pharmaceutical company providing innovative healthcare solutions worldwide. Quality medicines and healthcare products you can trust.",
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: 'Liv Well Pharmaceuticals',
+    template: '%s | Liv Well Pharmaceuticals',
+  },
+  description: 'Leading pharmaceutical company providing innovative healthcare solutions worldwide. Quality generic medicines and healthcare products you can trust.',
+  keywords: ['pharmaceuticals', 'generic medicines', 'healthcare', 'Liv Well', 'quality generics'],
+  authors: [{ name: 'Liv Well Pharmaceuticals' }],
+  creator: 'Liv Well Pharmaceuticals',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: baseUrl,
+    siteName: 'Liv Well Pharmaceuticals',
+    title: 'Liv Well Pharmaceuticals — Quality Generics. Global Reach.',
+    description: 'Trusted pharmaceutical solutions for a healthier world. Innovation, quality, and care in every product.',
+    images: [{ url: '/logo.png', width: 1200, height: 630, alt: 'Liv Well Pharmaceuticals' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Liv Well Pharmaceuticals — Quality Generics. Global Reach.',
+    description: 'Trusted pharmaceutical solutions for a healthier world.',
+    images: ['/logo.png'],
+  },
+  robots: { index: true, follow: true },
   icons: {
     shortcut: "/favicon.ico",
     icon: [
