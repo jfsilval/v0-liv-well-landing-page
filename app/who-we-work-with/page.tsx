@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function WhoWeWorkWithPage() {
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen">
       <Navigation />
       <WwwwHero />
       <WwwwOpening />

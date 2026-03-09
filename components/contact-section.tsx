@@ -68,10 +68,10 @@ export function ContactSection() {
           <h2 className="text-4xl font-bold mb-4 text-balance text-white">
             Get in <span className="text-secondary">Touch</span>
           </h2>
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mb-6" aria-hidden="true">
             <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
           </div>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
             Have questions about our products or services? Our team is here to help you.
           </p>
         </div>
@@ -81,38 +81,38 @@ export function ContactSection() {
           <div className="space-y-4 lg:col-span-2">
             <Card className="p-6 hover:shadow-lg transition-shadow bg-white/10 border-white/10">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0" aria-hidden="true">
                   <Mail className="h-6 w-6 text-secondary" />
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold mb-2 text-white">Email Us</h3>
-                  <p className="text-sm text-white/70">info@livwellpharmaceuticals.com</p>
-                  <p className="text-sm text-white/70">support@livwellpharmaceuticals.com</p>
+                  <p className="text-sm text-white/90">info@livwellpharmaceuticals.com</p>
+                  <p className="text-sm text-white/90">support@livwellpharmaceuticals.com</p>
                 </div>
               </div>
             </Card>
 
             <Card className="p-6 hover:shadow-lg transition-shadow bg-white/10 border-white/10">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center flex-shrink-0" aria-hidden="true">
                   <Phone className="h-6 w-6 text-secondary" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-2 text-white">Call Us</h3>
-                  <p className="text-sm text-white/70">+971 4 516 3600 Ext: 8437</p>
-                  <p className="text-sm text-white/70">Sun-Thu 9AM-6PM (GST)</p>
+                  <p className="text-sm text-white/90">+971 4 516 3600 Ext: 8437</p>
+                  <p className="text-sm text-white/90">Sun-Thu 9AM-6PM (GST)</p>
                 </div>
               </div>
             </Card>
 
             <Card className="p-6 hover:shadow-lg transition-shadow bg-white/10 border-white/10">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0" aria-hidden="true">
                   <MapPin className="h-6 w-6 text-secondary" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-2 text-white">Address</h3>
-                  <p className="text-sm text-white/70">
+                  <p className="text-sm text-white/90">
                     Meydan Grandstand, 6th Floor
                     <br />
                     Meydan Road, Nad Al Sheba
@@ -130,7 +130,7 @@ export function ContactSection() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-white">
-                    Name <span className="text-destructive">*</span>
+                    Name <span className="text-destructive" aria-hidden="true">*</span>
                   </Label>
                   <Input
                     id="name"
@@ -138,14 +138,16 @@ export function ContactSection() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your name"
+                    aria-required="true"
+                    aria-describedby={errors.name ? "name-error" : undefined}
                     className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.name ? "border-destructive" : ""}`}
                   />
-                  {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
+                  {errors.name && <p id="name-error" role="alert" className="text-sm text-destructive">{errors.name}</p>}
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-white">
-                    Email <span className="text-destructive">*</span>
+                    Email <span className="text-destructive" aria-hidden="true">*</span>
                   </Label>
                   <Input
                     id="email"
@@ -154,9 +156,11 @@ export function ContactSection() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="your@email.com"
+                    aria-required="true"
+                    aria-describedby={errors.email ? "email-error" : undefined}
                     className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.email ? "border-destructive" : ""}`}
                   />
-                  {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
+                  {errors.email && <p id="email-error" role="alert" className="text-sm text-destructive">{errors.email}</p>}
                 </div>
               </div>
 
@@ -189,7 +193,7 @@ export function ContactSection() {
 
               <div className="space-y-2">
                 <Label htmlFor="message" className="text-white">
-                  Message <span className="text-destructive">*</span>
+                  Message <span className="text-destructive" aria-hidden="true">*</span>
                 </Label>
                 <Textarea
                   id="message"
@@ -198,12 +202,14 @@ export function ContactSection() {
                   onChange={handleChange}
                   placeholder="Tell us about your inquiry..."
                   rows={6}
+                  aria-required="true"
+                  aria-describedby={errors.message ? "message-error" : undefined}
                   className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.message ? "border-destructive" : ""}`}
                 />
-                {errors.message && <p className="text-sm text-destructive">{errors.message}</p>}
+                {errors.message && <p id="message-error" role="alert" className="text-sm text-destructive">{errors.message}</p>}
               </div>
 
-              <Button type="submit" size="lg" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+              <Button type="submit" size="lg"                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                 Send Message
               </Button>
             </form>

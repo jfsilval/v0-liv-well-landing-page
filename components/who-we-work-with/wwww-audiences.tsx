@@ -54,7 +54,7 @@ export function WwwwAudiences() {
 
   return (
     <section className="py-16 bg-[#0a2351] relative overflow-hidden">
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" aria-hidden="true">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
       </div>
@@ -65,7 +65,7 @@ export function WwwwAudiences() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-balance">
               Does This Sound Like <span className="text-secondary">You?</span>
             </h2>
-            <div className="flex justify-center mb-4">
+            <div className="flex justify-center mb-4" aria-hidden="true">
               <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
             </div>
             <p className="text-sm text-white/70 max-w-2xl mx-auto">

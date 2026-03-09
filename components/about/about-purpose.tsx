@@ -2,7 +2,7 @@ export function AboutPurpose() {
   return (
     <section className="py-24 bg-[#0a2351] relative overflow-hidden">
       {/* Decorative background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" aria-hidden="true">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
       </div>
@@ -14,7 +14,7 @@ export function AboutPurpose() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-balance">
               Our <span className="text-secondary">Purpose</span>
             </h2>
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-6" aria-hidden="true">
               <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
             </div>
             <p className="text-lg text-white/70">What drives us forward</p>

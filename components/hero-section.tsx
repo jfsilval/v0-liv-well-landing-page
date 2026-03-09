@@ -20,7 +20,7 @@ export function HeroSection() {
               <span className="text-primary">Trusted Pharmaceutical Products</span>
               {" to Every Corner of the World."}
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-foreground/70 leading-relaxed">
               At Liv Well Pharmaceuticals, we are committed to making high-quality pharmaceutical
               products accessible worldwide. Driven by innovation and a patient-first approach, we
               deliver trusted healthcare solutions across borders, ensuring every community has the
@@ -38,7 +38,7 @@ export function HeroSection() {
                   <span className="text-2xl font-bold text-primary">10+</span>
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground">Countries Served</p>
+              <p className="text-xs text-foreground">Countries Served</p>
             </div>
 
             {/* Stat 2 */}
@@ -46,10 +46,10 @@ export function HeroSection() {
               <div className="h-9 flex items-center justify-center">
                 <div className="flex items-center gap-2">
                   <Award className="h-5 w-5 text-secondary" />
-                  <span className="text-2xl font-bold text-secondary">600+</span>
+                  <span className="text-2xl font-bold text-emerald-700">600+</span>
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground">Products</p>
+              <p className="text-xs text-foreground">Products</p>
             </div>
 
             {/* Stat 3 */}
@@ -57,10 +57,10 @@ export function HeroSection() {
               <div className="h-9 flex items-center justify-center">
                 <div className="flex items-center gap-2">
                   <Shield className="h-5 w-5 text-accent" />
-                  <span className="text-2xl font-bold text-accent">100%</span>
+                  <span className="text-2xl font-bold text-teal-700">100%</span>
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground">Quality Assured</p>
+              <p className="text-xs text-foreground">Quality Assured</p>
             </div>
 
             {/* Stat 4 */}
@@ -74,12 +74,12 @@ export function HeroSection() {
                   className="h-16 w-auto object-top"
                 />
               </div>
-              <p className="text-xs text-muted-foreground">Commitment to Patients</p>
+              <p className="text-xs text-foreground">Commitment to Patients</p>
             </div>
           </div>
 
           {/* Zone 3: BOTTOM - buttons */}
-          <div className="flex flex-row justify-center gap-4 w-full max-w-xl">
+          <div className="flex flex-row justify-center gap-4 pt-2 w-full">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group">
               Explore Our Products
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -87,7 +87,7 @@ export function HeroSection() {
             <Button
               size="lg"
               variant="outline"
-              className="border-primary text-primary hover:bg-primary/10 bg-transparent"
+              className="border-primary text-[oklch(0.30_0.18_260)] hover:bg-primary/10 bg-transparent"
               asChild
             >
               <a href="#contact">Contact Us</a>
@@ -108,7 +108,7 @@ export function HeroSection() {
             />
             {/* Gradient overlay with text */}
             <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent flex flex-col justify-end p-10">
-              <h3 className="text-3xl font-bold text-white mb-3">Innovation in Healthcare</h3>
+              <h2 className="text-3xl font-bold text-white mb-3">Innovation in Healthcare</h2>
               <p className="text-white/90 text-base leading-relaxed max-w-md">
                 Leading the way in pharmaceutical excellence with cutting-edge research and development.
               </p>
@@ -117,7 +117,7 @@ export function HeroSection() {
         </div>
 
         {/* Scroll indicator - bottom of left panel area */}
-        <div className="absolute bottom-4 left-[46%] -translate-x-1/2 z-20 flex flex-col items-center gap-1">
+        <div aria-hidden="true" className="absolute bottom-4 left-[46%] -translate-x-1/2 z-20 flex flex-col items-center gap-1">
           <span className="text-[9px] tracking-widest uppercase text-muted-foreground">Scroll</span>
           <ChevronDown className="h-4 w-4 animate-bounce text-muted-foreground" />
         </div>

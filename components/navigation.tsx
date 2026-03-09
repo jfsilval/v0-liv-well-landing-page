@@ -88,8 +88,8 @@ export function Navigation() {
             <button className={cn(
               "transition-all duration-300",
               showWhiteText
-                ? "text-white/80 hover:text-white"
-                : "text-foreground/80 hover:text-primary"
+                ? "text-white hover:text-white"
+                : "text-foreground hover:text-primary"
             )} aria-label="Search">
               <Search size={20} />
             </button>

@@ -68,7 +68,7 @@ export function InfoCardsSection() {
   return (
     <section className="relative py-24 bg-[#0a2351] overflow-hidden">
       {/* Decorative background elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" aria-hidden="true">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
       </div>
@@ -76,7 +76,7 @@ export function InfoCardsSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Decorative top line */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-8" aria-hidden="true">
             <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
           </div>
 
@@ -85,7 +85,7 @@ export function InfoCardsSection() {
           </h2>
 
           <div className="text-center max-w-3xl mx-auto">
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white" style={{ letterSpacing: "-0.02em" }}>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white" style={{ letterSpacing: "-0.02em" }}>
               Making quality<br />
               <span
                 className="text-transparent bg-clip-text"
@@ -94,15 +94,15 @@ export function InfoCardsSection() {
                 medicine<br />
                 accessible.
               </span>
-            </h3>
+              </h2>
 
-            <p className="text-base md:text-lg text-white/60 leading-relaxed mt-8">
+            <p className="text-base md:text-lg text-white/90 leading-relaxed mt-8">
               We believe that safe, effective medicines should be within reach for every patient — regardless of geography or circumstance.
             </p>
           </div>
 
           {/* Decorative bottom line */}
-          <div className="flex justify-center mt-10">
+          <div className="flex justify-center mt-10" aria-hidden="true">
             <div className="w-24 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
           </div>
         </div>

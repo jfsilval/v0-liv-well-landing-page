@@ -104,12 +104,12 @@ export default async function ArticlePage({ params }: PageProps) {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen bg-primary/10">
+      <main id="main-content" className="min-h-screen bg-primary/10">
         {/* Article Header - dark navy */}
         <section className="bg-[#0a2351] pt-28 pb-12">
           <div className="container mx-auto px-4 max-w-[900px]">
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-1.5 text-sm text-white/50 mb-8">
+            <nav className="flex items-center gap-1.5 text-sm text-white/70 mb-8">
               <Link href="/" className="hover:text-white/80 transition-colors">Home</Link>
               <ChevronRight className="h-3.5 w-3.5" />
               <Link href="/pharma-insights" className="hover:text-white/80 transition-colors">Pharma Insights</Link>
@@ -117,7 +117,7 @@ export default async function ArticlePage({ params }: PageProps) {
               <span className="text-white/70">{post.title}</span>
             </nav>
 
-            <Badge className="bg-secondary/20 text-secondary border-secondary/30 px-3 py-1 mb-5">
+            <Badge className="bg-transparent text-secondary border-secondary/50 px-3 py-1 mb-5">
               PHARMA INSIGHTS
             </Badge>
 

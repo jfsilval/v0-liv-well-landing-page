@@ -13,15 +13,15 @@ const reasons = [
     icon: Package,
     title: "A portfolio broad enough to matter",
     body: "With 600+ products across more than 20 therapeutic categories, we can cover a meaningful share of your procurement needs from a single, trusted source. Less fragmentation in your supply chain means fewer variables — and fewer points where quality or reliability can break down.",
-    color: "text-secondary",
-    bg: "bg-secondary/10",
+    color: "text-teal-700",
+    bg: "bg-teal-100",
   },
   {
     icon: Zap,
     title: "Speed and flexibility when it counts most",
     body: "Pharmaceutical needs don't wait. When procurement timelines shift or an urgent need emerges, our partners need a partner who can adapt — not one who hides behind lead times and process. Responsiveness is something we take personally, because we understand what is at stake when supply falls short.",
-    color: "text-accent",
-    bg: "bg-accent/10",
+    color: "text-lime-700",
+    bg: "bg-lime-100",
   },
   {
     icon: Globe,
@@ -42,7 +42,7 @@ export function WwwwReasons() {
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">
               Why Liv Well <span className="text-primary">Pharmaceuticals</span>
             </h2>
-            <div className="flex justify-center mb-4">
+            <div className="flex justify-center mb-4" aria-hidden="true">
               <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
             </div>
             <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
@@ -62,6 +62,7 @@ export function WwwwReasons() {
                 >
                   <div className="flex items-center gap-3 mb-2">
                     <div
+                      aria-hidden="true"
                       className={`w-10 h-10 rounded-lg ${reason.bg} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}
                     >
                       <Icon className={`h-5 w-5 ${reason.color}`} />

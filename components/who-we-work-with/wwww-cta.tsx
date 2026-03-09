@@ -37,14 +37,14 @@ export function WwwwCta() {
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground" asChild>
+            <Button size="lg" className="bg-white hover:bg-white/90 text-[#0a2351]" asChild>
               <Link href="/#contact">
                 Submit Your Requirement
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
 
-            <Button size="lg" variant="outline" className="border-secondary/50 text-secondary hover:bg-secondary/10 hover:text-secondary" asChild>
+            <Button size="lg" variant="outline" className="bg-transparent border-white/60 text-white hover:bg-white/10 hover:text-white" asChild>
               <Link href="/#products">
                 Explore Our Portfolio
               </Link>
