@@ -9,8 +9,8 @@ import {
   ArrowRight,
   ChevronLeft,
   ChevronRight,
-  AlertCircle,
 } from "lucide-react"
+import { ErrorState } from "@/components/ui/error-state"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -55,13 +55,8 @@ export function PharmaInsightsContent({
   if (error) {
     return (
       <section className="py-16 bg-primary/5">
-        <div className="container mx-auto px-4 text-center">
-          <AlertCircle className="h-12 w-12 text-destructive mx-auto mb-4" />
-          <h2 className="text-xl font-bold text-foreground mb-2">Something went wrong</h2>
-          <p className="text-muted-foreground mb-6">{error}</p>
-          <Button asChild>
-            <Link href="/pharma-insights">Try again</Link>
-          </Button>
+        <div className="container mx-auto px-4">
+          <ErrorState message={error} retryHref="/pharma-insights" />
         </div>
       </section>
     )
