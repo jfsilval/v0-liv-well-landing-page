@@ -26,6 +26,7 @@ type ContactFormData = z.infer<typeof contactSchema>
 
 export function ContactSection() {
   const [isSuccess, setIsSuccess] = useState(false)
+  const [submitError, setSubmitError] = useState('')
   const {
     register,
     handleSubmit,
@@ -36,16 +37,22 @@ export function ContactSection() {
   })
 
   const onSubmit = async (data: ContactFormData) => {
+    setSubmitError('')
     try {
-      // Simulate async submission
-      await new Promise((resolve) => setTimeout(resolve, 1500))
-      console.log("Form submitted:", data)
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      if (!response.ok) throw new Error('Failed')
       setIsSuccess(true)
       reset()
       // Reset success message after 5 seconds
       setTimeout(() => setIsSuccess(false), 5000)
     } catch (error) {
-      console.error("Form submission error:", error)
+      setSubmitError(
+        'Something went wrong. Please email us at info@livwellpharmaceuticals.com'
+      )
     }
   }
 
@@ -206,21 +213,24 @@ export function ContactSection() {
                   )}
                 </div>
 
-                <Button
+                <button
                   type="submit"
-                  size="lg"
                   disabled={isSubmitting}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-10 rounded-md px-6 text-sm font-medium transition-all disabled:opacity-70 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      <Loader2 className="h-4 w-4 animate-spin" />
                       Sending...
                     </>
                   ) : (
-                    "Send Message"
+                    'Send Message'
                   )}
-                </Button>
+                </button>
+
+                {submitError && (
+                  <p className="text-red-400 text-sm text-center mt-2">{submitError}</p>
+                )}
               </form>
             )}
           </Card>
