@@ -1,5 +1,5 @@
 import { Navigation } from "@/components/navigation"
-import { TableRowSkeleton, Skeleton } from "@/components/ui/skeleton"
+import { TableRowSkeleton } from "@/components/ui/card-skeleton"
 
 export default function ProductsLoading() {
   return (
