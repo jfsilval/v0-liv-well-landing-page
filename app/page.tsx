@@ -4,15 +4,18 @@ import { HeroSection } from "@/components/hero-section"
 import { Footer } from "@/components/footer"
 
 export const metadata = {
-  title: 'Liv Well Pharmaceuticals — Quality Generics. Global Reach.',
+  title: 'Liv Well Pharmaceuticals | Global Pharmaceutical Solutions',
   description: 'Liv Well Pharmaceuticals delivers trusted generic medicines to over 10 countries. 600+ quality products, 100% quality assured.',
   openGraph: {
-    title: 'Liv Well Pharmaceuticals — Quality Generics. Global Reach.',
+    title: 'Liv Well Pharmaceuticals | Global Pharmaceutical Solutions',
     description: 'Trusted pharmaceutical solutions for a healthier world.',
     images: [{ url: '/logo.png', width: 1200, height: 630 }],
     siteName: 'Liv Well Pharmaceuticals',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { 
+    card: 'summary_large_image',
+    title: 'Liv Well Pharmaceuticals | Global Pharmaceutical Solutions',
+  },
 }
 
 const InfoCardsSection = dynamic(() => import("@/components/info-cards-section").then(mod => ({ default: mod.InfoCardsSection })))
