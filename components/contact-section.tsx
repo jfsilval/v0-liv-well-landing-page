@@ -3,61 +3,49 @@
 import type React from "react"
 
 import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { z } from "zod"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Mail, Phone, MapPin } from "lucide-react"
+import { Mail, Phone, MapPin, CheckCircle, Loader2 } from "lucide-react"
+
+// Zod schema
+const contactSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().optional(),
+  subject: z.string().optional(),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+})
+
+type ContactFormData = z.infer<typeof contactSchema>
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
+  const [isSuccess, setIsSuccess] = useState(false)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
   })
-  const [errors, setErrors] = useState<Record<string, string>>({})
 
-  const validateForm = () => {
-    const newErrors: Record<string, string> = {}
-
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required"
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required"
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Invalid email format"
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required"
-    }
-
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (validateForm()) {
-      console.log("Form submitted:", formData)
-      // Handle form submission
-      alert("Thank you for contacting us! We will get back to you soon.")
-      setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
-      setErrors({})
-    }
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }))
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      // Simulate async submission
+      await new Promise((resolve) => setTimeout(resolve, 1500))
+      console.log("Form submitted:", data)
+      setIsSuccess(true)
+      reset()
+      // Reset success message after 5 seconds
+      setTimeout(() => setIsSuccess(false), 5000)
+    } catch (error) {
+      console.error("Form submission error:", error)
     }
   }
 
@@ -126,93 +114,115 @@ export function ContactSection() {
 
           {/* Contact Form */}
           <Card className="lg:col-span-3 p-8 bg-white/10 border-white/10">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+            {isSuccess ? (
+              <div className="flex flex-col items-center justify-center py-12 text-center">
+                <CheckCircle className="h-16 w-16 text-green-400 mb-4" />
+                <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+                <p className="text-white/90">Thank you for reaching out. Our team will get back to you within 1-2 business days.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="name" className="text-white">
+                      Name <span className="text-destructive" aria-hidden="true">*</span>
+                    </Label>
+                    <Input
+                      id="name"
+                      {...register("name")}
+                      placeholder="Your name"
+                      aria-required="true"
+                      aria-describedby={errors.name ? "name-error" : undefined}
+                      className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.name ? "border-destructive" : ""}`}
+                    />
+                    {errors.name && (
+                      <p id="name-error" role="alert" className="text-red-400 text-xs mt-1">
+                        {errors.name.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="text-white">
+                      Email <span className="text-destructive" aria-hidden="true">*</span>
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      {...register("email")}
+                      placeholder="your@email.com"
+                      aria-required="true"
+                      aria-describedby={errors.email ? "email-error" : undefined}
+                      className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.email ? "border-destructive" : ""}`}
+                    />
+                    {errors.email && (
+                      <p id="email-error" role="alert" className="text-red-400 text-xs mt-1">
+                        {errors.email.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="phone" className="text-white">Phone</Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      {...register("phone")}
+                      placeholder="+1 (555) 000-0000"
+                      className="bg-white/10 border-white/20 text-white placeholder:text-white/40"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="subject" className="text-white">Subject</Label>
+                    <Input
+                      id="subject"
+                      {...register("subject")}
+                      placeholder="How can we help?"
+                      className="bg-white/10 border-white/20 text-white placeholder:text-white/40"
+                    />
+                  </div>
+                </div>
+
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-white">
-                    Name <span className="text-destructive" aria-hidden="true">*</span>
+                  <Label htmlFor="message" className="text-white">
+                    Message <span className="text-destructive" aria-hidden="true">*</span>
                   </Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your name"
+                  <Textarea
+                    id="message"
+                    {...register("message")}
+                    placeholder="Tell us about your inquiry..."
+                    rows={6}
                     aria-required="true"
-                    aria-describedby={errors.name ? "name-error" : undefined}
-                    className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.name ? "border-destructive" : ""}`}
+                    aria-describedby={errors.message ? "message-error" : undefined}
+                    className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.message ? "border-destructive" : ""}`}
                   />
-                  {errors.name && <p id="name-error" role="alert" className="text-sm text-destructive">{errors.name}</p>}
+                  {errors.message && (
+                    <p id="message-error" role="alert" className="text-red-400 text-xs mt-1">
+                      {errors.message.message}
+                    </p>
+                  )}
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-white">
-                    Email <span className="text-destructive" aria-hidden="true">*</span>
-                  </Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your@email.com"
-                    aria-required="true"
-                    aria-describedby={errors.email ? "email-error" : undefined}
-                    className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.email ? "border-destructive" : ""}`}
-                  />
-                  {errors.email && <p id="email-error" role="alert" className="text-sm text-destructive">{errors.email}</p>}
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-white">Phone</Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="+1 (555) 000-0000"
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/40"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="subject" className="text-white">Subject</Label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="How can we help?"
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/40"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="message" className="text-white">
-                  Message <span className="text-destructive" aria-hidden="true">*</span>
-                </Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your inquiry..."
-                  rows={6}
-                  aria-required="true"
-                  aria-describedby={errors.message ? "message-error" : undefined}
-                  className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.message ? "border-destructive" : ""}`}
-                />
-                {errors.message && <p id="message-error" role="alert" className="text-sm text-destructive">{errors.message}</p>}
-              </div>
-
-              <Button type="submit" size="lg"                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                Send Message
-              </Button>
-            </form>
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={isSubmitting}
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Message"
+                  )}
+                </Button>
+              </form>
+            )}
           </Card>
         </div>
       </div>
