@@ -7,9 +7,15 @@ import { AboutValues } from "@/components/about/about-values"
 import { AboutNumbers } from "@/components/about/about-numbers"
 
 export const metadata = {
-  title: "About Us | Liv Well Pharmaceuticals",
-  description:
-    "Learn about Liv Well Pharmaceuticals — our mission to make quality medicine accessible, our values, and our global reach across 10+ countries.",
+  title: 'About Us',
+  description: 'Learn about Liv Well Pharmaceuticals — our mission, values, and commitment to delivering quality generic medicines to patients worldwide.',
+  openGraph: {
+    title: 'About Us',
+    description: 'Our mission, values, and commitment to delivering quality generic medicines worldwide.',
+    images: [{ url: '/logo.png', width: 1200, height: 630 }],
+    siteName: 'Liv Well Pharmaceuticals',
+  },
+  twitter: { card: 'summary_large_image' },
 }
 
 export default function AboutPage() {

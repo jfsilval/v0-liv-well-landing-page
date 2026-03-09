@@ -3,8 +3,9 @@ import { Footer } from "@/components/footer"
 import { CookiePolicyContent } from "@/components/cookie-policy/cookie-policy-content"
 
 export const metadata = {
-  title: "Cookie Policy | Liv Well Pharmaceuticals",
-  description: "Liv Well Pharmaceuticals cookie policy — how we use cookies and tracking technologies on our website.",
+  title: 'Cookie Policy',
+  description: 'Learn how Liv Well Pharmaceuticals uses cookies and similar technologies on our website.',
+  robots: { index: false },
 }
 
 export default function CookiePolicyPage() {

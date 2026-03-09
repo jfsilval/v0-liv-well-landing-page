@@ -8,9 +8,15 @@ import { ProductsPagination } from "@/components/products/products-pagination"
 import { ProductsError } from "@/components/products/products-error"
 
 export const metadata = {
-  title: "Products | Liv Well Pharmaceuticals",
-  description:
-    "Browse our comprehensive range of high-quality pharmaceutical products. Over 600 products including essential generics, biosimilars, and specialty care solutions.",
+  title: 'Products',
+  description: 'Explore our portfolio of 600+ quality generic pharmaceutical products across cardiovascular, oncology, neurology, respiratory and many other therapeutic areas.',
+  openGraph: {
+    title: 'Products',
+    description: 'Explore 600+ quality generic pharmaceutical products across all major therapeutic areas.',
+    images: [{ url: '/logo.png', width: 1200, height: 630 }],
+    siteName: 'Liv Well Pharmaceuticals',
+  },
+  twitter: { card: 'summary_large_image' },
 }
 
 export default async function ProductsPage({

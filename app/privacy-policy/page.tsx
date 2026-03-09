@@ -3,8 +3,9 @@ import { Footer } from "@/components/footer"
 import { PrivacyPolicyContent } from "@/components/privacy-policy/privacy-policy-content"
 
 export const metadata = {
-  title: "Privacy Policy | Liv Well Pharmaceuticals",
-  description: "Liv Well Pharmaceuticals privacy policy — how we collect, use, and protect your personal information.",
+  title: 'Privacy Policy',
+  description: 'Read the Liv Well Pharmaceuticals Privacy Policy to understand how we collect, use, and protect your personal information.',
+  robots: { index: false },
 }
 
 export default function PrivacyPolicyPage() {
