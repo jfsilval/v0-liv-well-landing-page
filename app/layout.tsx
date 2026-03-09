@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Poppins } from "next/font/google"
+import { BackToTop } from "@/components/back-to-top"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" })
@@ -43,7 +44,9 @@ export default function RootLayout({
           Skip to main content
         </a>
         {children}
+        <BackToTop />
       </body>
     </html>
   )
 }
+
