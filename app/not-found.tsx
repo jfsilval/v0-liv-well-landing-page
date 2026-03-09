@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <>
       <Navigation />
-      <main id="main-content" className="min-h-screen bg-primary/10">
+      <main id="main-content" className="min-h-screen bg-primary/10 mt-28">
         <div className="flex items-center justify-center py-20 px-4">
           <div className="text-center space-y-8">
             {/* Heading */}
