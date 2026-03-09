@@ -1,4 +1,5 @@
 import { Navigation } from "@/components/navigation"
+import { TableRowSkeleton } from "@/components/ui/card-skeleton"
 
 export default function ProductsLoading() {
   return (
@@ -51,16 +52,7 @@ export default function ProductsLoading() {
             </div>
             {/* Rows */}
             {Array.from({ length: 10 }).map((_, i) => (
-              <div
-                key={i}
-                className={`px-4 py-3 flex gap-4 border-b border-border ${
-                  i % 2 === 0 ? "bg-background" : "bg-muted/30"
-                }`}
-              >
-                {Array.from({ length: 6 }).map((_, j) => (
-                  <div key={j} className="h-4 flex-1 bg-muted rounded animate-pulse" />
-                ))}
-              </div>
+              <TableRowSkeleton key={i} />
             ))}
           </div>
         </div>
