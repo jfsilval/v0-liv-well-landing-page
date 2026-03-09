@@ -45,7 +45,9 @@ export function Navigation() {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        pathname === "/" && !isScrolled
+        (pathname === "/" ||
+          pathname.startsWith("/pharma-insights") ||
+          pathname === "/who-we-work-with") && !isScrolled
           ? "bg-transparent"
           : "bg-primary/10 backdrop-blur-md",
       )}

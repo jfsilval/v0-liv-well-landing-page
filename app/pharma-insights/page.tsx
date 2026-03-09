@@ -8,7 +8,7 @@ import { PharmaInsightsContent } from "@/components/pharma-insights/pharma-insig
 
 export const metadata = {
   title: 'Pharma Insights',
-  description: 'Latest news, research, and insights from the pharmaceutical industry. Stay informed with expert analysis from the team at Liv Well Pharmaceuticals.',
+  description: 'Explore the latest pharmaceutical insights, health articles, and industry news from Liv Well Pharmaceuticals. Stay informed on global health trends.',
   openGraph: {
     title: 'Pharma Insights',
     description: 'Latest news, research, and pharmaceutical industry insights from Liv Well Pharmaceuticals.',

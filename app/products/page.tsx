@@ -9,7 +9,7 @@ import { ProductsError } from "@/components/products/products-error"
 
 export const metadata = {
   title: 'Products',
-  description: 'Explore our portfolio of 600+ quality generic pharmaceutical products across cardiovascular, oncology, neurology, respiratory and many other therapeutic areas.',
+  description: 'Browse our portfolio of 600+ quality generic medicines across multiple therapeutic categories. Trusted pharmaceutical solutions available in 10+ countries.',
   openGraph: {
     title: 'Products',
     description: 'Explore 600+ quality generic pharmaceutical products across all major therapeutic areas.',
