@@ -146,7 +146,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
         {/* Hero Image - full width, no side margins */}
         {heroImageUrl && (
-          <div className="relative w-full h-[450px] overflow-hidden">
+          <div className="relative w-full h-[280px] md:h-[400px] lg:h-[560px] overflow-hidden">
             <Image
               src={heroImageUrl}
               alt={post.heroImage?.alt || post.title}
