@@ -11,7 +11,7 @@ export function ProductsHero() {
         <div className="flex flex-col h-full px-8 lg:px-16 pt-10 pb-8 relative z-10">
           {/* Top: label + heading + blockquote + paragraph */}
           <div className="max-w-2xl space-y-3">
-            <p className="text-sm font-semibold tracking-widest uppercase text-teal-700">
+            <p className="text-sm font-semibold tracking-widest uppercase text-teal-800">
               Product Portfolio
             </p>
 
