@@ -106,7 +106,7 @@ export default async function ArticlePage({ params }: PageProps) {
       <Navigation />
       <main id="main-content" className="min-h-screen bg-primary/10">
         {/* Article Header - dark navy */}
-        <section className="bg-[#0a2351] pt-28 pb-12 relative z-0">
+        <section className="bg-[#0a2351] pt-28 pb-6 relative z-0">
           <div className="container mx-auto px-4 max-w-[900px]">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-1.5 text-sm text-white/70 mb-8">
