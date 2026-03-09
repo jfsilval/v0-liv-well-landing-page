@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
@@ -11,17 +10,6 @@ export default function NotFound() {
       <main id="main-content" className="min-h-screen bg-primary/10">
         <div className="flex items-center justify-center py-20 px-4">
           <div className="text-center space-y-8">
-            {/* Logo */}
-            <div className="flex justify-center">
-              <Image
-                src="/logo.png"
-                alt="Liv Well Pharmaceuticals"
-                width={120}
-                height={120}
-                className="h-24 w-auto"
-              />
-            </div>
-
             {/* Heading */}
             <h1 className="text-4xl md:text-5xl font-bold text-foreground">Page Not Found</h1>
 
