@@ -29,7 +29,7 @@ export function HeroSection() {
           </div>
 
           {/* Zone 2: MIDDLE - stats centered via my-auto */}
-          <div className="my-auto flex flex-row flex-wrap justify-center gap-8 w-full">
+          <div className="my-auto flex flex-row flex-nowrap justify-center gap-3 md:gap-8 w-full">
             {/* Stat 1 */}
             <div className="flex flex-col items-center text-center space-y-2">
               <div className="h-9 flex items-center justify-center">
