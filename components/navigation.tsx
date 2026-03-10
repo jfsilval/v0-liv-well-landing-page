@@ -47,7 +47,7 @@ export function Navigation() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         (pathname === "/" ||
           pathname.startsWith("/pharma-insights") ||
-          pathname === "/who-we-work-with") && !isScrolled
+          pathname === "/who-we-work-with") && !isScrolled && !isMobileOpen
           ? "bg-transparent"
           : "bg-primary/10 backdrop-blur-md",
       )}
