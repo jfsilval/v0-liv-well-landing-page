@@ -74,6 +74,7 @@ export async function getProducts(params?: {
   if (params?.clasificacion_atc)
     qs.set('where[clasificacion_atc][like]', params.clasificacion_atc)
 
+  qs.set('locale', 'en')
   const res = await fetch(`${CMS_URL}/api/products?${qs}`, {
     next: { revalidate: 3600 },
   })
@@ -88,7 +89,7 @@ export async function getProductCategories(): Promise<{
   categoryToSubcategories: Record<string, string[]>
 }> {
   // Fetch all products to extract unique categories and subcategories
-  const res = await fetch(`${CMS_URL}/api/products?limit=1000`, {
+  const res = await fetch(`${CMS_URL}/api/products?limit=1000&locale=en`, {
     next: { revalidate: 3600 },
   })
   if (!res.ok) throw new Error('Failed to fetch product categories')
@@ -139,6 +140,7 @@ export async function getPosts(params?: {
   if (params?.categoryTitle)
     qs.set('where[categories.title][equals]', params.categoryTitle)
 
+  qs.set('locale', 'en')
   const res = await fetch(`${CMS_URL}/api/posts?${qs}`, {
     next: { revalidate: 3600 },
   })
@@ -164,6 +166,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
   qs.set('depth', '2')
   qs.set('limit', '1')
 
+  qs.set('locale', 'en')
   const res = await fetch(`${CMS_URL}/api/posts?${qs}`, {
     next: { revalidate: 3600 },
   })
