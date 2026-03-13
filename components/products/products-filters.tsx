@@ -36,19 +36,16 @@ export function ProductsFilters({
   const [comboboxSearch, setComboboxSearch] = useState("")
   const comboboxRef = useRef<HTMLDivElement>(null)
 
-  // Get subcategories based on whether a category is selected
   const availableSubcategories = selectedCategory
     ? categoryToSubcategories[selectedCategory] || []
     : subCategories
 
-  // Filter subcategories for combobox search
   const filteredSubcategories = comboboxSearch
     ? availableSubcategories.filter((sub) =>
         sub.toLowerCase().includes(comboboxSearch.toLowerCase())
       )
     : availableSubcategories
 
-  // Close combobox when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (comboboxRef.current && !comboboxRef.current.contains(event.target as Node)) {
@@ -59,7 +56,6 @@ export function ProductsFilters({
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
-  // Reset subcategory when category changes
   useEffect(() => {
     if (selectedCategory && selectedSubCategory) {
       const validSubs = categoryToSubcategories[selectedCategory] || []
@@ -86,7 +82,7 @@ export function ProductsFilters({
       if (limit) params.set("limit", limit)
       params.set("page", "1")
 
-      router.push(`/products?${params.toString()}`)
+      router.push(`/products?${params.toString()}`, { scroll: false })
     },
     [router, selectedCategory, selectedSubCategory]
   )
@@ -103,11 +99,9 @@ export function ProductsFilters({
     (e: React.ChangeEvent<HTMLSelectElement>) => {
       const newCategory = e.target.value
       setSelectedCategory(newCategory)
-      // Clear subcategory when category changes
       if (newCategory !== selectedCategory) {
         setSelectedSubCategory("")
       }
-      // Auto-submit
       setTimeout(() => {
         const form = e.currentTarget.closest("form")
         if (form) form.requestSubmit()
@@ -121,7 +115,6 @@ export function ProductsFilters({
       setSelectedSubCategory(value)
       setComboboxOpen(false)
       setComboboxSearch("")
-      // Auto-submit
       setTimeout(() => {
         const form = document.querySelector("form")
         if (form) form.requestSubmit()
@@ -134,7 +127,7 @@ export function ProductsFilters({
     setSelectedCategory("")
     setSelectedSubCategory("")
     setComboboxSearch("")
-    router.push("/products")
+    router.push("/products", { scroll: false })
   }, [router])
 
   return (
@@ -172,7 +165,6 @@ export function ProductsFilters({
             <Label htmlFor="sub_categoria" className="text-sm font-medium">
               Subcategory {selectedCategory && <span className="text-muted-foreground font-normal">({availableSubcategories.length})</span>}
             </Label>
-            {/* Combobox with search */}
             <div ref={comboboxRef} className="relative">
               <button
                 type="button"
@@ -184,7 +176,7 @@ export function ProductsFilters({
                 </span>
                 <ChevronDown className="h-4 w-4 opacity-50" />
               </button>
-              
+
               {comboboxOpen && (
                 <div className="absolute z-50 mt-1 w-full rounded-md border border-border bg-white shadow-lg">
                   <div className="p-2 border-b border-border">
@@ -277,3 +269,4 @@ export function ProductsFilters({
     </form>
   )
 }
+
