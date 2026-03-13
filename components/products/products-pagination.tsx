@@ -1,4 +1,7 @@
-import Link from "next/link"
+"use client"
+
+import { useRouter } from "next/navigation"
+import { useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
@@ -44,25 +47,32 @@ export function ProductsPagination({
   hasPrevPage: boolean
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
+  const router = useRouter()
+
+  const navigateTo = useCallback(
+    (page: number) => {
+      router.push(buildHref(searchParams, page), { scroll: false })
+      document.getElementById("products-section")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" })
+    },
+    [router, searchParams]
+  )
+
   if (totalPages <= 1) return null
 
   const pages = getVisiblePages(currentPage, totalPages)
 
   return (
     <nav aria-label="Products pagination" className="flex items-center justify-center gap-1.5 mt-8">
-      {hasPrevPage ? (
-        <Button variant="outline" size="sm" asChild>
-          <Link href={buildHref(searchParams, currentPage - 1)}>
-            <ChevronLeft className="h-4 w-4 mr-1" />
-            Previous
-          </Link>
-        </Button>
-      ) : (
-        <Button variant="outline" size="sm" disabled>
-          <ChevronLeft className="h-4 w-4 mr-1" />
-          Previous
-        </Button>
-      )}
+      <Button
+        variant="outline"
+        size="sm"
+        disabled={!hasPrevPage}
+        onClick={() => hasPrevPage && navigateTo(currentPage - 1)}
+      >
+        <ChevronLeft className="h-4 w-4 mr-1" />
+        Previous
+      </Button>
 
       {pages.map((p, i) =>
         p === "..." ? (
@@ -73,30 +83,24 @@ export function ProductsPagination({
             variant={p === currentPage ? "default" : "outline"}
             size="sm"
             className={p === currentPage ? "bg-primary text-primary-foreground hover:bg-primary/90" : ""}
-            asChild={p !== currentPage}
+            disabled={p === currentPage}
+            onClick={() => p !== currentPage && navigateTo(p as number)}
           >
-            {p === currentPage ? (
-              <span>{p}</span>
-            ) : (
-              <Link href={buildHref(searchParams, p)}>{p}</Link>
-            )}
+            {p}
           </Button>
         )
       )}
 
-      {hasNextPage ? (
-        <Button variant="outline" size="sm" asChild>
-          <Link href={buildHref(searchParams, currentPage + 1)}>
-            Next
-            <ChevronRight className="h-4 w-4 ml-1" />
-          </Link>
-        </Button>
-      ) : (
-        <Button variant="outline" size="sm" disabled>
-          Next
-          <ChevronRight className="h-4 w-4 ml-1" />
-        </Button>
-      )}
+      <Button
+        variant="outline"
+        size="sm"
+        disabled={!hasNextPage}
+        onClick={() => hasNextPage && navigateTo(currentPage + 1)}
+      >
+        Next
+        <ChevronRight className="h-4 w-4 ml-1" />
+      </Button>
     </nav>
   )
 }
+
