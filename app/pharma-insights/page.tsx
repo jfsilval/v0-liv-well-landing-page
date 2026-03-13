@@ -5,7 +5,6 @@ import { getPosts } from "@/lib/cms"
 import { PharmaInsightsHero } from "@/components/pharma-insights/pharma-insights-hero"
 import { PharmaInsightsContent } from "@/components/pharma-insights/pharma-insights-content"
 
-
 export const metadata = {
   title: 'Pharma Insights',
   description: 'Explore the latest pharmaceutical insights, health articles, and industry news from Liv Well Pharmaceuticals. Stay informed on global health trends.',
@@ -30,7 +29,7 @@ export default async function PharmaInsightsPage({
   let error = null
 
   try {
-    data = await getPosts({ categoryTitle: "Pharma Insights", limit: 12, page })
+    data = await getPosts({ categoryTitle: "Pharma Insights", limit: 12, page, locale: 'en' })
   } catch (e) {
     error = e instanceof Error ? e.message : "An unexpected error occurred while fetching articles."
   }
@@ -54,3 +53,4 @@ export default async function PharmaInsightsPage({
     </main>
   )
 }
+
