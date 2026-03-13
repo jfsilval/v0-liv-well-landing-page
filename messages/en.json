@@ -1,1 +1,394 @@
-{}
+{
+  "nav": {
+    "home": "HOME",
+    "aboutUs": "ABOUT US",
+    "whoWeWorkWith": "WHO WE WORK WITH",
+    "pharmaInsights": "PHARMA INSIGHTS",
+    "products": "PRODUCTS",
+    "contact": "CONTACT"
+  },
+  "footer": {
+    "tagline": "Quality Generics. Global Reach. Trusted Worldwide.",
+    "description": "Trusted pharmaceutical solutions for a healthier world. Innovation, quality, and care in every product.",
+    "quickLinks": {
+      "title": "Quick Links",
+      "aboutUs": "About Us",
+      "whoWeWorkWith": "Who We Work With",
+      "contact": "Contact"
+    },
+    "resources": {
+      "title": "Resources",
+      "pharmaInsights": "Pharma Insights",
+      "productsCatalog": "Products Catalog",
+      "pharmacovigilance": "Pharmacovigilance"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "cookiePolicy": "Cookie Policy"
+    },
+    "copyright": "© {year} Liv Well Pharmaceuticals. All rights reserved.",
+    "pharmacovigilance": {
+      "title": "Pharmacovigilance",
+      "text": "If you have presented a suspected adverse reaction associated with the use of any medication of Liv Well Pharmaceuticals, we would appreciate sharing your report to our Pharmacovigilance team by sending an email to pharmacovigilance@livwellpharmaceuticals.com or through our contact form.",
+      "contactLink": "Contact us"
+    }
+  },
+  "hero": {
+    "delivering": "Delivering",
+    "headline": "Trusted Pharmaceutical Products",
+    "toEveryCorner": "to Every Corner of the World.",
+    "description": "At Liv Well Pharmaceuticals, we are committed to making high-quality pharmaceutical products accessible worldwide. Driven by innovation and a patient-first approach, we deliver trusted healthcare solutions across borders, ensuring every community has the care it deserves.",
+    "stats": {
+      "countries": { "value": "10+", "label": "Countries Served" },
+      "products": { "value": "600+", "label": "Products" },
+      "quality": { "value": "100%", "label": "Quality Assured" },
+      "commitment": { "label": "Commitment to Patients" }
+    },
+    "exploreButton": "Explore Our Products",
+    "contactButton": "Contact Us",
+    "imageOverlay": {
+      "title": "Innovation in Healthcare",
+      "text": "Leading the way in pharmaceutical excellence with cutting-edge research and development."
+    }
+  },
+  "vision": {
+    "sectionTitle": "Our",
+    "sectionTitleHighlight": "Vision",
+    "displayLine1": "Making quality",
+    "displayLine2": "medicine",
+    "displayLine3": "accessible.",
+    "description": "We believe that safe, effective medicines should be within reach for every patient — regardless of geography or circumstance."
+  },
+  "infoCards": {
+    "items": [
+      { "title": "Our Purpose", "description": "To expand global access to medicines and high-quality pharmaceutical solutions for all." },
+      { "title": "Our Values", "description": "Our relationship with customers, suppliers and partners is based on trust, integrity and excellence." },
+      { "title": "Quality Culture", "description": "Here at Liv Well Pharmaceuticals, quality is much more than just a standard: it is a culture we live." },
+      { "title": "Where We Are", "description": "Liv Well Pharmaceuticals in the world. Discover our different places all over the world." },
+      { "title": "Our Clients", "description": "Here at Liv Well Pharmaceuticals, we help them tackle the immense challenge of meeting healthcare needs." },
+      { "title": "Your Health", "description": "Stay up to date with trends, key information, and health tips. Gain more knowledge and help us improve." },
+      { "title": "Our Products", "description": "Liv Well Pharmaceuticals offers a wide variety of medicines: from the essentials to cutting-edge treatments." },
+      { "title": "Contact", "description": "Our global corporate office is strategically located, from where we serve patients worldwide." }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked",
+    "titleHighlight": "Questions",
+    "subtitle": "Learn more about our pharmaceutical solutions and how we can support your healthcare needs.",
+    "items": [
+      {
+        "question": "What makes Liv Well Pharmaceuticals different?",
+        "answer": "Our focus is simple: making quality healthcare more accessible. We specialize in developing affordable generic medicines without compromising on quality standards. Every product we manufacture undergoes rigorous quality control and meets international regulatory requirements. At Liv Well, we believe good medicine shouldn't be out of reach; and that's what drives us every day."
+      },
+      {
+        "question": "Are your products WHO-approved?",
+        "answer": "Our products are manufactured in compliance with WHO Good Manufacturing Practices (GMP) guidelines, which are internationally recognized quality standards for pharmaceutical production. We maintain strict quality control processes and adhere to regulatory requirements in all markets where we operate. For specific product certifications or regulatory approvals, please contact us directly as requirements vary by product and destination market."
+      },
+      {
+        "question": "How do you ensure product quality?",
+        "answer": "Quality is built into every step of our process. We start by carefully selecting and testing raw materials from qualified suppliers. Throughout manufacturing, our team conducts in-process controls at critical points to catch any deviations early. Every batch undergoes comprehensive cross-laboratory testing before release, and we maintain detailed documentation to ensure full traceability. All our facilities operate under Good Manufacturing Practices (GMP), and we conduct regular internal audits to maintain these standards consistently."
+      },
+      {
+        "question": "Do you offer generic alternatives to brand-name drugs?",
+        "answer": "Yes, we offer high-quality generic alternatives to many brand-name medications at more affordable prices. Our generic medicines are manufactured to rigorous quality standards and provide effective therapeutic options for patients seeking cost-effective treatment solutions."
+      },
+      {
+        "question": "What is your approach to sustainability?",
+        "answer": "We're working to reduce our environmental footprint through practical measures. This includes optimizing our manufacturing processes to minimize waste, implementing energy-efficient practices where feasible, and ensuring proper disposal of pharmaceutical waste according to regulations. We recognize that pharmaceutical manufacturing has environmental challenges, and we're committed to continuously improving our practices as we grow. Sustainability is an ongoing effort, not a destination."
+      },
+      {
+        "question": "How can healthcare providers partner with Liv Well?",
+        "answer": "We value partnerships with Ministries of Health, healthcare providers, hospitals, clinics, and distributors who share our commitment to accessible healthcare. Whether you're interested in product availability for your patients, bulk supply agreements, or distribution opportunities, we're open to discussing how we can work together. Please contact us through the form below or email us directly at info@livwellpharmaceuticals.com with details about your organization and needs. We'll respond promptly to explore potential collaboration."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get in",
+    "titleHighlight": "Touch",
+    "subtitle": "Have questions about our products or services? Our team is here to help you.",
+    "emailCard": { "title": "Email Us" },
+    "callCard": { "title": "Call Us", "phone": "+971 4 516 3600 Ext: 8437", "hours": "Sun-Thu 9AM-6PM (GST)" },
+    "addressCard": {
+      "title": "Address",
+      "line1": "Meydan Grandstand, 6th Floor",
+      "line2": "Meydan Road, Nad Al Sheba",
+      "line3": "Dubai, UAE"
+    },
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject",
+      "message": "Message",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "your@email.com",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "subjectPlaceholder": "How can we help?",
+      "messagePlaceholder": "Tell us about your inquiry...",
+      "nameError": "Name must be at least 2 characters",
+      "emailError": "Please enter a valid email address",
+      "messageError": "Message must be at least 10 characters",
+      "submitButton": "Send Message",
+      "sendingButton": "Sending...",
+      "successTitle": "Message Sent!",
+      "successMessage": "Thank you for reaching out. Our team will get back to you within 1-2 business days.",
+      "errorMessage": "Something went wrong. Please email us at info@livwellpharmaceuticals.com"
+    }
+  },
+  "products": {
+    "hero": {
+      "label": "Product Portfolio",
+      "headline1": "Quality, proven, and globally accessible —",
+      "headline2": "that's our standard.",
+      "description": "Our catalog spans essential generics, specialty care, therapeutic treatments, and consumer wellness solutions.",
+      "extended": "Thoughtfully assembled to support health ministries, distributors, importers, and care providers in delivering effective treatments where they're needed most.",
+      "stats": {
+        "products": { "value": "600+", "label": "Products" },
+        "quality": { "value": "100%", "label": "Quality Assured" }
+      },
+      "ctaText": "Use the filters below to explore our full portfolio. Looking for something specific or can't find what you need?",
+      "contactButton": "Contact Us"
+    },
+    "filters": {
+      "nameLabel": "Active Ingredient",
+      "namePlaceholder": "e.g. Paracetamol",
+      "categoryLabel": "Category",
+      "allCategories": "All Categories",
+      "subcategoryLabel": "Subcategory",
+      "allSubcategories": "All Subcategories",
+      "subcategorySearchPlaceholder": "Search subcategories...",
+      "noSubcategories": "No subcategories found",
+      "atcLabel": "ATC Classification",
+      "atcPlaceholder": "e.g. N02BE01",
+      "searchButton": "Search",
+      "clearFilters": "Clear Filters",
+      "recordsPerPage": "Records per page:"
+    },
+    "table": {
+      "noProducts": "No products found",
+      "adjustFilters": "Try adjusting your search filters.",
+      "atc": "ATC",
+      "category": "Category",
+      "subcategory": "Subcategory",
+      "ingredient": "Active Ingredient",
+      "dosageForm": "Dosage Form",
+      "strength": "Strength"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "ariaLabel": "Products pagination"
+    },
+    "showing": "Showing {from}–{to} of {total} products"
+  },
+  "pharmaInsights": {
+    "hero": {
+      "label": "Pharma Insights",
+      "headline1": "Strategic intelligence for",
+      "headline2": "healthcare decision-makers.",
+      "description": "Industry analysis, regulatory perspectives, and market insights from the Liv Well team.",
+      "extended": "Explore curated content designed for health ministries, distributors, importers, and care providers navigating the global pharmaceutical landscape.",
+      "scrollText": "Scroll to explore"
+    },
+    "content": {
+      "searchPlaceholder": "Search articles by title or topic...",
+      "searchButton": "Search",
+      "articlesAvailable": "{count} articles available",
+      "comingSoonTitle": "Pharma Insights Coming Soon",
+      "comingSoonText": "Our editorial team is preparing in-depth content for industry professionals. Check back soon.",
+      "noResults": "No articles match your search.",
+      "badge": "Pharma Insights",
+      "readMore": "Read full article",
+      "showing": "Showing {from}–{to} of {total} articles",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "article": {
+      "notFoundTitle": "Article not found",
+      "notFoundDesc": "The article you're looking for doesn't exist or has been removed.",
+      "backButton": "Back to Pharma Insights",
+      "badge": "PHARMA INSIGHTS",
+      "byAuthor": "By",
+      "readTime": "{minutes} min read",
+      "youMayAlsoLike": "You may also like",
+      "breadcrumbHome": "Home",
+      "breadcrumbInsights": "Pharma Insights",
+      "notFoundMeta": "Article Not Found | Liv Well Pharmaceuticals"
+    }
+  },
+  "about": {
+    "hero": {
+      "label": "About Liv Well Pharmaceuticals",
+      "headline1": "Making quality medicine",
+      "headline2": "accessible.",
+      "subtitle": "We believe that safe, effective medicines should be within reach for every patient — regardless of geography or circumstance.",
+      "scrollText": "Scroll to explore"
+    },
+    "story": {
+      "title": "Our",
+      "titleHighlight": "Story",
+      "subtitle": "Built on a simple belief",
+      "para1": "Good health should never be a privilege. It is this belief that gave birth to Liv Well Pharmaceuticals — and it is the same belief that continues to drive everything we do.",
+      "para2": "From our earliest days, we set out to challenge the idea that quality and affordability are mutually exclusive in healthcare. We believed then, as we do now, that patients everywhere deserve access to medicines that are both effective and within reach — and we built Liv Well Pharmaceuticals around that conviction.",
+      "para3": "Over the years, that commitment has taken us further than we ever imagined. Today, Liv Well Pharmaceuticals is a trusted name across more than 10 countries, recognised by healthcare providers, institutions, and governments alike as a dependable partner that delivers on its promises.",
+      "para4": "We are still growing. And with every step forward, we remain anchored to the same purpose that started it all: making quality medicines accessible to more people, in more places, around the world.",
+      "cards": {
+        "globalReach": { "label": "Global Reach", "text": "Serving healthcare systems and institutional partners across 10+ countries worldwide." },
+        "provenPortfolio": { "label": "Proven Portfolio", "text": "600+ products spanning more than 20 therapeutic categories, all meeting rigorous international standards." },
+        "trustedPartnerships": { "label": "Trusted Partnerships", "text": "Long-term relationships with governments, institutions, and private sector partners built on reliability and integrity." }
+      }
+    },
+    "purpose": {
+      "title": "Our",
+      "titleHighlight": "Purpose",
+      "subtitle": "What drives us forward",
+      "quote": "To make high-quality, affordable medicines available to the people who need them most — wherever they may be.",
+      "para1": "At Liv Well Pharmaceuticals, our purpose is not a statement on a wall. It is the lens through which we evaluate every decision we make — from the products we develop to the partners we choose to work with.",
+      "para2": "We work closely with healthcare institutions, government bodies, and private sector partners to bridge the gap between pharmaceutical excellence and real-world access. We don't just supply medicines — we build lasting partnerships rooted in trust, transparency, and a shared commitment to better health outcomes.",
+      "para3": "Our vision is to be a globally recognised leader in accessible generic pharmaceuticals — a company that sets the standard not only for product quality, but for the integrity and reliability with which we operate. Hand-in-hand with our partners, we are making world-class medicines a reality for more communities every year."
+    },
+    "values": {
+      "title": "Our",
+      "titleHighlight": "Values",
+      "subtitle": "Every decision at Liv Well Pharmaceuticals is shaped by five core values that define not just how we work, but who we are.",
+      "items": [
+        { "title": "Accessibility", "text": "Effective, safe medicines should be available to everyone. Affordability is not a concession we make — it is a cornerstone of who we are." },
+        { "title": "Quality Without Compromise", "text": "Every product carrying the Liv Well Pharmaceuticals name meets stringent international standards. Our quality processes are thorough, consistent, and non-negotiable." },
+        { "title": "Integrity", "text": "We operate with complete transparency in all our relationships — with customers, partners, regulators, and suppliers. Our reputation is built on honesty." },
+        { "title": "Partnership", "text": "We see our clients not as transactions, but as long-term partners. We invest in understanding their needs and work alongside them to deliver solutions that truly fit." },
+        { "title": "Reliability", "text": "In healthcare, there is no room for uncertainty. Our partners trust us to deliver the right product, to the right standard, at the right time — and we take that responsibility seriously." }
+      ]
+    },
+    "numbers": {
+      "title": "By the",
+      "titleHighlight": "Numbers",
+      "subtitle": "Liv Well Pharmaceuticals in figures",
+      "stats": [
+        { "value": "10+", "label": "Countries Served" },
+        { "value": "600+", "label": "Products in Portfolio" },
+        { "value": "20+", "label": "Therapeutic Categories" },
+        { "value": "∞", "label": "Commitment to Patients" }
+      ]
+    }
+  },
+  "whoWeWorkWith": {
+    "hero": {
+      "label": "Who We Work With",
+      "headline1": "If you are responsible for pharmaceutical procurement —",
+      "headline2": "Liv Well is built for you.",
+      "description": "Your pharmaceutical supply chain deserves a partner who takes it as seriously as you do.",
+      "extended": "From large-scale government tenders to targeted portfolio additions for local distribution, we ensure access to quality generic pharmaceuticals for partners worldwide.",
+      "scrollText": "Scroll to explore"
+    },
+    "opening": {
+      "title": "The Right",
+      "titleHighlight": "Partner",
+      "subtitle": "We built our business around organisations like yours",
+      "para1": "Procurement is never just a transaction. Behind every purchase order is a population relying on someone to get it right — to source the right product, at the right quality, with the confidence that what arrives is exactly what was promised, and delivered before the need becomes a crisis.",
+      "para2": "That is the world our partners operate in every day. And it is the world Liv Well Pharmaceuticals was designed to serve. We understand the pressures that come with managing pharmaceutical supply chains in complex, fast-moving environments — because we have been navigating them alongside our partners for years.",
+      "para3": "Whether you represent a government health authority, a private distributor, or an international organisation, if your work involves ensuring access to quality pharmaceutical products for the people who need them, you are exactly who we built this company for."
+    },
+    "audiences": {
+      "title": "Does This Sound Like",
+      "titleHighlight": "You?",
+      "intro": "You don't need to fit a specific profile to work with Liv Well Pharmaceuticals. But if any of the following describes your organisation, we are confident we can add real value.",
+      "items": [
+        {
+          "headline": "You are responsible for supplying pharmaceutical products to a population — and the margin for error is zero",
+          "body": [
+            "National health ministries, public procurement agencies, social security systems, and central supply authorities carry one of the heaviest responsibilities in any country: ensuring that essential pharmaceutical products are available, consistently supplied, and trustworthy — for the people who depend on public healthcare.",
+            "The challenges are well-known — budget cycles that don't always align with health needs, supplier markets where quality can be difficult to verify, and the ever-present risk of shortage. In this environment, choosing a supplier based on price alone is not a strategy — it is a risk. What you need is a partner who understands public sector dynamics, meets the documentation and compliance standards your procurement processes demand, and delivers reliably — every time, without exception.",
+            "If that is your reality, Liv Well Pharmaceuticals was built with you in mind."
+          ],
+          "signals": [
+            "You manage large-scale or recurring pharmaceutical procurement",
+            "Your procurement process requires strict regulatory and quality documentation",
+            "You need a partner who can respond quickly when needs change",
+            "Consistent supply reliability is non-negotiable for your organisation"
+          ]
+        },
+        {
+          "headline": "You bring pharmaceutical products to markets that the big players overlook",
+          "body": [
+            "Regional distributors, local importers, and pharmaceutical wholesalers are the backbone of medicine access in many parts of the world. You know your market — the regulations, the logistics, the gaps in supply that your customers depend on you to fill. What you need is a supply partner who can match your standards, complement your portfolio, and give you the confidence to make promises you know will be kept.",
+            "In markets where supply options are limited, the temptation to prioritise cost above everything else is understandable — but the consequences of a quality failure fall on the patients at the end of the chain, not on the supplier. We believe that responsible procurement means holding the line on quality, and we work with distributors who share that conviction.",
+            "If you are looking for a quality-assured source you can rely on — one that makes your business stronger without putting your reputation at risk — we would like to be part of your supply chain."
+          ],
+          "signals": [
+            "You import or distribute pharmaceutical products in your market",
+            "You need a partner with a broad generic portfolio and dependable availability",
+            "You understand that your reputation depends on the quality of what you supply",
+            "You value a partner who communicates clearly and responds without delays"
+          ]
+        },
+        {
+          "headline": "Your mission is bigger than one country — and your supply needs to match",
+          "body": [
+            "International organisations, humanitarian health agencies, and NGOs working in global health operate under a unique set of pressures. Your procurement standards are high — often requiring compliance with international frameworks and independent quality verification. Your timelines can shift suddenly in response to emerging needs. And the populations you serve are frequently those with the least access to alternative sources, where the cost of a supply failure is measured in human terms.",
+            "Liv Well Pharmaceuticals has the quality credentials, the regulatory standing, and the operational flexibility to be a meaningful contributor to international health supply chains. We take seriously the responsibility that comes with serving organisations whose work has a direct humanitarian dimension — and we hold ourselves to the standards that responsibility demands.",
+            "If your organisation coordinates or participates in pharmaceutical supply for vulnerable or underserved populations worldwide, we are ready to be part of that effort."
+          ],
+          "signals": [
+            "You procure pharmaceutical products for programmes operating across multiple countries or regions",
+            "Your procurement standards require GMP certification and full documentation",
+            "You work in environments where supply reliability is a matter of human wellbeing",
+            "You need a partner who can scale up quickly when the situation demands it"
+          ]
+        }
+      ]
+    },
+    "reasons": {
+      "title": "Why Liv Well",
+      "titleHighlight": "Pharmaceuticals",
+      "subtitle": "There is no shortage of pharmaceutical suppliers worldwide. What is harder to find is a partner that consistently delivers on what matters most — quality, reliability, and trust.",
+      "items": [
+        {
+          "title": "Quality that is built in — not promised after the fact",
+          "body": "In a sector where the consequences of a quality failure are measured in human lives, every product in our portfolio meets the highest quality standards. We approach quality with the seriousness it demands — applying strict controls throughout the manufacturing process and at the release of every batch we commercialise, so that our partners have full confidence in what they receive."
+        },
+        {
+          "title": "A portfolio broad enough to matter",
+          "body": "With 600+ products across more than 20 therapeutic categories, we can cover a meaningful share of your procurement needs from a single, trusted source. Less fragmentation in your supply chain means fewer variables — and fewer points where quality or reliability can break down."
+        },
+        {
+          "title": "Speed and flexibility when it counts most",
+          "body": "Pharmaceutical needs don't wait. When procurement timelines shift or an urgent need emerges, our partners need a partner who can adapt — not one who hides behind lead times and process. Responsiveness is something we take personally, because we understand what is at stake when supply falls short."
+        },
+        {
+          "title": "Experience in complex markets",
+          "body": "We have built our expertise serving markets where pharmaceutical supply chains can be unpredictable and where the difference between a reliable partner and an unreliable one is felt directly by patients. We know what it takes to deliver consistently in challenging environments — and we do it without compromising the standards our partners depend on."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Work With",
+      "titleHighlight": "Us",
+      "para1": "We approach every enquiry with the same commitment: to understand what you need and respond with transparency about what we can deliver — because a partnership built on accurate expectations serves both sides far better than one built on promises we cannot keep.",
+      "para2": "We welcome enquiries from organisations at any stage — whether you are evaluating new supply options, responding to an urgent need, or simply exploring what we can offer. And if the product you are looking for is not listed in our current portfolio, do not hesitate to reach out. Our team will review your requirement and let you know honestly whether we can help.",
+      "submitButton": "Submit Your Requirement",
+      "portfolioButton": "Explore Our Portfolio"
+    }
+  },
+  "legal": {
+    "privacyPolicy": {
+      "title": "Privacy Policy",
+      "effectiveDate": "Effective Date: September 30th, 2024 · Last Updated: September 30th, 2024"
+    },
+    "cookiePolicy": {
+      "title": "Cookie Policy",
+      "effectiveDate": "Effective Date: September 30th, 2024"
+    },
+    "termsOfService": {
+      "title": "Terms of Service",
+      "effectiveDate": "Effective Date: September 30th, 2024"
+    }
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "homeButton": "Go Home",
+    "productsButton": "View Products"
+  }
+}
