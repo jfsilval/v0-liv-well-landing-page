@@ -15,7 +15,7 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
-  const post = await getPostBySlug(slug)
+  const post = await getPostBySlug(slug, 'en')
 
   if (!post) {
     return { title: "Article Not Found | Liv Well Pharmaceuticals" }
@@ -61,7 +61,7 @@ function calculateReadTime(content: any): number {
 
 export default async function ArticlePage({ params }: PageProps) {
   const { slug } = await params
-  const post = await getPostBySlug(slug)
+  const post = await getPostBySlug(slug, 'en')
 
   if (!post) {
     return (
@@ -92,10 +92,9 @@ export default async function ArticlePage({ params }: PageProps) {
   const authorName = post.populatedAuthors?.[0]?.name
   const heroImageUrl = post.heroImage?.url ? resolveMediaUrl(post.heroImage.url) : null
 
-  // Fetch related articles
   let relatedPosts: typeof post[] = []
   try {
-    const res = await getPosts({ categoryTitle: "Pharma Insights", limit: 3 })
+    const res = await getPosts({ categoryTitle: "Pharma Insights", limit: 3, locale: 'en' })
     relatedPosts = res.docs.filter((p) => p.slug !== slug).slice(0, 2)
   } catch {
     // Silently fail - related posts are optional
@@ -105,10 +104,8 @@ export default async function ArticlePage({ params }: PageProps) {
     <>
       <Navigation />
       <main id="main-content" className="min-h-screen bg-primary/10">
-        {/* Article Header - dark navy */}
         <section className="bg-[#0a2351] pt-28 pb-4 relative z-0">
           <div className="container mx-auto px-4 max-w-[900px]">
-            {/* Breadcrumb */}
             <nav className="flex items-center gap-1.5 text-sm text-white/70 mb-8">
               <Link href="/" className="hover:text-white/80 transition-colors">Home</Link>
               <ChevronRight className="h-3.5 w-3.5" />
@@ -144,7 +141,6 @@ export default async function ArticlePage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* Hero Image - full width, no side margins */}
         {heroImageUrl && (
           <div className="relative w-full h-[280px] md:h-[400px] lg:h-[560px] overflow-hidden z-10">
             <Image
@@ -158,7 +154,6 @@ export default async function ArticlePage({ params }: PageProps) {
           </div>
         )}
 
-        {/* Article Content - improved typography */}
         <section className="py-12 bg-primary/10">
           <div className="container mx-auto px-4">
             <div className="max-w-[780px] mx-auto text-[17px] leading-[1.8] text-[#374151]">
@@ -167,7 +162,6 @@ export default async function ArticlePage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* Article Footer */}
         <section className="pb-16 bg-primary/10">
           <div className="container mx-auto px-4 max-w-[780px]">
             <hr className="border-border mb-8" />
@@ -183,7 +177,6 @@ export default async function ArticlePage({ params }: PageProps) {
               </Link>
             </Button>
 
-            {/* Related Articles */}
             {relatedPosts.length > 0 && (
               <div className="mt-12">
                 <h2 className="text-xl font-bold text-foreground mb-6">You may also like</h2>
@@ -212,3 +205,4 @@ export default async function ArticlePage({ params }: PageProps) {
     </>
   )
 }
+
