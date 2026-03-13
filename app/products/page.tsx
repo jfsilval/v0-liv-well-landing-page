@@ -58,7 +58,7 @@ export default async function ProductsPage({
       <Navigation />
       <ProductsHero />
 
-      <section className="bg-primary/5 py-12">
+      <section id="products-section" className="bg-primary/5 py-12">
         <div className="container mx-auto px-4">
           <ProductsFilters
             nombre={nombre}
@@ -101,4 +101,3 @@ export default async function ProductsPage({
     </main>
   )
 }
-
