@@ -61,10 +61,12 @@ export async function getProducts(params?: {
   categoria?: string
   sub_categoria?: string
   clasificacion_atc?: string
+  locale?: string
 }): Promise<CMSList<Product>> {
   const qs = new URLSearchParams()
   qs.set('limit', String(params?.limit ?? 20))
   qs.set('page', String(params?.page ?? 1))
+  qs.set('locale', params?.locale ?? 'en')
   if (params?.nombre)
     qs.set('where[nombre][like]', params.nombre)
   if (params?.categoria)
@@ -74,7 +76,6 @@ export async function getProducts(params?: {
   if (params?.clasificacion_atc)
     qs.set('where[clasificacion_atc][like]', params.clasificacion_atc)
 
-  qs.set('locale', 'en')
   const res = await fetch(`${CMS_URL}/api/products?${qs}`, {
     next: { revalidate: 3600 },
   })
@@ -83,23 +84,22 @@ export async function getProducts(params?: {
 }
 
 // ─── Product Categories (distinct values with mapping) ───────────────────────
-export async function getProductCategories(): Promise<{
+export async function getProductCategories(locale = 'en'): Promise<{
   categories: string[]
   subCategories: string[]
   categoryToSubcategories: Record<string, string[]>
 }> {
-  // Fetch all products to extract unique categories and subcategories
-  const res = await fetch(`${CMS_URL}/api/products?limit=1000&locale=en`, {
+  const res = await fetch(`${CMS_URL}/api/products?limit=1000&locale=${locale}`, {
     next: { revalidate: 3600 },
   })
   if (!res.ok) throw new Error('Failed to fetch product categories')
-  
+
   const data: CMSList<Product> = await res.json()
-  
+
   const categoriesSet = new Set<string>()
   const subCategoriesSet = new Set<string>()
   const categoryToSubcategoriesMap: Record<string, Set<string>> = {}
-  
+
   data.docs.forEach((product) => {
     if (product.categoria) {
       categoriesSet.add(product.categoria)
@@ -112,13 +112,12 @@ export async function getProductCategories(): Promise<{
     }
     if (product.sub_categoria) subCategoriesSet.add(product.sub_categoria)
   })
-  
-  // Convert Sets to sorted arrays
+
   const categoryToSubcategories: Record<string, string[]> = {}
   Object.entries(categoryToSubcategoriesMap).forEach(([cat, subs]) => {
     categoryToSubcategories[cat] = Array.from(subs).sort()
   })
-  
+
   return {
     categories: Array.from(categoriesSet).sort(),
     subCategories: Array.from(subCategoriesSet).sort(),
@@ -131,16 +130,17 @@ export async function getPosts(params?: {
   page?: number
   limit?: number
   categoryTitle?: string
+  locale?: string
 }): Promise<CMSList<Post>> {
   const qs = new URLSearchParams()
   qs.set('limit', String(params?.limit ?? 12))
   qs.set('page', String(params?.page ?? 1))
   qs.set('depth', '2')
   qs.set('sort', '-publishedAt')
+  qs.set('locale', params?.locale ?? 'en')
   if (params?.categoryTitle)
     qs.set('where[categories.title][equals]', params.categoryTitle)
 
-  qs.set('locale', 'en')
   const res = await fetch(`${CMS_URL}/api/posts?${qs}`, {
     next: { revalidate: 3600 },
   })
@@ -148,7 +148,6 @@ export async function getPosts(params?: {
 
   const data: CMSList<Post> = await res.json()
 
-  // Resolver URLs relativas de imágenes
   data.docs = data.docs.map((post) => ({
     ...post,
     heroImage: post.heroImage
@@ -160,13 +159,13 @@ export async function getPosts(params?: {
 }
 
 // ─── Post individual por slug ────────────────────────────────────────────────
-export async function getPostBySlug(slug: string): Promise<Post | null> {
+export async function getPostBySlug(slug: string, locale = 'en'): Promise<Post | null> {
   const qs = new URLSearchParams()
   qs.set('where[slug][equals]', slug)
   qs.set('depth', '2')
   qs.set('limit', '1')
+  qs.set('locale', locale)
 
-  qs.set('locale', 'en')
   const res = await fetch(`${CMS_URL}/api/posts?${qs}`, {
     next: { revalidate: 3600 },
   })
@@ -181,5 +180,6 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
 
   return post
 }
+
 
 
