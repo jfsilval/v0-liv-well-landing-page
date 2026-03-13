@@ -41,8 +41,8 @@ export default async function ProductsPage({
 
   try {
     const [productsData, categoriesData] = await Promise.all([
-      getProducts({ page, limit, nombre, categoria, sub_categoria, clasificacion_atc }),
-      getProductCategories(),
+      getProducts({ page, limit, nombre, categoria, sub_categoria, clasificacion_atc, locale: 'en' }),
+      getProductCategories('en'),
     ])
     data = productsData
     categoryData = categoriesData
@@ -60,7 +60,6 @@ export default async function ProductsPage({
 
       <section className="bg-primary/5 py-12">
         <div className="container mx-auto px-4">
-          {/* Filters */}
           <ProductsFilters
             nombre={nombre}
             categoria={categoria}
@@ -73,7 +72,6 @@ export default async function ProductsPage({
             categoryToSubcategories={categoryData.categoryToSubcategories}
           />
 
-          {/* Results */}
           {error ? (
             <ProductsError message={error} />
           ) : data ? (
@@ -103,3 +101,4 @@ export default async function ProductsPage({
     </main>
   )
 }
+
