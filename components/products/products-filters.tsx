@@ -65,26 +65,38 @@ export function ProductsFilters({
     }
   }, [selectedCategory, selectedSubCategory, categoryToSubcategories])
 
+  // ─── Helper: build URL from current form + overrides ─────────────────────
+  const buildParams = useCallback(
+    (
+      form: HTMLFormElement,
+      overrides: { categoria?: string; sub_categoria?: string }
+    ) => {
+      const formData = new FormData(form)
+      const params = new URLSearchParams()
+      const nombreVal = formData.get("nombre") as string
+      const atcVal = formData.get("clasificacion_atc") as string
+      const limitVal = formData.get("limit") as string
+      const catVal = "categoria" in overrides ? overrides.categoria : selectedCategory
+      const subVal = "sub_categoria" in overrides ? overrides.sub_categoria : selectedSubCategory
+
+      if (nombreVal) params.set("nombre", nombreVal)
+      if (catVal) params.set("categoria", catVal)
+      if (subVal) params.set("sub_categoria", subVal)
+      if (atcVal) params.set("clasificacion_atc", atcVal)
+      if (limitVal) params.set("limit", limitVal)
+      params.set("page", "1")
+      return params
+    },
+    [selectedCategory, selectedSubCategory]
+  )
+
   const handleSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
-      const formData = new FormData(e.currentTarget)
-      const params = new URLSearchParams()
-
-      const nombre = formData.get("nombre") as string
-      const clasificacion_atc = formData.get("clasificacion_atc") as string
-      const limit = formData.get("limit") as string
-
-      if (nombre) params.set("nombre", nombre)
-      if (selectedCategory) params.set("categoria", selectedCategory)
-      if (selectedSubCategory) params.set("sub_categoria", selectedSubCategory)
-      if (clasificacion_atc) params.set("clasificacion_atc", clasificacion_atc)
-      if (limit) params.set("limit", limit)
-      params.set("page", "1")
-
+      const params = buildParams(e.currentTarget, {})
       router.push(`/products?${params.toString()}`, { scroll: false })
     },
-    [router, selectedCategory, selectedSubCategory]
+    [router, buildParams]
   )
 
   const handleLimitChange = useCallback(
@@ -95,32 +107,38 @@ export function ProductsFilters({
     []
   )
 
+  // Fix: build URL directly with newCategory — no setTimeout, no stale closure
   const handleCategoryChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
       const newCategory = e.target.value
+      const newSubCategory = newCategory !== selectedCategory ? "" : selectedSubCategory
       setSelectedCategory(newCategory)
-      if (newCategory !== selectedCategory) {
-        setSelectedSubCategory("")
-      }
-      setTimeout(() => {
-        const form = e.currentTarget.closest("form")
-        if (form) form.requestSubmit()
-      }, 0)
+      setSelectedSubCategory(newSubCategory)
+
+      const form = e.currentTarget.closest("form")
+      if (!form) return
+      const params = buildParams(form, {
+        categoria: newCategory,
+        sub_categoria: newSubCategory,
+      })
+      router.push(`/products?${params.toString()}`, { scroll: false })
     },
-    [selectedCategory]
+    [router, selectedCategory, selectedSubCategory, buildParams]
   )
 
+  // Fix: build URL directly with new value — no setTimeout, no stale closure
   const handleSubcategorySelect = useCallback(
     (value: string) => {
       setSelectedSubCategory(value)
       setComboboxOpen(false)
       setComboboxSearch("")
-      setTimeout(() => {
-        const form = document.querySelector("form")
-        if (form) form.requestSubmit()
-      }, 0)
+
+      const form = document.querySelector("form")
+      if (!form) return
+      const params = buildParams(form, { sub_categoria: value })
+      router.push(`/products?${params.toString()}`, { scroll: false })
     },
-    []
+    [router, buildParams]
   )
 
   const handleClear = useCallback(() => {
@@ -155,15 +173,15 @@ export function ProductsFilters({
             >
               <option value="">All Categories</option>
               {categories.map((cat) => (
-                <option key={cat} value={cat}>
-                  {cat}
-                </option>
+                <option key={cat} value={cat}>{cat}</option>
               ))}
             </select>
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="sub_categoria" className="text-sm font-medium">
-              Subcategory {selectedCategory && <span className="text-muted-foreground font-normal">({availableSubcategories.length})</span>}
+              Subcategory {selectedCategory && (
+                <span className="text-muted-foreground font-normal">({availableSubcategories.length})</span>
+              )}
             </Label>
             <div ref={comboboxRef} className="relative">
               <button
@@ -269,4 +287,5 @@ export function ProductsFilters({
     </form>
   )
 }
+
 
