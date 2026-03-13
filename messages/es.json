@@ -1,1 +1,395 @@
-{}
+{
+  "nav": {
+    "home": "INICIO",
+    "aboutUs": "SOBRE NOSOTROS",
+    "whoWeWorkWith": "CON QUIÉN TRABAJAMOS",
+    "pharmaInsights": "PHARMA INSIGHTS",
+    "products": "PRODUCTOS",
+    "contact": "CONTACTO"
+  },
+  "footer": {
+    "tagline": "Genéricos de Calidad. Alcance Global. Confianza Mundial.",
+    "description": "Soluciones farmacéuticas confiables para un mundo más saludable. Innovación, calidad y cuidado en cada producto.",
+    "quickLinks": {
+      "title": "Enlaces Rápidos",
+      "aboutUs": "Sobre Nosotros",
+      "whoWeWorkWith": "Con Quién Trabajamos",
+      "contact": "Contacto"
+    },
+    "resources": {
+      "title": "Recursos",
+      "pharmaInsights": "Pharma Insights",
+      "productsCatalog": "Catálogo de Productos",
+      "pharmacovigilance": "Farmacovigilancia"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacyPolicy": "Política de Privacidad",
+      "termsOfService": "Términos de Servicio",
+      "cookiePolicy": "Política de Cookies"
+    },
+    "copyright": "© {year} Liv Well Pharmaceuticals. Todos los derechos reservados.",
+    "pharmacovigilance": {
+      "title": "Farmacovigilancia",
+      "text": "Si ha presentado una reacción adversa sospechada asociada al uso de algún medicamento de Liv Well Pharmaceuticals, le agradeceríamos compartir su reporte con nuestro equipo de Farmacovigilancia enviando un correo a pharmacovigilance@livwellpharmaceuticals.com o a través de nuestro formulario de contacto.",
+      "contactLink": "Contáctenos"
+    }
+  },
+  "hero": {
+    "delivering": "Entregando",
+    "headline": "Productos Farmacéuticos de Confianza",
+    "toEveryCorner": "a Cada Rincón del Mundo.",
+    "description": "En Liv Well Pharmaceuticals, estamos comprometidos a hacer accesibles productos farmacéuticos de alta calidad en todo el mundo. Impulsados por la innovación y un enfoque centrado en el paciente, entregamos soluciones de salud confiables a través de fronteras, asegurando que cada comunidad tenga el cuidado que merece.",
+    "stats": {
+      "countries": { "value": "10+", "label": "Países Atendidos" },
+      "products": { "value": "600+", "label": "Productos" },
+      "quality": { "value": "100%", "label": "Calidad Garantizada" },
+      "commitment": { "label": "Compromiso con los Pacientes" }
+    },
+    "exploreButton": "Explorar Nuestros Productos",
+    "contactButton": "Contáctenos",
+    "imageOverlay": {
+      "title": "Innovación en Salud",
+      "text": "Liderando el camino hacia la excelencia farmacéutica con investigación y desarrollo de vanguardia."
+    }
+  },
+  "vision": {
+    "sectionTitle": "Nuestra",
+    "sectionTitleHighlight": "Visión",
+    "displayLine1": "Haciendo que",
+    "displayLine2": "la medicina de",
+    "displayLine3": "calidad sea accesible.",
+    "description": "Creemos que los medicamentos seguros y efectivos deben estar al alcance de cada paciente, independientemente de la geografía o las circunstancias."
+  },
+  "infoCards": {
+    "items": [
+      { "title": "Nuestro Propósito", "description": "Expandir el acceso global a medicamentos y soluciones farmacéuticas de alta calidad para todos." },
+      { "title": "Nuestros Valores", "description": "Nuestra relación con clientes, proveedores y socios se basa en la confianza, la integridad y la excelencia." },
+      { "title": "Cultura de Calidad", "description": "En Liv Well Pharmaceuticals, la calidad es mucho más que un estándar: es una cultura que vivimos." },
+      { "title": "Dónde Estamos", "description": "Liv Well Pharmaceuticals en el mundo. Descubra nuestros diferentes lugares alrededor del mundo." },
+      { "title": "Nuestros Clientes", "description": "En Liv Well Pharmaceuticals, les ayudamos a enfrentar el inmenso desafío de cubrir las necesidades de salud." },
+      { "title": "Tu Salud", "description": "Mantente al día con tendencias, información clave y consejos de salud. Obtén más conocimiento y ayúdanos a mejorar." },
+      { "title": "Nuestros Productos", "description": "Liv Well Pharmaceuticals ofrece una amplia variedad de medicamentos: desde los esenciales hasta tratamientos de vanguardia." },
+      { "title": "Contacto", "description": "Nuestra sede corporativa global está estratégicamente ubicada, desde donde servimos a pacientes en todo el mundo." }
+    ]
+  },
+  "faq": {
+    "title": "Preguntas",
+    "titleHighlight": "Frecuentes",
+    "subtitle": "Obtenga más información sobre nuestras soluciones farmacéuticas y cómo podemos apoyar sus necesidades de salud.",
+    "items": [
+      {
+        "question": "¿Qué hace diferente a Liv Well Pharmaceuticals?",
+        "answer": "Nuestro enfoque es simple: hacer que la atención médica de calidad sea más accesible. Nos especializamos en desarrollar medicamentos genéricos asequibles sin comprometer los estándares de calidad. Cada producto que fabricamos pasa por un riguroso control de calidad y cumple con los requisitos regulatorios internacionales. En Liv Well, creemos que los buenos medicamentos no deben estar fuera del alcance de nadie; eso es lo que nos impulsa cada día."
+      },
+      {
+        "question": "¿Sus productos tienen aprobación de la OMS?",
+        "answer": "Nuestros productos se fabrican en cumplimiento con las directrices de Buenas Prácticas de Manufactura (BPM) de la OMS, estándares de calidad reconocidos internacionalmente para la producción farmacéutica. Mantenemos estrictos procesos de control de calidad y cumplimos con los requisitos regulatorios en todos los mercados donde operamos. Para certificaciones específicas o aprobaciones regulatorias, contáctenos directamente ya que los requisitos varían por producto y mercado de destino."
+      },
+      {
+        "question": "¿Cómo garantizan la calidad de sus productos?",
+        "answer": "La calidad está integrada en cada paso de nuestro proceso. Comenzamos seleccionando y probando cuidadosamente las materias primas de proveedores calificados. Durante la fabricación, nuestro equipo realiza controles en proceso en puntos críticos para detectar desviaciones a tiempo. Cada lote pasa por pruebas exhaustivas antes de ser liberado, y mantenemos documentación detallada para garantizar la trazabilidad completa. Todas nuestras instalaciones operan bajo Buenas Prácticas de Manufactura (BPM) y realizamos auditorías internas regulares para mantener estos estándares de forma consistente."
+      },
+      {
+        "question": "¿Ofrecen alternativas genéricas a medicamentos de marca?",
+        "answer": "Sí, ofrecemos alternativas genéricas de alta calidad a muchos medicamentos de marca a precios más accesibles. Nuestros medicamentos genéricos se fabrican según rigurosos estándares de calidad y proporcionan opciones terapéuticas efectivas para pacientes que buscan soluciones de tratamiento rentables."
+      },
+      {
+        "question": "¿Cuál es su enfoque hacia la sostenibilidad?",
+        "answer": "Trabajamos para reducir nuestra huella ambiental mediante medidas prácticas. Esto incluye optimizar nuestros procesos de fabricación para minimizar residuos, implementar prácticas de eficiencia energética donde sea viable, y garantizar la eliminación adecuada de residuos farmacéuticos según la normativa. Reconocemos que la fabricación farmacéutica presenta desafíos ambientales y nos comprometemos a mejorar continuamente nuestras prácticas. La sostenibilidad es un esfuerzo continuo, no un destino."
+      },
+      {
+        "question": "¿Cómo pueden los profesionales de la salud asociarse con Liv Well?",
+        "answer": "Valoramos las alianzas con Ministerios de Salud, proveedores de atención médica, hospitales, clínicas y distribuidores que comparten nuestro compromiso con la salud accesible. Ya sea que le interese la disponibilidad de productos, acuerdos de suministro a granel u oportunidades de distribución, estamos abiertos a discutir cómo podemos trabajar juntos. Contáctenos a través del formulario o envíenos un correo a info@livwellpharmaceuticals.com con detalles sobre su organización y necesidades."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Ponte en",
+    "titleHighlight": "Contacto",
+    "subtitle": "¿Tiene preguntas sobre nuestros productos o servicios? Nuestro equipo está aquí para ayudarle.",
+    "emailCard": { "title": "Escríbenos" },
+    "callCard": { "title": "Llámanos", "phone": "+971 4 516 3600 Ext: 8437", "hours": "Dom-Jue 9AM-6PM (GST)" },
+    "addressCard": {
+      "title": "Dirección",
+      "line1": "Meydan Grandstand, 6to Piso",
+      "line2": "Meydan Road, Nad Al Sheba",
+      "line3": "Dubái, EAU"
+    },
+    "form": {
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "namePlaceholder": "Tu nombre",
+      "emailPlaceholder": "tu@correo.com",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "subjectPlaceholder": "¿En qué podemos ayudarte?",
+      "messagePlaceholder": "Cuéntanos sobre tu consulta...",
+      "nameError": "El nombre debe tener al menos 2 caracteres",
+      "emailError": "Por favor ingresa un correo electrónico válido",
+      "messageError": "El mensaje debe tener al menos 10 caracteres",
+      "submitButton": "Enviar Mensaje",
+      "sendingButton": "Enviando...",
+      "successTitle": "¡Mensaje Enviado!",
+      "successMessage": "Gracias por contactarnos. Nuestro equipo le responderá en 1-2 días hábiles.",
+      "errorMessage": "Algo salió mal. Por favor envíenos un correo a info@livwellpharmaceuticals.com"
+    }
+  },
+  "products": {
+    "hero": {
+      "label": "Portafolio de Productos",
+      "headline1": "Calidad, probada y globalmente accesible —",
+      "headline2": "ese es nuestro estándar.",
+      "description": "Nuestro catálogo abarca genéricos esenciales, atención especializada, tratamientos terapéuticos y soluciones de bienestar.",
+      "extended": "Cuidadosamente ensamblado para apoyar a ministerios de salud, distribuidores, importadores y proveedores en la entrega de tratamientos efectivos donde más se necesitan.",
+      "stats": {
+        "products": { "value": "600+", "label": "Productos" },
+        "quality": { "value": "100%", "label": "Calidad Garantizada" }
+      },
+      "ctaText": "Usa los filtros para explorar nuestro portafolio completo. ¿Buscas algo específico o no encuentras lo que necesitas?",
+      "contactButton": "Contáctenos"
+    },
+    "filters": {
+      "nameLabel": "Principio Activo",
+      "namePlaceholder": "ej. Paracetamol",
+      "categoryLabel": "Categoría",
+      "allCategories": "Todas las Categorías",
+      "subcategoryLabel": "Subcategoría",
+      "allSubcategories": "Todas las Subcategorías",
+      "subcategorySearchPlaceholder": "Buscar subcategorías...",
+      "noSubcategories": "No se encontraron subcategorías",
+      "atcLabel": "Clasificación ATC",
+      "atcPlaceholder": "ej. N02BE01",
+      "searchButton": "Buscar",
+      "clearFilters": "Borrar Filtros",
+      "recordsPerPage": "Registros por página:"
+    },
+    "table": {
+      "noProducts": "No se encontraron productos",
+      "adjustFilters": "Intenta ajustar los filtros de búsqueda.",
+      "atc": "ATC",
+      "category": "Categoría",
+      "subcategory": "Subcategoría",
+      "ingredient": "Principio Activo",
+      "dosageForm": "Forma Farmacéutica",
+      "strength": "Concentración"
+    },
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "ariaLabel": "Paginación de productos"
+    },
+    "showing": "Mostrando {from}–{to} de {total} productos"
+  },
+  "pharmaInsights": {
+    "hero": {
+      "label": "Pharma Insights",
+      "headline1": "Inteligencia estratégica para",
+      "headline2": "decisores en salud.",
+      "description": "Análisis de la industria, perspectivas regulatorias e información de mercado del equipo Liv Well.",
+      "extended": "Explore contenido seleccionado diseñado para ministerios de salud, distribuidores, importadores y proveedores que navegan el panorama farmacéutico global.",
+      "scrollText": "Desplázate para explorar"
+    },
+    "content": {
+      "searchPlaceholder": "Buscar artículos por título o tema...",
+      "searchButton": "Buscar",
+      "articlesAvailable": "{count} artículos disponibles",
+      "comingSoonTitle": "Pharma Insights — Próximamente",
+      "comingSoonText": "Nuestro equipo editorial está preparando contenido especializado para profesionales de la industria. Vuelve pronto.",
+      "noResults": "Ningún artículo coincide con tu búsqueda.",
+      "badge": "Pharma Insights",
+      "readMore": "Leer artículo completo",
+      "showing": "Mostrando {from}–{to} de {total} artículos",
+      "previous": "Anterior",
+      "next": "Siguiente"
+    },
+    "article": {
+      "notFoundTitle": "Artículo no encontrado",
+      "notFoundDesc": "El artículo que buscas no existe o ha sido eliminado.",
+      "backButton": "Volver a Pharma Insights",
+      "badge": "PHARMA INSIGHTS",
+      "byAuthor": "Por",
+      "readTime": "{minutes} min de lectura",
+      "youMayAlsoLike": "También te puede interesar",
+      "breadcrumbHome": "Inicio",
+      "breadcrumbInsights": "Pharma Insights",
+      "notFoundMeta": "Artículo No Encontrado | Liv Well Pharmaceuticals"
+    }
+  },
+  "about": {
+    "hero": {
+      "label": "Sobre Liv Well Pharmaceuticals",
+      "headline1": "Haciendo que la medicina de calidad",
+      "headline2": "sea accesible.",
+      "subtitle": "Creemos que los medicamentos seguros y efectivos deben estar al alcance de cada paciente, independientemente de la geografía o las circunstancias.",
+      "scrollText": "Desplázate para explorar"
+    },
+    "story": {
+      "title": "Nuestra",
+      "titleHighlight": "Historia",
+      "subtitle": "Construida sobre una creencia simple",
+      "para1": "La buena salud nunca debería ser un privilegio. Es esta creencia la que dio origen a Liv Well Pharmaceuticals, y es la misma creencia que continúa impulsando todo lo que hacemos.",
+      "para2": "Desde nuestros primeros días, nos propusimos desafiar la idea de que calidad y asequibilidad son mutuamente excluyentes en el ámbito de la salud. Creíamos entonces, como lo creemos ahora, que los pacientes en todo el mundo merecen acceso a medicamentos que sean tanto efectivos como accesibles, y construimos Liv Well Pharmaceuticals en torno a esa convicción.",
+      "para3": "Con los años, ese compromiso nos ha llevado más lejos de lo que jamás imaginamos. Hoy, Liv Well Pharmaceuticals es un nombre de confianza en más de 10 países, reconocido por proveedores de salud, instituciones y gobiernos como un socio confiable que cumple sus promesas.",
+      "para4": "Seguimos creciendo. Y con cada paso adelante, permanecemos anclados al mismo propósito que lo inició todo: hacer que los medicamentos de calidad sean accesibles para más personas, en más lugares, alrededor del mundo.",
+      "cards": {
+        "globalReach": { "label": "Alcance Global", "text": "Atendiendo a sistemas de salud y socios institucionales en más de 10 países en todo el mundo." },
+        "provenPortfolio": { "label": "Portafolio Probado", "text": "Más de 600 productos en más de 20 categorías terapéuticas, todos cumpliendo rigurosos estándares internacionales." },
+        "trustedPartnerships": { "label": "Alianzas de Confianza", "text": "Relaciones a largo plazo con gobiernos, instituciones y socios del sector privado, construidas sobre la confiabilidad y la integridad." }
+      }
+    },
+    "purpose": {
+      "title": "Nuestro",
+      "titleHighlight": "Propósito",
+      "subtitle": "Lo que nos impulsa hacia adelante",
+      "quote": "Hacer que los medicamentos de alta calidad y asequibles estén disponibles para las personas que más los necesitan, dondequiera que se encuentren.",
+      "para1": "En Liv Well Pharmaceuticals, nuestro propósito no es un enunciado en una pared. Es el lente a través del cual evaluamos cada decisión que tomamos, desde los productos que desarrollamos hasta los socios con quienes elegimos trabajar.",
+      "para2": "Trabajamos estrechamente con instituciones de salud, organismos gubernamentales y socios del sector privado para cerrar la brecha entre la excelencia farmacéutica y el acceso real. No solo suministramos medicamentos: construimos alianzas duraderas basadas en la confianza, la transparencia y un compromiso compartido con mejores resultados de salud.",
+      "para3": "Nuestra visión es ser un líder reconocido mundialmente en productos farmacéuticos genéricos accesibles, una empresa que establezca el estándar no solo en calidad de producto, sino en la integridad y la confiabilidad con la que operamos. De la mano de nuestros socios, hacemos que los medicamentos de clase mundial sean una realidad para más comunidades cada año."
+    },
+    "values": {
+      "title": "Nuestros",
+      "titleHighlight": "Valores",
+      "subtitle": "Cada decisión en Liv Well Pharmaceuticals está moldeada por cinco valores fundamentales que definen no solo cómo trabajamos, sino quiénes somos.",
+      "items": [
+        { "title": "Accesibilidad", "text": "Los medicamentos efectivos y seguros deben estar disponibles para todos. La asequibilidad no es una concesión que hacemos: es un pilar fundamental de lo que somos." },
+        { "title": "Calidad Sin Compromiso", "text": "Cada producto que lleva el nombre de Liv Well Pharmaceuticals cumple con rigurosos estándares internacionales. Nuestros procesos de calidad son exhaustivos, consistentes e innegociables." },
+        { "title": "Integridad", "text": "Operamos con total transparencia en todas nuestras relaciones: con clientes, socios, reguladores y proveedores. Nuestra reputación se construye sobre la honestidad." },
+        { "title": "Alianza", "text": "Vemos a nuestros clientes no como transacciones, sino como socios a largo plazo. Invertimos en comprender sus necesidades y trabajamos junto a ellos para entregar soluciones que realmente se adapten." },
+        { "title": "Confiabilidad", "text": "En salud, no hay margen para la incertidumbre. Nuestros socios confían en que entregaremos el producto correcto, con el estándar correcto, en el momento correcto, y asumimos esa responsabilidad con seriedad." }
+      ]
+    },
+    "numbers": {
+      "title": "En",
+      "titleHighlight": "Cifras",
+      "subtitle": "Liv Well Pharmaceuticals en números",
+      "stats": [
+        { "value": "10+", "label": "Países Atendidos" },
+        { "value": "600+", "label": "Productos en Portafolio" },
+        { "value": "20+", "label": "Categorías Terapéuticas" },
+        { "value": "∞", "label": "Compromiso con los Pacientes" }
+      ]
+    }
+  },
+  "whoWeWorkWith": {
+    "hero": {
+      "label": "Con Quién Trabajamos",
+      "headline1": "Si eres responsable de la adquisición farmacéutica —",
+      "headline2": "Liv Well fue creado para ti.",
+      "description": "Tu cadena de suministro farmacéutico merece un socio que la tome tan en serio como tú.",
+      "extended": "Desde licitaciones gubernamentales a gran escala hasta adiciones específicas al portafolio para distribución local, garantizamos acceso a productos farmacéuticos genéricos de calidad para socios en todo el mundo.",
+      "scrollText": "Desplázate para explorar"
+    },
+    "opening": {
+      "title": "El Socio",
+      "titleHighlight": "Correcto",
+      "subtitle": "Construimos nuestro negocio en torno a organizaciones como la tuya",
+      "para1": "La adquisición nunca es solo una transacción. Detrás de cada orden de compra hay una población que depende de que alguien lo haga bien: obtener el producto correcto, con la calidad correcta, con la confianza de que lo que llega es exactamente lo prometido y entregado antes de que la necesidad se convierta en crisis.",
+      "para2": "Ese es el mundo en el que nuestros socios operan cada día. Y es el mundo para el que Liv Well Pharmaceuticals fue diseñado. Entendemos las presiones que conlleva gestionar cadenas de suministro farmacéutico en entornos complejos y dinámicos, porque las hemos enfrentado junto a nuestros socios durante años.",
+      "para3": "Ya sea que representes a una autoridad de salud gubernamental, un distribuidor privado o una organización internacional, si tu trabajo implica garantizar el acceso a productos farmacéuticos de calidad para quienes los necesitan, eres exactamente para quién construimos esta empresa."
+    },
+    "audiences": {
+      "title": "¿Esto Te",
+      "titleHighlight": "Describe?",
+      "intro": "No necesitas encajar en un perfil específico para trabajar con Liv Well Pharmaceuticals. Pero si alguno de los siguientes describe a tu organización, estamos seguros de que podemos aportarte valor real.",
+      "items": [
+        {
+          "headline": "Eres responsable de suministrar productos farmacéuticos a una población, y el margen de error es cero",
+          "body": [
+            "Los ministerios nacionales de salud, las agencias de contratación pública, los sistemas de seguridad social y las autoridades centrales de suministro llevan una de las responsabilidades más pesadas de cualquier país: garantizar que los productos farmacéuticos esenciales estén disponibles, suministrados de manera consistente y sean confiables para las personas que dependen de la atención médica pública.",
+            "Los desafíos son bien conocidos: ciclos presupuestarios que no siempre se alinean con las necesidades de salud, mercados de proveedores donde la calidad puede ser difícil de verificar y el riesgo siempre presente de escasez. En este entorno, elegir un proveedor basándose únicamente en el precio no es una estrategia, es un riesgo. Lo que necesitas es un socio que entienda las dinámicas del sector público, cumpla con los estándares de documentación que exigen tus procesos de adquisición y entregue de manera confiable, cada vez, sin excepción.",
+            "Si esa es tu realidad, Liv Well Pharmaceuticals fue creado pensando en ti."
+          ],
+          "signals": [
+            "Gestionas adquisiciones farmacéuticas a gran escala o recurrentes",
+            "Tu proceso de adquisición requiere documentación regulatoria y de calidad estricta",
+            "Necesitas un socio que pueda responder rápidamente cuando cambian las necesidades",
+            "La confiabilidad constante del suministro es innegociable para tu organización"
+          ]
+        },
+        {
+          "headline": "Llevas productos farmacéuticos a mercados que los grandes actores pasan por alto",
+          "body": [
+            "Los distribuidores regionales, los importadores locales y los mayoristas farmacéuticos son la columna vertebral del acceso a medicamentos en muchas partes del mundo. Conoces tu mercado: las regulaciones, la logística, las brechas en el suministro que tus clientes dependen de ti para cubrir. Lo que necesitas es un socio de suministro que pueda igualar tus estándares, complementar tu portafolio y darte la confianza para hacer promesas que sabes que se cumplirán.",
+            "En mercados donde las opciones de suministro son limitadas, la tentación de priorizar el costo por encima de todo es comprensible, pero las consecuencias de un fallo de calidad recaen sobre los pacientes al final de la cadena, no sobre el proveedor. Creemos que la adquisición responsable significa mantener el estándar de calidad, y trabajamos con distribuidores que comparten esa convicción.",
+            "Si buscas una fuente con calidad garantizada en la que puedas confiar, una que fortalezca tu negocio sin poner en riesgo tu reputación, nos gustaría ser parte de tu cadena de suministro."
+          ],
+          "signals": [
+            "Importas o distribuyes productos farmacéuticos en tu mercado",
+            "Necesitas un socio con un portafolio genérico amplio y disponibilidad confiable",
+            "Entiendes que tu reputación depende de la calidad de lo que suministras",
+            "Valoras un socio que se comunica con claridad y responde sin demoras"
+          ]
+        },
+        {
+          "headline": "Tu misión es más grande que un solo país, y tu suministro necesita estar a la altura",
+          "body": [
+            "Las organizaciones internacionales, las agencias humanitarias de salud y las ONG que trabajan en salud global operan bajo un conjunto único de presiones. Tus estándares de adquisición son elevados, a menudo requiriendo cumplimiento con marcos internacionales y verificación de calidad independiente. Tus plazos pueden cambiar repentinamente en respuesta a necesidades emergentes. Y las poblaciones a las que sirves son frecuentemente las que tienen menos acceso a fuentes alternativas, donde el costo de un fallo en el suministro se mide en términos humanos.",
+            "Liv Well Pharmaceuticals tiene las credenciales de calidad, el respaldo regulatorio y la flexibilidad operativa para ser un contribuyente significativo a las cadenas de suministro de salud internacionales. Tomamos en serio la responsabilidad que conlleva servir a organizaciones cuyo trabajo tiene una dimensión humanitaria directa.",
+            "Si tu organización coordina o participa en el suministro farmacéutico para poblaciones vulnerables o desatendidas en todo el mundo, estamos listos para ser parte de ese esfuerzo."
+          ],
+          "signals": [
+            "Adquieres productos farmacéuticos para programas que operan en múltiples países o regiones",
+            "Tus estándares de adquisición requieren certificación BPM y documentación completa",
+            "Trabajas en entornos donde la confiabilidad del suministro es una cuestión de bienestar humano",
+            "Necesitas un socio que pueda escalar rápidamente cuando la situación lo exige"
+          ]
+        }
+      ]
+    },
+    "reasons": {
+      "title": "Por Qué Liv Well",
+      "titleHighlight": "Pharmaceuticals",
+      "subtitle": "No faltan proveedores farmacéuticos en el mundo. Lo que es más difícil de encontrar es un socio que entregue de manera consistente en lo que más importa: calidad, confiabilidad y confianza.",
+      "items": [
+        {
+          "title": "Calidad integrada, no prometida después del hecho",
+          "body": "En un sector donde las consecuencias de un fallo de calidad se miden en vidas humanas, cada producto de nuestro portafolio cumple con los más altos estándares de calidad. Aplicamos controles estrictos durante todo el proceso de fabricación y en la liberación de cada lote que comercializamos, para que nuestros socios tengan plena confianza en lo que reciben."
+        },
+        {
+          "title": "Un portafolio lo suficientemente amplio para importar",
+          "body": "Con más de 600 productos en más de 20 categorías terapéuticas, podemos cubrir una parte significativa de tus necesidades de adquisición desde una única fuente confiable. Menos fragmentación en tu cadena de suministro significa menos variables y menos puntos donde la calidad o la confiabilidad pueden fallar."
+        },
+        {
+          "title": "Velocidad y flexibilidad cuando más importa",
+          "body": "Las necesidades farmacéuticas no esperan. Cuando los plazos de adquisición cambian o surge una necesidad urgente, nuestros socios necesitan un socio que pueda adaptarse, no uno que se escude en plazos de entrega y procesos. La capacidad de respuesta es algo que tomamos de manera personal, porque entendemos lo que está en juego cuando el suministro falla."
+        },
+        {
+          "title": "Experiencia en mercados complejos",
+          "body": "Hemos construido nuestra experiencia sirviendo a mercados donde las cadenas de suministro farmacéutico pueden ser impredecibles y donde la diferencia entre un socio confiable y uno no confiable se siente directamente en los pacientes. Sabemos lo que se necesita para entregar de manera consistente en entornos desafiantes."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Trabaja Con",
+      "titleHighlight": "Nosotros",
+      "para1": "Abordamos cada consulta con el mismo compromiso: entender lo que necesitas y responder con transparencia sobre lo que podemos entregar, porque una alianza construida sobre expectativas precisas sirve a ambas partes mucho mejor que una construida sobre promesas que no podemos cumplir.",
+      "para2": "Damos la bienvenida a consultas de organizaciones en cualquier etapa, ya sea que estés evaluando nuevas opciones de suministro, respondiendo a una necesidad urgente o simplemente explorando lo que podemos ofrecer. Si el producto que buscas no está en nuestro portafolio actual, no dudes en comunicarte. Nuestro equipo revisará tu requisito y te dirá honestamente si podemos ayudar.",
+      "submitButton": "Enviar Tu Requerimiento",
+      "portfolioButton": "Explorar Nuestro Portafolio"
+    }
+  },
+  "legal": {
+    "privacyPolicy": {
+      "title": "Política de Privacidad",
+      "effectiveDate": "Fecha de Vigencia: 30 de septiembre de 2024 · Última Actualización: 30 de septiembre de 2024"
+    },
+    "cookiePolicy": {
+      "title": "Política de Cookies",
+      "effectiveDate": "Fecha de Vigencia: 30 de septiembre de 2024"
+    },
+    "termsOfService": {
+      "title": "Términos de Servicio",
+      "effectiveDate": "Fecha de Vigencia: 30 de septiembre de 2024"
+    }
+  },
+  "notFound": {
+    "title": "Página No Encontrada",
+    "description": "La página que buscas no existe o ha sido movida.",
+    "homeButton": "Ir al Inicio",
+    "productsButton": "Ver Productos"
+  }
+}
+
