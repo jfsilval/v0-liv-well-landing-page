@@ -1,8 +1,7 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -13,20 +12,20 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Mail, Phone, MapPin, CheckCircle, Loader2 } from "lucide-react"
 
-// Zod schema
-const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  phone: z.string().optional(),
-  subject: z.string().optional(),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-})
-
-type ContactFormData = z.infer<typeof contactSchema>
-
 export function ContactSection() {
+  const t = useTranslations('contact')
   const [isSuccess, setIsSuccess] = useState(false)
   const [submitError, setSubmitError] = useState('')
+
+  const contactSchema = z.object({
+    name: z.string().min(2, t('form.nameError')),
+    email: z.string().email(t('form.emailError')),
+    phone: z.string().optional(),
+    subject: z.string().optional(),
+    message: z.string().min(10, t('form.messageError')),
+  })
+  type ContactFormData = z.infer<typeof contactSchema>
+
   const {
     register,
     handleSubmit,
@@ -47,12 +46,9 @@ export function ContactSection() {
       if (!response.ok) throw new Error('Failed')
       setIsSuccess(true)
       reset()
-      // Reset success message after 5 seconds
       setTimeout(() => setIsSuccess(false), 5000)
-    } catch (error) {
-      setSubmitError(
-        'Something went wrong. Please email us at info@livwellpharmaceuticals.com'
-      )
+    } catch {
+      setSubmitError(t('form.errorMessage'))
     }
   }
 
@@ -61,13 +57,13 @@ export function ContactSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-balance text-white">
-            Get in <span className="text-secondary">Touch</span>
+            {t('title')} <span className="text-secondary">{t('titleHighlight')}</span>
           </h2>
           <div className="flex justify-center mb-6" aria-hidden="true">
             <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
           </div>
           <p className="text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Have questions about our products or services? Our team is here to help you.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -80,7 +76,7 @@ export function ContactSection() {
                   <Mail className="h-6 w-6 text-secondary" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold mb-2 text-white">Email Us</h3>
+                  <h3 className="font-semibold mb-2 text-white">{t('emailCard.title')}</h3>
                   <p className="text-sm text-white/90">info@livwellpharmaceuticals.com</p>
                   <p className="text-sm text-white/90">support@livwellpharmaceuticals.com</p>
                 </div>
@@ -93,9 +89,9 @@ export function ContactSection() {
                   <Phone className="h-6 w-6 text-secondary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2 text-white">Call Us</h3>
-                  <p className="text-sm text-white/90">+971 4 516 3600 Ext: 8437</p>
-                  <p className="text-sm text-white/90">Sun-Thu 9AM-6PM (GST)</p>
+                  <h3 className="font-semibold mb-2 text-white">{t('callCard.title')}</h3>
+                  <p className="text-sm text-white/90">{t('callCard.phone')}</p>
+                  <p className="text-sm text-white/90">{t('callCard.hours')}</p>
                 </div>
               </div>
             </Card>
@@ -106,13 +102,11 @@ export function ContactSection() {
                   <MapPin className="h-6 w-6 text-secondary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2 text-white">Address</h3>
+                  <h3 className="font-semibold mb-2 text-white">{t('addressCard.title')}</h3>
                   <p className="text-sm text-white/90">
-                    Meydan Grandstand, 6th Floor
-                    <br />
-                    Meydan Road, Nad Al Sheba
-                    <br />
-                    Dubai, UAE
+                    {t('addressCard.line1')}<br />
+                    {t('addressCard.line2')}<br />
+                    {t('addressCard.line3')}
                   </p>
                 </div>
               </div>
@@ -124,20 +118,20 @@ export function ContactSection() {
             {isSuccess ? (
               <div className="flex flex-col items-center justify-center py-12 text-center">
                 <CheckCircle className="h-16 w-16 text-green-400 mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
-                <p className="text-white/90">Thank you for reaching out. Our team will get back to you within 1-2 business days.</p>
+                <h3 className="text-2xl font-bold text-white mb-2">{t('form.successTitle')}</h3>
+                <p className="text-white/90">{t('form.successMessage')}</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-white">
-                      Name <span className="text-destructive" aria-hidden="true">*</span>
+                      {t('form.name')} <span className="text-destructive" aria-hidden="true">*</span>
                     </Label>
                     <Input
                       id="name"
                       {...register("name")}
-                      placeholder="Your name"
+                      placeholder={t('form.namePlaceholder')}
                       aria-required="true"
                       aria-describedby={errors.name ? "name-error" : undefined}
                       className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.name ? "border-destructive" : ""}`}
@@ -151,13 +145,13 @@ export function ContactSection() {
 
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-white">
-                      Email <span className="text-destructive" aria-hidden="true">*</span>
+                      {t('form.email')} <span className="text-destructive" aria-hidden="true">*</span>
                     </Label>
                     <Input
                       id="email"
                       type="email"
                       {...register("email")}
-                      placeholder="your@email.com"
+                      placeholder={t('form.emailPlaceholder')}
                       aria-required="true"
                       aria-describedby={errors.email ? "email-error" : undefined}
                       className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.email ? "border-destructive" : ""}`}
@@ -172,22 +166,22 @@ export function ContactSection() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="phone" className="text-white">Phone</Label>
+                    <Label htmlFor="phone" className="text-white">{t('form.phone')}</Label>
                     <Input
                       id="phone"
                       type="tel"
                       {...register("phone")}
-                      placeholder="+1 (555) 000-0000"
+                      placeholder={t('form.phonePlaceholder')}
                       className="bg-white/10 border-white/20 text-white placeholder:text-white/40"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="subject" className="text-white">Subject</Label>
+                    <Label htmlFor="subject" className="text-white">{t('form.subject')}</Label>
                     <Input
                       id="subject"
                       {...register("subject")}
-                      placeholder="How can we help?"
+                      placeholder={t('form.subjectPlaceholder')}
                       className="bg-white/10 border-white/20 text-white placeholder:text-white/40"
                     />
                   </div>
@@ -195,12 +189,12 @@ export function ContactSection() {
 
                 <div className="space-y-2">
                   <Label htmlFor="message" className="text-white">
-                    Message <span className="text-destructive" aria-hidden="true">*</span>
+                    {t('form.message')} <span className="text-destructive" aria-hidden="true">*</span>
                   </Label>
                   <Textarea
                     id="message"
                     {...register("message")}
-                    placeholder="Tell us about your inquiry..."
+                    placeholder={t('form.messagePlaceholder')}
                     rows={6}
                     aria-required="true"
                     aria-describedby={errors.message ? "message-error" : undefined}
@@ -221,10 +215,10 @@ export function ContactSection() {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="h-4 w-4 animate-spin" />
-                      Sending...
+                      {t('form.sendingButton')}
                     </>
                   ) : (
-                    'Send Message'
+                    t('form.submitButton')
                   )}
                 </button>
 
