@@ -1,18 +1,19 @@
 "use client"
 
 import { useState, useEffect } from "react"
-
 import Image from "next/image"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { Link, usePathname } from "@/i18n/navigation"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { Search, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { LanguageSwitcher } from "@/components/language-switcher"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const pathname = usePathname()
+  const t = useTranslations('nav')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,12 +24,12 @@ export function Navigation() {
   }, [])
 
   const navItems = [
-    { id: "home", label: "HOME", href: "/" },
-    { id: "about", label: "ABOUT US", href: "/about" },
-    { id: "clients", label: "WHO WE WORK WITH", href: "/who-we-work-with" },
-    { id: "health", label: "PHARMA INSIGHTS", href: "/pharma-insights" },
-    { id: "products", label: "PRODUCTS", href: "/products" },
-    { id: "contact", label: "CONTACT", href: "/#contact" },
+    { id: "home", label: t('home'), href: "/" },
+    { id: "about", label: t('aboutUs'), href: "/about" },
+    { id: "clients", label: t('whoWeWorkWith'), href: "/who-we-work-with" },
+    { id: "health", label: t('pharmaInsights'), href: "/pharma-insights" },
+    { id: "products", label: t('products'), href: "/products" },
+    { id: "contact", label: t('contact'), href: "/#contact" },
   ]
 
   const getIsActive = (item: { id: string; href: string }) => {
@@ -38,7 +39,6 @@ export function Navigation() {
   }
 
   const isArticlePage = pathname.startsWith("/pharma-insights/") && pathname !== "/pharma-insights"
-  const hasHeroBg = pathname === "/" || pathname === "/products" || pathname.startsWith("/pharma-insights")
   const showWhiteText = isArticlePage && !isScrolled
 
   return (
@@ -67,7 +67,7 @@ export function Navigation() {
             />
           </Link>
 
-          {/* Desktop Horizontal Navigation */}
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
@@ -87,12 +87,14 @@ export function Navigation() {
                 {item.label}
               </Link>
             ))}
-            <button className={cn(
-              "transition-all duration-300",
-              showWhiteText
-                ? "text-white hover:text-white"
-                : "text-foreground hover:text-primary"
-            )} aria-label="Search">
+            <LanguageSwitcher light={showWhiteText} />
+            <button
+              className={cn(
+                "transition-all duration-300",
+                showWhiteText ? "text-white hover:text-white" : "text-foreground hover:text-primary"
+              )}
+              aria-label="Search"
+            >
               <Search size={20} />
             </button>
           </div>
@@ -139,6 +141,9 @@ export function Navigation() {
                   {item.label}
                 </Link>
               ))}
+              <div className="px-4 pt-2 pb-1">
+                <LanguageSwitcher />
+              </div>
             </div>
           </div>
         )}
