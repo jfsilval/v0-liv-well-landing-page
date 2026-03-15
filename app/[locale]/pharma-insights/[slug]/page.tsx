@@ -128,16 +128,17 @@ export default async function ArticlePage({ params }: PageProps) {
         </section>
 
         {heroImageUrl && (
-          <div className="w-full overflow-hidden z-10">
-            <Image
-      src={heroImageUrl}
-      alt={post.heroImage?.alt || post.title}
-      width={post.heroImage?.width || 1200}
-      height={post.heroImage?.height || 630}
-      priority
-      className="w-full h-auto"
-      sizes="100vw"
-           />
+          <div className="px-4 md:px-6 z-10">
+    <div className="relative max-w-[900px] mx-auto h-[280px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-xl">
+      <Image
+        src={heroImageUrl}
+        alt={post.heroImage?.alt || post.title}
+        fill
+        priority
+        className="object-cover"
+        sizes="(max-width: 900px) 100vw, 900px"
+      />
+    </div>
   </div>
         )}
 
