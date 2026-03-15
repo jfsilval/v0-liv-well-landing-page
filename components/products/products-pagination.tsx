@@ -1,9 +1,9 @@
 "use client"
-
-import { useRouter } from "next/navigation"
+import { useRouter } from "@/i18n/navigation"
 import { useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useTranslations } from 'next-intl'
 
 function buildHref(
   searchParams: { [key: string]: string | string[] | undefined },
@@ -20,9 +20,7 @@ function buildHref(
 
 function getVisiblePages(current: number, total: number): (number | "...")[] {
   if (total <= 5) return Array.from({ length: total }, (_, i) => i + 1)
-
   const pages: (number | "...")[] = []
-
   if (current <= 3) {
     pages.push(1, 2, 3, 4, "...", total)
   } else if (current >= total - 2) {
@@ -30,7 +28,6 @@ function getVisiblePages(current: number, total: number): (number | "...")[] {
   } else {
     pages.push(1, "...", current - 1, current, current + 1, "...", total)
   }
-
   return pages
 }
 
@@ -47,6 +44,7 @@ export function ProductsPagination({
   hasPrevPage: boolean
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
+  const t = useTranslations('products.pagination')
   const router = useRouter()
 
   const navigateTo = useCallback(
@@ -63,7 +61,7 @@ export function ProductsPagination({
   const pages = getVisiblePages(currentPage, totalPages)
 
   return (
-    <nav aria-label="Products pagination" className="flex items-center justify-center gap-1.5 mt-8">
+    <nav aria-label={t('ariaLabel')} className="flex items-center justify-center gap-1.5 mt-8">
       <Button
         variant="outline"
         size="sm"
@@ -71,9 +69,8 @@ export function ProductsPagination({
         onClick={() => hasPrevPage && navigateTo(currentPage - 1)}
       >
         <ChevronLeft className="h-4 w-4 mr-1" />
-        Previous
+        {t('previous')}
       </Button>
-
       {pages.map((p, i) =>
         p === "..." ? (
           <span key={`dots-${i}`} className="px-2 text-muted-foreground text-sm">...</span>
@@ -90,17 +87,15 @@ export function ProductsPagination({
           </Button>
         )
       )}
-
       <Button
         variant="outline"
         size="sm"
         disabled={!hasNextPage}
         onClick={() => hasNextPage && navigateTo(currentPage + 1)}
       >
-        Next
+        {t('next')}
         <ChevronRight className="h-4 w-4 ml-1" />
       </Button>
     </nav>
   )
 }
-
