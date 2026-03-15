@@ -1,5 +1,4 @@
 import { Metadata } from "next"
-import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, Calendar, Clock, User, ChevronRight } from "lucide-react"
 import { getPostBySlug, getPosts, resolveMediaUrl } from "@/lib/cms"
@@ -8,6 +7,8 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { getTranslations } from 'next-intl/server'
+import { Link } from '@/i18n/navigation'
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>
@@ -15,12 +16,9 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug, locale } = await params
+  const t = await getTranslations({ locale, namespace: 'pharmaInsights.article' })
   const post = await getPostBySlug(slug, locale)
-
-  if (!post) {
-    return { title: "Article Not Found | Liv Well Pharmaceuticals" }
-  }
-
+  if (!post) return { title: t('notFoundMeta') }
   return {
     title: `${post.meta?.title || post.title} | Liv Well Pharmaceuticals`,
     description: post.meta?.description,
@@ -32,21 +30,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
-function formatDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString("en-US", {
-    timeZone: "UTC",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+function formatDate(dateString: string, locale: string) {
+  const lcLocale = locale === 'es' ? 'es-ES' : 'en-US'
+  return new Date(dateString).toLocaleDateString(lcLocale, {
+    timeZone: "UTC", year: "numeric", month: "long", day: "numeric",
   })
 }
 
 function extractPlainText(node: any): string {
   if (!node) return ''
   if (node.type === 'text') return node.text || ''
-  if (Array.isArray(node.children)) {
-    return node.children.map((child: any) => extractPlainText(child)).join(' ')
-  }
+  if (Array.isArray(node.children)) return node.children.map((c: any) => extractPlainText(c)).join(' ')
   return ''
 }
 
@@ -59,6 +53,7 @@ function calculateReadTime(content: any): number {
 
 export default async function ArticlePage({ params }: PageProps) {
   const { slug, locale } = await params
+  const t = await getTranslations('pharmaInsights.article')
   const post = await getPostBySlug(slug, locale)
 
   if (!post) {
@@ -68,14 +63,12 @@ export default async function ArticlePage({ params }: PageProps) {
         <main className="min-h-screen bg-primary/10 pt-28">
           <div className="container mx-auto px-4 py-24 text-center">
             <div className="bg-card border border-border rounded-xl p-12 max-w-lg mx-auto shadow-sm">
-              <h1 className="text-2xl font-bold text-foreground mb-3">Article not found</h1>
-              <p className="text-muted-foreground mb-6">
-                {"The article you're looking for doesn't exist or has been removed."}
-              </p>
+              <h1 className="text-2xl font-bold text-foreground mb-3">{t('notFoundTitle')}</h1>
+              <p className="text-muted-foreground mb-6">{t('notFoundDesc')}</p>
               <Button asChild className="bg-[#0a2351] hover:bg-[#0a2351]/90 text-white">
                 <Link href="/pharma-insights">
                   <ArrowLeft className="h-4 w-4 mr-2" />
-                  Back to Pharma Insights
+                  {t('backButton')}
                 </Link>
               </Button>
             </div>
@@ -94,9 +87,7 @@ export default async function ArticlePage({ params }: PageProps) {
   try {
     const res = await getPosts({ categoryTitle: "Pharma Insights", limit: 3, locale })
     relatedPosts = res.docs.filter((p) => p.slug !== slug).slice(0, 2)
-  } catch {
-    // Silently fail
-  }
+  } catch { }
 
   return (
     <>
@@ -105,48 +96,45 @@ export default async function ArticlePage({ params }: PageProps) {
         <section className="bg-[#0a2351] pt-28 pb-4 relative z-0">
           <div className="container mx-auto px-4 max-w-[900px]">
             <nav className="flex items-center gap-1.5 text-sm text-white/70 mb-8">
-              <Link href="/" className="hover:text-white/80 transition-colors">Home</Link>
+              <Link href="/" className="hover:text-white/80 transition-colors">{t('breadcrumbHome')}</Link>
               <ChevronRight className="h-3.5 w-3.5" />
-              <Link href="/pharma-insights" className="hover:text-white/80 transition-colors">Pharma Insights</Link>
+              <Link href="/pharma-insights" className="hover:text-white/80 transition-colors">{t('breadcrumbInsights')}</Link>
               <ChevronRight className="h-3.5 w-3.5" />
               <span className="text-white/70">{post.title}</span>
             </nav>
-
             <Badge className="bg-transparent text-secondary border-secondary/50 px-3 py-1 mb-5">
-              PHARMA INSIGHTS
+              {t('badge')}
             </Badge>
-
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 text-balance">
               {post.title}
             </h1>
-
             <div className="flex flex-wrap items-center gap-4 text-sm text-white/60">
               <div className="flex items-center gap-1.5">
                 <Calendar className="h-4 w-4" />
-                {formatDate(post.publishedAt)}
+                {formatDate(post.publishedAt, locale)}
               </div>
               {authorName && (
                 <div className="flex items-center gap-1.5">
                   <User className="h-4 w-4" />
-                  {"By "}{authorName}
+                  {t('byAuthor')} {authorName}
                 </div>
               )}
               <div className="flex items-center gap-1.5">
                 <Clock className="h-4 w-4" />
-                {readTime} min read
+                {t('readTime', { minutes: readTime })}
               </div>
             </div>
           </div>
         </section>
 
         {heroImageUrl && (
-          <div className="relative w-full h-[280px] md:h-[400px] lg:h-[560px] overflow-hidden z-10">
+          <div className="relative w-full h-[300px] md:h-[480px] lg:h-[600px] overflow-hidden z-10">
             <Image
               src={heroImageUrl}
               alt={post.heroImage?.alt || post.title}
               fill
               priority
-              className="object-cover object-top"
+              className="object-cover"
               sizes="100vw"
             />
           </div>
@@ -166,13 +154,12 @@ export default async function ArticlePage({ params }: PageProps) {
             <Button variant="outline" asChild className="border-[#0a2351] text-[#0a2351] hover:bg-[#0a2351]/5">
               <Link href="/pharma-insights">
                 <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Pharma Insights
+                {t('backButton')}
               </Link>
             </Button>
-
             {relatedPosts.length > 0 && (
               <div className="mt-12">
-                <h2 className="text-xl font-bold text-foreground mb-6">You may also like</h2>
+                <h2 className="text-xl font-bold text-foreground mb-6">{t('youMayAlsoLike')}</h2>
                 <div className="grid md:grid-cols-2 gap-4">
                   {relatedPosts.map((related) => (
                     <Link
@@ -183,7 +170,7 @@ export default async function ArticlePage({ params }: PageProps) {
                       <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2">
                         {related.title}
                       </h3>
-                      <p className="text-xs text-muted-foreground">{formatDate(related.publishedAt)}</p>
+                      <p className="text-xs text-muted-foreground">{formatDate(related.publishedAt, locale)}</p>
                     </Link>
                   ))}
                 </div>
@@ -196,3 +183,4 @@ export default async function ArticlePage({ params }: PageProps) {
     </>
   )
 }
+
