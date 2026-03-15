@@ -216,6 +216,15 @@
       "breadcrumbHome": "Home",
       "breadcrumbInsights": "Pharma Insights",
       "notFoundMeta": "Article Not Found | Liv Well Pharmaceuticals"
+    },
+    "cta": {
+      "title": "Stay Ahead in Pharmaceutical Intelligence",
+      "description": "Receive curated insights directly from the Liv Well team — regulatory updates, market analysis, and industry developments that help you make better decisions.",
+      "placeholder": "Enter your email",
+      "button": "Subscribe",
+      "noSpam": "No spam. Unsubscribe anytime.",
+      "successTitle": "Thank you for subscribing!",
+      "successMessage": "You'll receive our next insight directly in your inbox."
     }
   },
   "about": {
