@@ -2,8 +2,11 @@
 
 import Image from "next/image"
 import { ChevronDown } from "lucide-react"
+import { useTranslations } from 'next-intl'
 
 export function WwwwHero() {
+  const t = useTranslations('whoWeWorkWith.hero')
+
   return (
     <section className="relative overflow-hidden mt-28 bg-primary/10">
       <div className="relative h-[calc(100vh-7rem)]">
@@ -21,33 +24,26 @@ export function WwwwHero() {
           <div className="container mx-auto px-8 lg:px-16">
             <div className="max-w-3xl space-y-6">
               <p className="text-sm font-semibold tracking-widest uppercase text-secondary">
-                Who We Work With
+                {t('label')}
               </p>
-
               <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-white">
-                If you are responsible for<br />
-                pharmaceutical procurement —<br />
-                <span className="text-secondary">Liv Well is built for you.</span>
+                {t('headline1')}<br />
+                <span className="text-secondary">{t('headline2')}</span>
               </h1>
-
-              {/* Mid-statement with left border accent */}
               <div className="border-l-[3px] border-secondary/50 pl-5">
                 <p className="text-lg lg:text-xl font-semibold text-white">
-                  Your pharmaceutical supply chain deserves a partner who takes it as seriously as you do.
+                  {t('description')}
                 </p>
               </div>
-
               <p className="text-base text-white/70 leading-relaxed max-w-xl">
-                From large-scale government tenders to targeted portfolio additions for local distribution, we ensure
-                access to quality generic pharmaceuticals for partners worldwide.
+                {t('extended')}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Scroll indicator */}
         <div aria-hidden="true" className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/80">
-          <span className="text-xs tracking-widest uppercase">Scroll to explore</span>
+          <span className="text-xs tracking-widest uppercase">{t('scrollText')}</span>
           <ChevronDown className="h-5 w-5 animate-bounce" />
         </div>
       </div>
