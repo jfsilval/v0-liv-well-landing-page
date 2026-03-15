@@ -1,12 +1,12 @@
 "use client"
-
-import { useRouter } from "next/navigation"
+import { useRouter } from "@/i18n/navigation"
 import { useCallback, useState, useRef, useEffect } from "react"
 import { Search, X, ChevronDown, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
+import { useTranslations } from 'next-intl'
 
 export function ProductsFilters({
   nombre,
@@ -29,6 +29,7 @@ export function ProductsFilters({
   subCategories?: string[]
   categoryToSubcategories?: Record<string, string[]>
 }) {
+  const t = useTranslations('products.filters')
   const router = useRouter()
   const [selectedCategory, setSelectedCategory] = useState(categoria ?? "")
   const [selectedSubCategory, setSelectedSubCategory] = useState(subCategoria ?? "")
@@ -39,7 +40,6 @@ export function ProductsFilters({
   const availableSubcategories = selectedCategory
     ? categoryToSubcategories[selectedCategory] || []
     : subCategories
-
   const filteredSubcategories = comboboxSearch
     ? availableSubcategories.filter((sub) =>
         sub.toLowerCase().includes(comboboxSearch.toLowerCase())
@@ -65,7 +65,6 @@ export function ProductsFilters({
     }
   }, [selectedCategory, selectedSubCategory, categoryToSubcategories])
 
-  // ─── Helper: build URL from current form + overrides ─────────────────────
   const buildParams = useCallback(
     (
       form: HTMLFormElement,
@@ -78,7 +77,6 @@ export function ProductsFilters({
       const limitVal = formData.get("limit") as string
       const catVal = "categoria" in overrides ? overrides.categoria : selectedCategory
       const subVal = "sub_categoria" in overrides ? overrides.sub_categoria : selectedSubCategory
-
       if (nombreVal) params.set("nombre", nombreVal)
       if (catVal) params.set("categoria", catVal)
       if (subVal) params.set("sub_categoria", subVal)
@@ -107,14 +105,12 @@ export function ProductsFilters({
     []
   )
 
-  // Fix: build URL directly with newCategory — no setTimeout, no stale closure
   const handleCategoryChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
       const newCategory = e.target.value
       const newSubCategory = newCategory !== selectedCategory ? "" : selectedSubCategory
       setSelectedCategory(newCategory)
       setSelectedSubCategory(newSubCategory)
-
       const form = e.currentTarget.closest("form")
       if (!form) return
       const params = buildParams(form, {
@@ -126,13 +122,11 @@ export function ProductsFilters({
     [router, selectedCategory, selectedSubCategory, buildParams]
   )
 
-  // Fix: build URL directly with new value — no setTimeout, no stale closure
   const handleSubcategorySelect = useCallback(
     (value: string) => {
       setSelectedSubCategory(value)
       setComboboxOpen(false)
       setComboboxSearch("")
-
       const form = document.querySelector("form")
       if (!form) return
       const params = buildParams(form, { sub_categoria: value })
@@ -153,17 +147,17 @@ export function ProductsFilters({
       <div className="bg-primary/5 border border-primary/10 rounded-xl shadow-sm p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
           <div className="space-y-1.5">
-            <Label htmlFor="nombre" className="text-sm font-medium">Active Ingredient</Label>
+            <Label htmlFor="nombre" className="text-sm font-medium">{t('nameLabel')}</Label>
             <Input
               id="nombre"
               name="nombre"
-              placeholder="e.g. Paracetamol"
+              placeholder={t('namePlaceholder')}
               defaultValue={nombre ?? ""}
               className="bg-white border-primary/15"
             />
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="categoria" className="text-sm font-medium">Category</Label>
+            <Label htmlFor="categoria" className="text-sm font-medium">{t('categoryLabel')}</Label>
             <select
               id="categoria"
               name="categoria"
@@ -171,7 +165,7 @@ export function ProductsFilters({
               onChange={handleCategoryChange}
               className="flex h-9 w-full rounded-md border border-primary/15 bg-white px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
-              <option value="">All Categories</option>
+              <option value="">{t('allCategories')}</option>
               {categories.map((cat) => (
                 <option key={cat} value={cat}>{cat}</option>
               ))}
@@ -179,7 +173,7 @@ export function ProductsFilters({
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="sub_categoria" className="text-sm font-medium">
-              Subcategory {selectedCategory && (
+              {t('subcategoryLabel')} {selectedCategory && (
                 <span className="text-muted-foreground font-normal">({availableSubcategories.length})</span>
               )}
             </Label>
@@ -190,16 +184,15 @@ export function ProductsFilters({
                 className="flex h-9 w-full items-center justify-between rounded-md border border-primary/15 bg-white px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
               >
                 <span className={selectedSubCategory ? "text-foreground" : "text-muted-foreground"}>
-                  {selectedSubCategory || "All Subcategories"}
+                  {selectedSubCategory || t('allSubcategories')}
                 </span>
                 <ChevronDown className="h-4 w-4 opacity-50" />
               </button>
-
               {comboboxOpen && (
                 <div className="absolute z-50 mt-1 w-full rounded-md border border-border bg-white shadow-lg">
                   <div className="p-2 border-b border-border">
                     <Input
-                      placeholder="Search subcategories..."
+                      placeholder={t('subcategorySearchPlaceholder')}
                       value={comboboxSearch}
                       onChange={(e) => setComboboxSearch(e.target.value)}
                       className="h-8 text-sm"
@@ -216,7 +209,7 @@ export function ProductsFilters({
                       )}
                     >
                       {!selectedSubCategory && <Check className="h-4 w-4" />}
-                      <span className={!selectedSubCategory ? "font-medium" : ""}>All Subcategories</span>
+                      <span className={!selectedSubCategory ? "font-medium" : ""}>{t('allSubcategories')}</span>
                     </button>
                     {filteredSubcategories.length > 0 ? (
                       filteredSubcategories.map((sub) => (
@@ -234,7 +227,7 @@ export function ProductsFilters({
                         </button>
                       ))
                     ) : (
-                      <p className="px-2 py-4 text-sm text-muted-foreground text-center">No subcategories found</p>
+                      <p className="px-2 py-4 text-sm text-muted-foreground text-center">{t('noSubcategories')}</p>
                     )}
                   </div>
                 </div>
@@ -243,32 +236,29 @@ export function ProductsFilters({
             <input type="hidden" name="sub_categoria" value={selectedSubCategory} />
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="clasificacion_atc" className="text-sm font-medium">ATC Classification</Label>
+            <Label htmlFor="clasificacion_atc" className="text-sm font-medium">{t('atcLabel')}</Label>
             <Input
               id="clasificacion_atc"
               name="clasificacion_atc"
-              placeholder="e.g. N02BE01"
+              placeholder={t('atcPlaceholder')}
               defaultValue={clasificacionAtc ?? ""}
               className="bg-white border-primary/15"
             />
           </div>
         </div>
-
         <div className="flex flex-wrap items-center gap-3">
           <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground">
             <Search className="h-4 w-4 mr-2" />
-            Search
+            {t('searchButton')}
           </Button>
-
           {hasFilters && (
             <Button type="button" variant="outline" onClick={handleClear}>
               <X className="h-4 w-4 mr-2" />
-              Clear Filters
+              {t('clearFilters')}
             </Button>
           )}
-
           <div className="ml-auto flex items-center gap-2">
-            <Label htmlFor="limit" className="text-sm text-muted-foreground whitespace-nowrap">Records per page:</Label>
+            <Label htmlFor="limit" className="text-sm text-muted-foreground whitespace-nowrap">{t('recordsPerPage')}</Label>
             <select
               id="limit"
               name="limit"
