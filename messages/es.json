@@ -3,7 +3,7 @@
     "home": "INICIO",
     "aboutUs": "SOBRE NOSOTROS",
     "whoWeWorkWith": "CON QUIÉN TRABAJAMOS",
-    "pharmaInsights": "PHARMA INSIGHTS",
+    "pharmaInsights": "PERSPECTIVAS FARMACÉUTICAS",
     "products": "PRODUCTOS",
     "contact": "CONTACTO"
   },
@@ -18,7 +18,7 @@
     },
     "resources": {
       "title": "Recursos",
-      "pharmaInsights": "Pharma Insights",
+      "pharmaInsights": "Perspectivas Farmacéuticas",
       "productsCatalog": "Catálogo de Productos",
       "pharmacovigilance": "Farmacovigilancia"
     },
@@ -185,7 +185,7 @@
   },
   "pharmaInsights": {
     "hero": {
-      "label": "Pharma Insights",
+      "label": "Perspectivas Farmacéuticas",
       "headline1": "Inteligencia estratégica para",
       "headline2": "decisores en salud.",
       "description": "Análisis de la industria, perspectivas regulatorias e información de mercado del equipo Liv Well.",
@@ -196,10 +196,10 @@
       "searchPlaceholder": "Buscar artículos por título o tema...",
       "searchButton": "Buscar",
       "articlesAvailable": "{count} artículos disponibles",
-      "comingSoonTitle": "Pharma Insights — Próximamente",
+      "comingSoonTitle": "Perspectivas Farmacéuticas — Próximamente",
       "comingSoonText": "Nuestro equipo editorial está preparando contenido especializado para profesionales de la industria. Vuelve pronto.",
       "noResults": "Ningún artículo coincide con tu búsqueda.",
-      "badge": "Pharma Insights",
+      "badge": "Perspectivas Farmacéuticas",
       "readMore": "Leer artículo completo",
       "showing": "Mostrando {from}–{to} de {total} artículos",
       "previous": "Anterior",
@@ -209,13 +209,22 @@
       "notFoundTitle": "Artículo no encontrado",
       "notFoundDesc": "El artículo que buscas no existe o ha sido eliminado.",
       "backButton": "Volver a Pharma Insights",
-      "badge": "PHARMA INSIGHTS",
+      "badge": "PERSPECTIVAS FARMACÉUTICAS",
       "byAuthor": "Por",
       "readTime": "{minutes} min de lectura",
       "youMayAlsoLike": "También te puede interesar",
       "breadcrumbHome": "Inicio",
-      "breadcrumbInsights": "Pharma Insights",
+      "breadcrumbInsights": "Perspectivas Farmacéuticas",
       "notFoundMeta": "Artículo No Encontrado | Liv Well Pharmaceuticals"
+    },
+    "cta": {
+      "title": "Mantente a la vanguardia en inteligencia farmacéutica",
+      "description": "Recibe análisis seleccionados directamente del equipo de Liv Well — actualizaciones regulatorias, análisis de mercado y novedades del sector que te ayudan a tomar mejores decisiones.",
+      "placeholder": "Introduce tu correo electrónico",
+      "button": "Suscribirse",
+      "noSpam": "Sin spam. Cancela cuando quieras.",
+      "successTitle": "¡Gracias por suscribirte!",
+      "successMessage": "Recibirás nuestro próximo artículo directamente en tu bandeja de entrada."
     }
   },
   "about": {
