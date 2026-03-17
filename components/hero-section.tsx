@@ -114,9 +114,9 @@ export function HeroSection() {
         </div>
 
         {/* Scroll indicator */}
-        <div aria-hidden="true" className="absolute bottom-4 left-[46%] -translate-x-1/2 z-20 flex flex-col items-center gap-1">
-          <span className="text-[9px] tracking-widest uppercase text-foreground/80">Scroll</span>
-          <ChevronDown className="h-4 w-4 animate-bounce text-foreground/80" />
+        <div aria-hidden="true" className="absolute bottom-4 left-[46%] -translate-x-1/2 z-20 hidden sm:flex flex-col items-center gap-1">
+          <span className="text-[9px] tracking-widest uppercase text-foreground">Scroll</span>
+          <ChevronDown className="h-4 w-4 animate-bounce text-foreground" />
         </div>
       </div>
     </section>
