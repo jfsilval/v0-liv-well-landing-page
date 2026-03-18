@@ -76,7 +76,7 @@ export function HeroSection() {
 
           {/* Zone 3: Buttons */}
           <div className="flex flex-row justify-center gap-4 pt-2 w-full">
-            <Button size="lg" className="bg-[#0a2351] hover:bg-[#0a2351]/90 text-white group" asChild>
+            <Button size="lg" className="text-white hover:opacity-90 group" style={{ backgroundColor: '#0a2351' }} asChild>
               <Link href="/products">
                 {t('exploreButton')}
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
